@@ -1,0 +1,443 @@
+﻿//
+//  FOOTER
+//  
+//  @project:       Empregos.com.br
+//  @version:       2.0.2
+//  @description:   Layout do Rodapé do Site
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        26/01/2018
+//
+
+@import "../base/mixins";
+
+// Apenas para dar compatibilidade.
+.emp-grid {
+    text-rendering: optimizespeed;
+    display: -webkit-flex;
+    -webkit-flex-flow: row wrap;
+    display: -ms-flexbox;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    letter-spacing: 0;
+    *display: table;
+    width: 100%;
+    position: relative;
+
+    &:after { content: "";  display: table; clear: both; }
+}
+
+.grid-1-16  {width: 4.32692308%; }
+.grid-2-16  {width: 10.57692308%;}
+.grid-3-16  {width: 16.82692308%;}
+.grid-4-16  {width: 23.07692308%;}
+.grid-5-16  {width: 29.32692308%;}
+.grid-6-16  {width: 35.57692308%;}
+.grid-7-16  {width: 41.82692308%;}
+.grid-8-16  {width: 48.07692308%;}
+.grid-9-16  {width: 54.32692308%;}
+.grid-10-16 {width: 60.57692308%;}
+.grid-11-16 {width: 66.82692308%;}
+.grid-12-16 {width: 73.07692308%;}
+.grid-13-16 {width: 79.32692308%;}
+.grid-14-16 {width: 85.57692308%;}
+.grid-15-16 {width: 91.82692308%;}
+.grid-16-16 {width: 98.07692308%;}
+.grid-1-12  {width: 6.41025641%; }
+.grid-2-12  {width: 14.74358974%;}
+.grid-3-12  {width: 23.07692308%;}
+.grid-4-12  {width: 31.41025641%;}
+.grid-5-12  {width: 39.74358974%;}
+.grid-6-12  {width: 48.07692308%;}
+.grid-7-12  {width: 56.41025641%;}
+.grid-8-12  {width: 64.74358974%;}
+.grid-9-12  {width: 73.07692308%;}
+.grid-10-12 {width: 81.41025641%;}
+.grid-11-12 {width: 89.74358974%;}
+.grid-12-12 {width: 98.07692308%;}
+
+[class*='grid-'],
+[class*='grid-']:after,
+[class*='grid-']:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+[class*='grid-'] {
+    float: left;
+    margin: 0 0.9615384615384615%;
+    *margin-left: 10px;
+}
+
+.geral .footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: block;
+    border-top: 1px solid #dbdbdb;
+    margin-top: 40px;
+    padding: 16px 0;
+
+    //.hide
+    .hide{display:none;}
+
+    //.show
+    a, a:active, a:visited  {
+        color: #333;
+    }
+
+    p{
+        text-align: left;
+        margin: 0;
+        float: left;
+        font-size:1em;
+        padding: 0;
+        display: inline;
+        line-height: 30px;
+        border: 0;
+    }
+    
+    .navegacao-rapida {
+        padding-left: floor(($grid-gutter-width/2));
+        padding-right: floor(($grid-gutter-width/2)); 
+
+        p {
+            font-size:10px;
+            font-family:Verdana,sans-serif;
+
+            span{
+                font-weight: 700;
+                color:#3268b2;
+            }
+
+            a{
+                margin: 0 8px;
+                text-decoration: underline;
+
+                &:hover{color:#1467ca;}
+            }
+        }
+
+        .uc-social-media{
+            width: 160px;
+            margin: 0 auto;
+            float: right;
+            text-align: center;
+        }
+
+        
+
+    }
+
+    .sitemap { 
+        position: relative; 
+        background-color: #f4f4f4;
+        clear: both;
+        padding: 22px 0;
+        margin: 10px 0;
+
+        .container { 
+
+            .row > div.clear{display:none;}
+
+            p.title{
+                line-height: normal;
+                width: 100%;
+                border-bottom: 1px solid #d5d5d5;
+                padding-bottom: 6px;
+                margin-bottom: 10px;
+
+                &,a{
+                    font-family: Verdana;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #333;
+                    text-decoration:none;
+                }
+
+                a:after{
+                    content: $glyphicon-play;
+                    display: inline-block;
+                    color: $color-facebook;
+                    font-family:$font-emp-icons;
+                    margin-left: 3px;
+                    vertical-align: middle;
+                    font-size: 11px;
+                }
+            }
+
+            ul{
+                margin:0;
+                padding:0;
+                list-style:none; 
+                width: auto;
+                position: relative;
+                display: inline-block;
+                vertical-align: top;
+                margin-bottom:20px;
+
+                li {
+                    a{
+                        display: block;
+                        font-size: 11px;
+                        line-height: 20px;
+                        text-decoration: none;
+                        font-family: Arial;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &.destaque a{
+                        line-height: 33px;
+                        font-weight: 700;
+                        color: #4d4e4f;
+                    }
+                }
+            }
+
+            // SELO TOP OF MIND 2016
+            a.selo-topofmind2016{
+	            font-size: .625em;
+	            font-family: Arial;
+	            color: #333945;
+	            text-decoration: none;
+	            line-height: 1em;
+	            margin: 0;
+	            width: 160px;
+	            height: 38px; 
+	            display: block;
+	            padding-left: 50px;
+	            padding-top: 6px; 
+	            background: url("#{$path-img}topofmind-mini-selo.gif") no-repeat 0 0;
+
+                @include box-sizing(); 
+                
+                span {
+                    text-decoration: underline;
+                    color: #045dc6;
+                }
+            }
+
+            .candidato ul{ width:49%;}
+        }
+    }
+
+    .rodape {
+        padding-left: floor(($grid-gutter-width/2));
+        padding-right: floor(($grid-gutter-width/2)); 
+
+        a.logo-empregos img{width:100%;}
+
+        a.logo-empregos,
+        div.area-copyright,
+        img.certificado-seguranca{
+            display:inline-block;
+            float:none;
+            vertical-align:middle;
+        }
+
+        div.area-copyright{
+            width:70%;
+            font-size: 10px;
+            padding: 0 15px;
+            font-family:Verdana,sans-serif;
+
+            p, ul.links, ul.links li, a {
+                line-height:normal;
+                font-size:10px;
+                display:inline-block;
+                vertical-align:top;
+                color:#878787;
+                text-align:center;
+                float:none;                
+            }
+            
+            p > br{ display:none; }
+
+            ul.links {
+                padding:0;
+                margin:0;
+                list-style:none;
+
+                li {
+                    float:left;
+                    a{
+                       &:link, &:visited, &:hover{ 
+                            color: #1467ca; text-decoration:underline;
+                       }
+
+                        &:hover{ text-decoration:none;}
+                    } 
+
+                    &:after{
+                        content:"|";
+                        margin:0 2px 0 3px;
+                    }
+
+                    // Remove a barra no ultimo item da lista
+                    &:last-child:after{
+                        content:none;
+                    }
+                }
+            }
+        }        
+    }
+
+
+    // Carreiras
+    &.carreiras{ 
+        .navegacao-rapida .logo-carreiras{
+            display: inline-block;
+            float: left;
+            width: 182px;
+            margin-top: -8px;
+
+            img{ width:100%;}
+        }
+
+        .sitemap { 
+            .container {
+                .row > div.clear{display:none;}
+                ul{margin:0;}
+
+                .row ul:nth-child(2){ width:50%;}
+
+                .row .rodape-carreira,
+                .row .rodape-empregos{
+                    ul:nth-child(2){
+                        width:50%;
+                    }
+                }
+
+                .row .rodape-empregos{min-height:140px;}
+            }
+             
+            p.title, p.title a{
+                font-family: 'Open Sans',Arial,sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+            }
+            
+            .area-topofmind p.title {margin-top:10px;}
+            .area-topofmind p.title img{display:none;}
+
+            p.title a:after{ content:none;}
+        }
+
+
+    }
+
+}
+
+
+// max-width: 992px
+
+@media (max-width: $screen-md) {
+    .geral .footer {
+        .sitemap .container .row > div.clear{display: block;}
+
+        .navegacao-rapida p a:nth-child(1n+6){ display:none;}
+
+        .rodape{
+            a.logo-empregos,
+            img.certificado-seguranca{
+                margin:0 auto;
+                display:block;
+                text-align:center;
+            }
+
+            div.area-copyright{
+                width:100%;
+                margin:20px auto;
+                text-align:center;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-sm){ //768px
+    .geral .footer  {
+        border-top: 1px solid #edecec;
+        background-color: #f4f4f4;
+        min-width: 300px;
+        padding-top: 26px;
+
+        // Hide        
+        .hide, .sitemap{display:none;}
+
+        &.carreiras .navegacao-rapida .logo-carreiras{display:none;}
+
+        .navegacao-rapida{
+
+            p{display:none;}
+
+            .uc-social-media {
+                width: 200px;
+                margin: 0 auto;
+                float: none;
+                text-align: center;
+
+                li{ margin: 0 9px;}
+            }
+        }
+                        
+        .rodape {            
+            a.logo-empregos{display:none;}
+
+            div.area-copyright{
+                position:relative;
+                text-align: center;
+                margin: 20px 0;
+                padding:30px 0 42px;
+                float: none;
+                display: block;
+                border-top: 1px solid #ccc;
+                line-height:normal;
+                letter-spacing: normal;
+                font-family: Verdana;
+                font-size: 11px;
+
+                p {
+                    font-size: 11px;
+                    position:absolute;
+                    width:100%;
+                    bottom:0;
+                    left:0;
+
+                    & > br{
+                        display:initial;
+                    }
+                }
+
+                ul.links li{
+                    a span{display:none;}
+                    &, a { 
+                        font-size:14px; 
+                        font-family:Arial;                           
+                        &:link, &:visited{text-decoration:none;}                        
+                    }
+                     
+
+
+                }
+
+            }
+        }
+
+    }
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-lg){
+
+    .geral .footer {          
+        .rodape div.area-copyright{width:auto; padding:0 10px;}
+
+        a.logo-empregos{width:160px;}
+        
+    }
+
+}

@@ -1,0 +1,91 @@
+﻿//
+//  Empregos.com.br
+//  
+//  @project:       Empregos.com.br
+//  @version:       2.2.0
+//  @description:   Imports de todos os LESS que compoe o core do css.
+//  @author:        Thiago Corbalan
+//  @date:          17/04/2017
+//  @update:        06/12/2017
+//
+
+@import "base/path.scss";
+
+
+@import "base/normalize.scss"; 
+
+// Libs  
+    //  Bootstrap
+    @import 'node_modules/bootstrap/scss/functions';
+    @import 'node_modules/bootstrap/scss/mixins';  
+    @import 'node_modules/bootstrap/scss/variables';
+    @import 'node_modules/bootstrap/scss/transitions';
+    @import 'node_modules/bootstrap/scss/utilities';
+    @import "node_modules/bootstrap/scss/bootstrap-grid.scss";    
+    @import 'node_modules/bootstrap/scss/popover';
+    @import 'node_modules/bootstrap/scss/nav';    
+    @import 'node_modules/bootstrap/scss/dropdown';
+    @import 'node_modules/bootstrap/scss/modal';
+    @import 'node_modules/bootstrap/scss/carousel';
+
+// Reset
+
+// Variables and Mixins 
+    @import "base/glyphicon.scss";
+    @import "base/colors.scss";
+    @import "base/variables.scss";
+    @import "base/mixins.scss"; 
+
+// Base
+    @import "base/fonts";
+    @import "base/global.scss";
+    @import "base/utilitys.scss";
+
+// layout
+    @import "layout/top.scss";
+    @import "layout/top-searcher.scss";
+    @import "layout/footer.scss";
+    @import "layout/form.scss";
+    @import "layout/table.scss";
+    @import "layout/modal.scss";
+
+// Modules
+    @import "module/accordion.scss";
+    @import "module/animations.scss";
+    @import "module/spinner.scss";
+    @import "module/area-photo.scss";
+    @import "module/buttons.scss";
+    @import "module/rating.scss";
+    @import "module/feedback.scss";
+    @import "module/flags.scss";
+    @import "module/message.scss";
+    @import "module/tags.scss";
+    @import "module/notification.scss";
+    @import "module/sponsored-vacacies.scss";
+    @import "module/banner-payment"; 
+
+
+// @import '~@angular/material/theming';
+// // Plus imports for other components in your app.
+
+// // Include the common styles for Angular Material. We include this here so that you only
+// // have to load a single css file for Angular Material in your app.
+// // Be sure that you only ever include this mixin once!
+// @include mat-core();
+
+// // Define the palettes for your theme using the Material Design palettes available in palette.scss
+// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
+// $candy-app-primary: mat-palette($mat-indigo);
+// $candy-app-accent: mat-palette($mat-light-blue, A200, A100, A400);
+
+// // The warn palette is optional (defaults to red).
+// $candy-app-warn: mat-palette($mat-red);
+
+// // Create the theme object (a Sass map containing all of the palettes).
+// $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// @include angular-material-theme($candy-app-theme);

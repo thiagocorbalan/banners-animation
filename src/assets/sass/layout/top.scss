@@ -1,0 +1,1205 @@
+﻿//
+//  TOP
+//  
+//  @project:       Empregos.com.br
+//  @version:       3.0.4
+//  @description:   Layout do Topo do Site
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        04/12/2017
+//
+@import "../base/mixins";
+.geral {
+    header.header {
+        position: relative;
+        z-index: 100; // Barra Principal
+        .main-bar {
+            position: relative;
+            display: block;
+            width: 100%;
+            background-color: $color-white;
+            height: $top-height;
+            z-index: 2;
+            .row { position: relative; }
+            .col-md-12 {
+                height: $top-height;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                z-index: 105;
+                background-color: $color-white;
+                @include user-select(none);
+            } // LOGO
+            .logo-area {
+                position: absolute;
+                @include centralize(202px, 32px);
+                z-index: 100;
+                a,
+                img {
+                    float: left;
+                    width: 100%;
+                }
+                img {
+                    height: auto;
+                }
+            } // BOTÃO DO MENU PRINCIPAL
+            button.btn-main-menu{
+                font-family: $font-family-primary;
+                font-weight: 700;
+                font-size: 14px;
+                color: $color-gray-dark; // TODO: Criar variável das novas
+                text-indent: 35px;
+                position: absolute;
+                left: ($grid-gutter-width/2);
+                display: block;
+                background-color: transparent;
+                width: 85px;
+                height: $top-height - 20px;
+                text-align: left;
+                z-index: 100;
+                &:before {
+                    @include arrow(top, 12px, $color-gray-dark, false);
+                    left: 0px;
+                    top: auto;
+                    bottom: -11px;
+                    transition-delay: .25s;
+                    @include opacity(0);
+                } // Aberto
+                &[data-opened=true] span.icon-menu {
+                    background-color: $color-white;
+                    &:before {
+                        @include rotate(45deg);
+                        top: 0;
+                    }
+                    &:after {
+                        @include rotate(-45deg);
+                        bottom: 0;
+                    }
+                }
+                &.mobile {
+                    position: fixed;
+                    background: $top-bgcolor-main;
+                    top: 0;
+                    margin-top: 0;
+                    width: 70px;
+                    height: $top-height;
+                    left: auto;
+                    right: auto;
+                    text-indent: -9999px;
+                    @include opacity(0);
+                    @include transition(all 0.2s ease-in-out);
+                    span.icon-menu {
+                        background-color: transparent;
+                        left: 50%;
+                        margin-left: -11px;
+                        &:before,
+                        &:after {
+                            width: 24px;
+                            height: 6px;
+                        }
+                    }
+                    &.left {
+                        right: -60px;
+                        span.icon-menu {
+                            &:before {
+                                @include rotate(-40deg);
+                                top: -6px;
+                            }
+                            &:after {
+                                @include rotate(40deg);
+                                bottom: -6px;
+                            }
+                        }
+                    }
+                    &.right {
+                        left: -60px;
+                        span.icon-menu {
+                            &:before {
+                                @include rotate(40deg);
+                                top: -6px;
+                            }
+                            &:after {
+                                @include rotate(-40deg);
+                                bottom: -6px;
+                            }
+                        }
+                    }
+                }
+                span.icon-menu,  {
+                    background-color: $color-gray-dark;
+                    margin-top: -2px;
+                    top: 50%;
+                    &, &:before, &:after {
+                        display: block;
+                        width: 22px;
+                        height: 4px;
+                        position: absolute;
+                        @include border-radius(3px);
+                    }
+                    &:before, &:after {
+                        content: "";
+                        left: 0;
+                        top: -8px;
+                        background-color: $color-gray3;
+                    }
+                    &:after {
+                        top: auto;
+                        bottom: -8px;
+                    }
+                }
+            } // BOTÕES MENU CANDIDATO
+            .buttons-menu-candidate {
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: auto;
+                .logged-candidate,
+                .off-candidate {
+                    &, a, button {
+                        font-family: $font-family-primary;
+                        font-weight: 700;
+                        color: $color-gray-dark;
+                        font-size: 14px;
+                        color: $color-gray-dark; // TODO: Incluir variáveis da nova paleta de cores.
+                        text-decoration: none;
+                        background: transparent;
+                        &.cadastre-se {
+                            position: relative;
+                            margin-left: 15px;
+                            padding-left: 15px;
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                left: 0;
+                                @include centralize-height(16px);
+                                width: 1px;
+                                background-color: $color-gray-dark; // TODO: Incluir variáveis da nova paleta de cores.
+                            }
+                        }
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                } // DESLOGADO
+                .off-candidate {
+                    position: absolute;
+                    right: ($grid-gutter-width/2);
+                    @include centralize-height(30px);
+                    width: 300px;
+                    text-align: right;
+                    &:before, %offCandidateBefore {
+                        @include arrow(top, 12px, $color-gray-light, false);
+                        right: 28px;
+                    }
+                    &:after, %offCandidateAfter {
+                        @include arrow(top, 10px, $color-white, false);
+                        right: 30px;
+                    }
+                    &:before,
+                    &:after {
+                        top: auto;
+                        bottom: -18px;
+                        @include opacity(0);
+                        transition-delay: .25s;
+                    }
+                    button.btn-candidate-menu {
+                        color: $top-bgcolor-main;
+                        border: 1px solid $top-bgcolor-main;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        line-height: 30px;
+                        height: 30px;
+                        margin-left: 20px;
+                        text-transform: uppercase;
+                        &:hover {
+                            background-color: $top-bgcolor-main;
+                            color: $color-white;
+                        }
+                    }
+                } // LOGADO
+                .logged-candidate {
+                    right: $grid-gutter-width / 2;
+                    @include centralize-height(46px);
+                    &:before, &:after {
+                        bottom: -10px;
+                    }
+                    &:before {
+                        @extend %offCandidateBefore; //&:extend(.geral header.header .main-bar .buttons-menu-candidate .off-candidate:before);
+                        right: 12px;
+                    }
+                    &:after {
+                        @extend %offCandidateAfter; //&:extend(.geral header.header .main-bar .buttons-menu-candidate .off-candidate:after);
+                        right: 14px;
+                    }
+                    span.text {
+                        right: 60px;
+                        width: 200px;
+                        text-align: right;
+                        font-size: 14px;
+                        cursor: pointer;
+                        font-weight: 400;
+                        @include centralize-height(22px);
+
+                        @media (max-width: ($screen-xs + 50px)){ display:none; }
+                    }
+                } // BOX ÁREA DO CANDIDATO LOGADO / DESLOGADO
+            }
+            .candidate-area, .main-menu-area {
+                position: absolute;
+                z-index: 102;
+                top: $top-height;
+                width: $menu-width;
+                visibility: hidden;
+                border: 1px solid $color-gray-light;
+                @include border-radius(4px);
+                @include transition(all .25s ease-in-out);
+                @include translateY(-100%);
+                @include box-shadow(0);
+            } // ÁREA MENU PRINCIPAL
+            .main-menu-area {
+                left: 5px;
+                background: $color-gray-dark;
+                border-color: $color-gray-dark;
+                padding: 15px 20px 16px;
+                &, a, span.title, %spanTitle {
+                    font-family: $font-family-primary;
+                    text-decoration: none;
+                    color: $color-white;
+                }
+                span.title, %spanTitle {
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 19px;
+                    display: block;
+                }
+                .main-menu {
+                    margin-bottom: 10px;
+                    ul li {
+                        border-bottom: 1px solid #7e7e7e; // TODO: Rever essa cor com o MKT futuramente
+                        position: relative;
+                        margin: 0 -20px;
+                        padding: 0 20px;
+                        a{
+                            position: relative;
+                            display: block;
+                            font-size: 15px;
+                            font-weight: 400;
+                            padding-left: 65px;
+                            line-height: 50px;
+                            margin: 0 -20px;
+                        }
+                        &:hover {
+                            background-color: #777777; // TODO: Rever essa cor com o MKT futuramente
+                        }
+                        &:before {
+                            content: "";
+                            width: 32px;
+                            text-indent: 0;
+                            left: 20px;
+                            background: url("#{$path-img}icons/sprite-icons-menu-left.png") no-repeat 0 0;
+                            @include centralize-height(32px);
+
+                        }
+                        &.job:before { background-position: 0 -32px;}
+                        &.companys:before { background-position: -32px 0;}
+                        &.resumes:before { background-position: -32px -32px;}
+                    }
+                }
+                .other-links {
+                    ul li a, a.faq {
+                        font-size: 15px;
+                        display: block;
+                        line-height: 36px;
+                    }
+                }
+                .other-links, .other-links-logged {
+                    ul li, %otherLinks {
+                        margin: 0 -20px;
+                        padding: 0 20px;
+                        a, %otherLinksUlLiA {
+                            margin: 0 -20px;
+                            padding-left: 65px;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+                .other-links-logged {
+                    span {
+                        @extend %spanTitle; //&:extend(.geral header.header .main-bar .main-menu-area span.title);
+                        margin: 30px 0 10px;
+                    }
+                    ul li {
+                        a, %otherLinksLoggedUlLiA {
+                            font-family: $font-family-primary;
+                            display: block;
+                            font-size: 15px;
+                            line-height: 34px;
+                            padding-left: 65px;
+                            margin: 0 -20px;
+                            &:hover {
+                                background-color: #777777; // TODO: Rever essa cor com o MKT futuramente
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                    a.link-employer:hover {
+                        text-decoration: underline;
+                    }
+                }
+                a.faq {
+                    @extend %otherLinksLoggedUlLiA;
+                    margin: 0 -20px;
+                    padding-left: 65px;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+                a.link-employer, %linkEmployer {
+                    margin: 20px -20px -16px;
+                    text-align: left;
+                    font-size: 14px;
+                    padding: 20px 30px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    border-top: 1px solid #7e7e7e;
+                    background: #777777;
+                    display: block;
+                    margin: 16px -20px -16px;
+                    @include border-radius(0 0 4px 4px);
+                    span {
+                        font-weight: 400;
+                        text-transform: initial;
+                    }
+                    &:hover span {
+                        text-decoration: underline;
+                    }
+                }
+            } // ÁREA MENU CANDIDATO
+            .candidate-area {
+                right: $grid-gutter-width/2;
+                background: $color-white;
+                padding: 30px;
+                background-color: $color-white;
+                .logged-candidate {
+                    a {
+                        @extend %otherLinksLoggedUlLiA;
+                        text-decoration: none;
+                        color: $color-gray;
+                        font-size: 15px;
+                        line-height: 34px;
+                        
+                        &:hover {
+                            color: $color-blue5;
+                            text-decoration: underline;
+                        }
+                    } // FOTO
+                    .area-foto {
+                        margin: 0;
+                        border: 0;
+                        padding: 0;
+                        .thumb {
+                            margin-bottom: 8px;
+                            @include opacity(.85);
+                            &:hover { @include opacity(1);}
+                        }
+                        .dados-candidato {
+                            width: 100%;
+                            display: block;
+                            margin: 0;
+                            text-align: center;
+                            .nome-candidato a {
+                                font-family: $font-family-primary;
+                                font-size: 16px;
+                                font-weight: 700;
+                                color: $color-gray-dark;
+                                line-height: normal;
+
+                                &:hover {
+                                    //&:extend(.geral header.header .main-bar .candidate-area .logged-candidate a:hover);
+                                    color: $color-blue5;
+                                    text-decoration: underline;
+                                }
+                            }
+                            .cargo-candidato {
+                                font-size: 13px;
+                                font-weight: 400;
+                                text-transform: none;
+                                display: block;
+                                width: auto;
+                                
+                                a {
+                                    font-family: $font-family-primary;
+                                    color: $color-gray-dark;
+                                    line-height: normal;
+                                    &:hover {
+                                        color: $color-blue5;
+                                    }
+                                }
+                            }
+                        }
+                    } // ÁREA INCOMPLETOS
+                    .area-incompletos {
+                        margin: 20px -30px -21px;
+                        padding: 20px 36px;
+                        font-family: $font-family-primary;
+                        font-size: 14px;
+                        text-align: center;
+                        border-top: 1px solid $color-gray-20;
+                        border-bottom: 1px solid $color-gray-20;
+                        color: $color-gray-dark;
+                        background: $color-gray-10;
+                        position: relative;
+                        a {
+                            color: $color-blue5;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    } // FORÇA DO CANDIDATO
+                    .resume-force-area a {
+                        padding: 10px 30px;
+                        font-size: 11px;
+                        text-align: center;
+                        margin: 20px -30px;
+                        display: block;
+                        border: 1px solid $color-gray6;
+                        border-left: 0;
+                        border-right: 0;
+                        color: $color-gray-90;
+                        &:hover {
+                            background-color: $color-gray7;
+                            border-color: $color-gray7;
+                            text-decoration: none;
+                        }
+                        span { display: block; }
+                        span.progress {
+                            border: 1px solid $color-gray-30;
+                            border-radius: 4px;
+                            padding: 1px;
+                            width: $progress-bar-width;
+                            height: $progress-bar-height;
+                            margin: 6px auto;
+                            background: $color-gray-10;
+                            overflow: hidden;
+                            .progress-bar {
+                                height: ( $progress-bar-height - 4);
+                                line-height: (( $progress-bar-height - 4)/2);
+                                border-radius: 3px;
+                                color: $color-white;
+                                text-align: right;
+                                padding: 5px;
+                                min-width: 2.6em;
+                                background-color: $color-gray-90;
+                                text-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+                                &.gradient {
+                                    background-size: $progress-bar-width;
+                                    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$progress-bar-color-1, endColorstr=$progress-bar-color-5);
+                                    background-image: -moz-linear-gradient(left, $progress-bar-color-1 0%, $progress-bar-color-2 25%, $progress-bar-color-3 50%, $progress-bar-color-4 75%, $progress-bar-color-5 100%);
+                                    background-image: linear-gradient(left, $progress-bar-color-1 0%, $progress-bar-color-2 25%, $progress-bar-color-3 50%, $progress-bar-color-4 75%, $progress-bar-color-5 100%);
+                                    background-image: -webkit-linear-gradient(left, $progress-bar-color-1 0%, $progress-bar-color-2 25%, $progress-bar-color-3 50%, $progress-bar-color-4 75%, $progress-bar-color-5 100%);
+                                    background-image: -o-linear-gradient(left, $progress-bar-color-1 0%, $progress-bar-color-2 25%, $progress-bar-color-3 50%, $progress-bar-color-4 75%, $progress-bar-color-5 100%);
+                                    background-image: -ms-linear-gradient(left, $progress-bar-color-1 0%, $progress-bar-color-2 25%, $progress-bar-color-3 50%, $progress-bar-color-4 75%, $progress-bar-color-5 100%);
+                                }
+                                &.solid {
+                                    background-color: $progress-bar-color-1;
+                                    &.f-25 {
+                                        background-color: $progress-bar-color-2;
+                                    }
+                                    &.f-50 {
+                                        background-color: $progress-bar-color-3;
+                                    }
+                                    &.f-75 {
+                                        background-color: $progress-bar-color-4;
+                                    }
+                                    &.f-100 {
+                                        background-color: $progress-bar-color-5;
+                                    }
+                                }
+                            }
+                        }
+                    } // FORÇA DO CANDIDATO - Nova Versão 2
+                    .emp-resume-force-area {
+                        display: none;
+                        text-align: center;
+                        border: 1px solid $color-gray-20;
+                        border-left: 0;
+                        border-right: 0;
+                        padding: 20px 0;
+                        margin: 20px -10px 10px;
+                        span.title,
+                        ul.list-links li a,
+                        a.lkb-edit-cv {
+                            font-family: $font-family-primary;
+                            font-size: 14px;
+                        }
+                        span.title {
+                            color: $color-gray3;
+                        }
+                        ul.list-links li a,
+                        a.lkb-edit-cv {
+                            position: relative;
+                            z-index: 1;
+                            &,
+                            &:visited {
+                                color: $color-blue5;
+                                font-size: 15px;
+                            }
+                        }
+                    } // MENU
+                    nav li {
+                        a {
+                            @extend %otherLinksLoggedUlLiA; //&:extend(.geral header.header .main-bar .main-menu-area .other-links-logged ul li a);
+                            font-weight: 600;
+                            position: relative;
+                            padding-left: 16px;
+                            color: $color-gray;
+                            margin: 0 -10px;
+                            &:before {
+                                content: $glyphicon-chevron-right;
+                                font-family: $font-emp-icons;
+                                font-size: 12px;
+                                line-height: 12px;
+                                position: absolute;
+                                left: 0;
+                                width: 10px;
+                                speak: none; // Para que anule a exibição de emotions no mobile.
+                                text-indent: -2px;
+                                @include centralize-height(10px);
+                                color: $color-gray;
+                            }
+                            &:hover {
+                                text-decoration: none;
+                                &:before {
+                                    color: $color-gray-90;
+                                }
+                            }
+                            &:hover span:first-child {
+                                text-decoration: underline;
+                                color: $color-blue5;
+                            }
+                        }
+                        &.assinatura {
+                            position: relative;
+                            a.cta {
+                                display: inline-block;
+                                color: $color-white;
+                                padding: 0 12px;
+                                font-size: 12px;
+                                margin-left: 12px;
+                                background-color: $color-orange;
+                                min-width: 80px;
+                                text-align: center;
+                                @include border-radius($btn-border-radius);
+                                left: 80px;
+                                @include centralize-height(25px);
+                                line-height: 25px;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                                &:before {
+                                    content: none;
+                                }
+                            }
+                            a {
+                                padding: 0 16px;
+                                
+                                span + span{
+                                    font-size: 12px;
+                                    color: $color-orange;
+                                }
+
+                                &:hover {
+                                    text-decoration: none;
+                                    + span{
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+                    } // LINK SAIR
+                    a.exit {
+                        display: block;
+                        text-align: center;
+                        padding: 24px;
+                        font-family: $font-family-primary;
+                        font-weight: 700;
+                        color: $color-gray-dark;
+                        font-size: ($font-size-main - 2);
+                        text-transform: uppercase;
+                        background: $color-gray-10;
+                        border-top: 1px solid $color-gray-20;
+                        margin: 20px -30px -30px;
+                        @include border-radius(0 0 4px 4px);
+                        &:before {
+                            content: $glyphicon-sign-out;
+                            font-family: $font-emp-icons;
+                            color: $color-gray;
+                            font-size: 20px;
+                            speak: none;
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-right: 5px;
+                        }
+                        &:hover {
+                            text-decoration: none;
+                            span {
+                                color: $color-blue7;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+                .not-logged-in {
+                    .uc-login .area-links {
+                        .cadastre-se {
+                            margin: 20px -30px -30px;
+                            padding: 20px;
+                            display: block;
+                            background: $color-gray-10;
+                            border-top: 1px solid $color-gray-20;
+                            text-align: center;
+                            font-size: 14px;
+                            text-transform: uppercase;
+                            font-family: $font-family-primary;
+                            font-weight: 700;
+                            color: $color-gray-dark;
+                            @include border-radius(0 0 4px 4px);
+                            span {
+                                display: block;
+                                text-transform: initial;
+                                text-decoration: underline;
+                                font-weight: 400;
+                                color: $color-blue6;
+                            }
+                            &:hover {
+                                &, span {
+                                    text-decoration: none;
+                                }
+                            }
+                            .clear_40 {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            } // PARA VERSÃO MOBILE
+            .bg-menu {
+                display: none;
+            }
+        } 
+        
+        
+        
+        // SEM BUSCADOR
+        &.without-search {
+            margin-bottom: 3px;
+            .main-bar {
+                &,
+                .col-md-12 {
+                    background-color: $top-bgcolor-main;
+                }
+                button.btn-main-menu, %buttonBtnMainMenu {
+                    color: $color-white;
+                    &[data-opened='true'] span.icon-menu {
+                        background-color: transparent;
+                    }
+                    span.icon-menu,
+                    .icon-menu:before,
+                    .icon-menu:after {
+                        background-color: $color-white;
+                    }
+                }
+                .buttons-menu-candidate {
+                    .off-candidate {
+                        a {
+                            @extend %buttonBtnMainMenu; //&:extend(.geral header.header.without-search .main-bar button.btn-main-menu);
+                            &:before {
+                                background-color: $color-white; //&:extend(.geral header.header.without-search .main-bar button.btn-main-menu .icon-menu:before);
+                            }
+                        }
+                        button.btn-candidate-menu {
+                            @extend %buttonBtnMainMenu; //&:extend(.geral header.header.without-search .main-bar button.btn-main-menu);
+                            border-color: $color-white;
+                            &:hover {
+                                background-color: $color-white; //&:extend(.geral header.header.without-search .main-bar button.btn-main-menu span.icon-menu);
+                                color: $top-bgcolor-main;
+                            }
+                        }
+                    }
+                    .logged-candidate {
+                        .text {
+                            @extend %buttonBtnMainMenu;// &:extend(.geral header.header.without-search .main-bar button.btn-main-menu);   
+                        }
+                        .area-foto .thumb .moldura {
+                            box-shadow: 0 0 0 2px $color-white inset;
+                            &:before {
+                                @include centralize(46px, 48px);
+                            }
+                        }
+                    }
+                }
+            }
+        } // TOPO FIXO
+        &.fixed {
+            position: fixed;
+            height: 105px;
+            .main-top-content {
+                position: fixed;
+                width: 100%;
+                top: 0;
+            }
+        }
+    } // MENUS ABERTOS
+    &.menu-opened {
+        %candidateArea{
+            visibility: visible;
+            @include translateY(0);
+            @include box-shadow(1px 1px 10px rgba(0, 0, 0, .1));
+        }
+
+        &.right header .main-bar {
+
+
+            .candidate-area {
+                @extend %candidateArea;
+            }
+            .buttons-menu-candidate .off-candidate,
+            .buttons-menu-candidate .logged-candidate {
+                &:before,
+                &:after {
+                    @include opacity(1);
+                }
+            }
+        }
+        &.left header .main-bar button.btn-main-menu {
+            &:before,
+            &:after {
+                @include opacity(1);
+            }
+        }
+        &.left header .main-bar .main-menu-area {
+            @extend %candidateArea;
+        }
+    }
+}
+
+
+@media (max-width: 600px) {
+    .geral header.header .main-bar .buttons-menu-candidate .off-candidate a {
+        display: none;
+    }
+}
+
+//max-width: 680px
+@media (max-width: ($screen-sm - 88)) {
+    .geral {
+        header.header {            
+            padding-top: 115px;
+
+            .main-top-content {
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            .main-bar {
+                top: 0;
+                padding: 0;
+                .main-menu-area,
+                .candidate-area {
+                    position: fixed;
+                    width: 100%;
+                    border-width: 0;
+                    border-top-width: 1px;
+                    overflow-y: auto;
+                    @include box-shadow(none);
+                    @include border-radius(0);
+                }
+                .main-menu-area {
+                    left: 0;
+                    @include translateX(-100%);
+                    a.link-employer, %linkEmployer2 {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        margin: 0;
+                        left: 0;
+                    }
+                }
+                .candidate-area {
+                    right: 0;
+                    @include translateX(100%);
+                    .logged-candidate {
+                        nav li a {
+                            margin: 0 -10px;
+                            @extend %linkEmployer2;
+                        }
+                    }
+                    .not-logged-in .uc-login {
+                        margin: 0 auto;
+                        .area-links .cadastre-se {
+                            @extend %linkEmployer2; //&:extend(.geral header.header .main-bar .main-menu-area a.link-employer);
+                        }
+                    }
+                }
+                button.mobile.btn-main-menu {
+                    @include opacity(1);
+                }
+            } 
+
+            &.without-search {
+                padding-top: 50px;
+            }
+            &.with-validation-bar {
+                padding-top: (52px + 62px + 66px);
+            }
+        }
+    }
+}
+
+//max-width: 480px
+@media (max-width: $screen-xs) {
+    .geral {
+        header.header {
+            padding-top: 101px;
+
+            .main-bar {
+                &,
+                .col-md-12 {
+                    height: 50px;
+                }
+                button.btn-main-menu {
+                    text-indent: -9999px;
+                    height: 34px;
+                    &:before {
+                        left: -1px;
+                        bottom: -6px;
+                    }
+                    &:after {
+                        left: 5px;
+                    }
+                }
+                .buttons-menu-candidate {
+                    .off-candidate {
+                        a {
+                            display: none;
+                        }
+                        button.enter-button {
+                            position: absolute;
+                            right: 0;
+                            padding: 0 4px;
+                            line-height: 20px;
+                            font-size: 12px;
+                            @include centralize-height(20px);
+                        }
+                        &:before {
+                            right: 17px;
+                        }
+                        &:after {
+                            right: 19px;
+                        }
+                    }
+                    .logged-candidate {
+                        @include centralize-height(33px);
+                        // .text {
+                        //     display: none;
+                        // }
+                        &:before {
+                            right: 6px;
+                        }
+                        &:after {
+                            right: 8px;
+                        } // Área foto
+                        .area-foto {
+                            .thumb,
+                            .moldura {
+                                width: 33px;
+                                height: 33px;
+                            }
+                            .moldura {
+                                img {
+                                    width: 33px;
+                                    margin-top: -20.625px;
+                                }
+                                &:before {
+                                    @include centralize(29px, 29px);
+                                    background-size: cover;
+                                }
+                            }
+                        }
+                        &[data-opened=true] .area-foto .moldura {
+                            display: none;
+                        }
+                    }
+                    span.menu-icon-closed {
+                        cursor: pointer;
+                        @include centralize(22px, 4px);
+                        &:before,
+                        &:after {
+                            content: "";
+                            display: block;
+                            width: 22px;
+                            height: 4px;
+                            position: absolute;
+                            background: $color-gray3;
+                            @include border-radius(3px);
+                            @include opacity(0);
+                        }
+                        &:before {
+                            top: -8px;
+                        }
+                        &:after {
+                            bottom: -8px;
+                        }
+                    }
+                }
+                .logo-area {
+                    @include centralize(176px, 24px);
+                }
+                .candidate-area,
+                .main-menu-area {
+                    @include border-radius(0);
+                }
+            }
+            
+            // SEM BUSCADOR
+            &.without-search .main-bar .buttons-menu-candidate .logged-candidate .area-foto .thumb {
+                .moldura:before {
+                    @include centralize(33px, 33px);
+                }
+                .btn-candidate-menu span.menu-icon-closed {
+                    &:before,
+                    &:after {
+                        background: $color-white;
+                    }
+                }
+            }
+        }
+        &.menu-opened.right header.header {
+            .main-bar .buttons-menu-candidate {
+                .off-candidate {
+                    &:before,
+                    &:after {
+                        bottom: -11px;
+                    }
+                    button.enter-button {
+                        text-indent: -999px;
+                        overflow: hidden;
+                        width: 56px;
+                        border: 0;
+                        &:hover,
+                        &:active {
+                            background: none;
+                        }
+                    }
+                }
+                .logged-candidate {
+                    &:before,
+                    &:after {
+                        bottom: -9px;
+                    }
+                }
+                span.menu-icon-closed {
+                    &:before,
+                    &:after {
+                        @include opacity(1);
+                    }
+                    &:before {
+                        top: 0;
+                        @include rotate(45deg);
+                    }
+                    &:after {
+                        bottom: 0;
+                        @include rotate(-45deg);
+                    }
+                }
+            }
+            &.without-search .main-bar .buttons-menu-candidate span.menu-icon-closed {
+                &:before,
+                &:after {
+                    background: $color-white;
+                }
+            }
+        }
+    }
+}
+
+
+// max-width: 992px
+@media (max-width: $screen-md) {
+    .geral header.header .main-bar .buttons-menu-candidate .off-candidate a {
+        margin: 0;
+        padding: 0;
+        &.cadastre-se:before {
+            content: none;
+        }
+        &:first-child {
+            display: none;
+        }
+    }
+}
+
+//min-width: 680px
+@media (min-width: ($screen-sm - 88)) {
+    .geral header.header {
+        height: calc(#{$top-height} + 53px);
+        .main-top-content {
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        &.with-validation-bar {
+            height: calc(#{$top-height} + 53px + 48px);
+        }
+        &.without-search {
+            height: $top-height;
+        }
+    }
+    .btn-open-search {
+        display: none;
+    }
+}
+
+//min-width: 768px
+@media (min-width: $screen-sm) {
+    .geral header.header {
+        .area-search-menu {
+            .row {
+                position: relative;
+            }
+            .content {
+                .search-area .btn-open-search {
+                    display: none;
+                } // ÚLTIMAS BUSCAS
+                .latest-searches {
+                    margin: 20px 0 10px;
+                    display: block;
+                    position: relative;
+                    padding: 0 20px;
+                    span.title, ul {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    span.title {
+                        width: 16px;
+                        line-height: normal;
+                        height: 16px;
+                        padding-left: 16px;
+                        overflow: hidden;
+                        vertical-align: bottom;
+                        position: relative;
+                        color: #A3A3A7;
+                        font-size: em(14px);
+                        padding-left: 20px;
+                        top: 2px;
+                        position: absolute;
+                        left: 0;
+                        &:before {
+                            content: $glyphicon-clock-o;
+                            font-family: $font-emp-icons;
+                            font-weight: normal;
+                            speak: none;
+                            color: #a4a4a4;
+                            font-size: 16px;
+                            position: absolute;
+                            left: 0;
+                            @include centralize-height(16px);
+                        }
+                    }
+                    .btn-open-details {
+                        position: absolute;
+                        width: 20px;
+                        background: $color-white;
+                        border: 1px solid $color-gray-50;
+                        border-radius: 50%;
+                        right: 0;
+                        top: 0;
+                        width: 20px;
+                        height: 20px;
+                        &:after {
+                            content: $glyphicon-chevron-down;
+                            speak: none;
+                            font-family: $font-emp-icons;
+                            font-size: 18px;
+                            @include centralize(18px, 18px);
+                            color: $color-gray-50;
+                        }
+                    }
+                    ul li {
+                        display: inline;
+                        &:after {
+                            content: ",";
+                            float: left;
+                        }
+                        &:last-child:after {
+                            content: none;
+                        }
+                        a, %latestSearchesUlLiA {
+                            font-size: em(14px);
+                            color: $color-gray-90;
+                            float: left;
+                            line-height: 1em;
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                        span {
+                            @extend %latestSearchesUlLiA; //:extend(.geral header.header .area-search-menu .content .latest-searches ul li a)
+                            display: none;
+                            color: $color-gray-90;
+                        }
+                    }
+                    &.opened {
+                        padding: 0;
+                        span.title {
+                            width: auto;
+                            overflow: hidden;
+                            padding-left: 20px;
+                        }
+                        .btn-open-details:after {
+                            @include rotate(180deg);
+                        }
+                        ul {
+                            margin-top: 30px;
+                            width: 100%;
+                        }
+                        ul li {
+                            margin-bottom: 10px;
+                            width: 50%;
+                            display: block;
+                            float: left;
+                        }
+                        ul li a,
+                        ul li span {
+                            clear: both;
+                            line-height: normal;
+                        }
+                        ul li:after {
+                            content: none;
+                        }
+                        ul li span {
+                            display: block;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//max-width: 320px
+@media (max-width: ($screen-xs - 160)) {
+    .geral header.header.with-validation-bar {
+        padding-top: (52px + 62px + 85px);
+    }
+}
+
+@media (max-height: 600px) {
+    .geral header.header .main-bar .candidate-area {
+        .not-logged-in .uc-login .area-links .btn-ok {
+            margin-bottom: 16px;
+        }
+    }
+}

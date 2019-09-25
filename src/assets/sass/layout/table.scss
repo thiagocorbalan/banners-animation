@@ -1,0 +1,70 @@
+//
+//  TABLE
+//  
+//  @project:       Empregos.com.br
+//  @version:       3.1.1
+//  @description:   Este será o estilo do novo componente de modal do site padrão Empregos.com.br.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        27/02/2018
+//
+
+@import "../base/mixins";
+
+table.emp-table {
+      width: 100%;
+      border-collapse: collapse;
+      padding: 20px;
+      background-color: $color-white;
+      font-size: 14px;
+      margin: 15px 0;
+      
+      text-align: center;
+
+      tbody td {
+            border-bottom:1px solid $color-gray-light;
+      }
+
+      td, th {
+            padding: 10px;
+            vertical-align: middle;
+            font-family:  $font-family-primary;
+            font-size: 1em;
+            @include box-sizing();
+      }
+
+      
+
+      thead,
+      tbody .cabecalho {
+            td,th{
+                  background: $color-gray-light;
+                  color: $color-white;
+                  font-size: 14px;
+                  font-weight: bold;
+                  vertical-align: middle;
+            }
+      }
+
+      &.table-color-primary thead td, tbody .cabecalho td { 
+            background: $color-blue7;                   
+            border: 1px solid $color-blue7;
+      }
+      &.table-color-orange theaad td, tbody .cabecalho td { 
+            background: $color-orange;                   
+            border: 1px solid $color-orange;
+      }
+
+      &.table-striped{
+            tbody tr:nth-child(2n+2) td {
+                  background-color: $color-gray-10;
+            }
+      }
+
+      &.table-bordered{
+            border: 1px solid $color-gray-light;
+            tbody td {
+                  border-left:1px solid $color-gray-light;
+            }
+      }
+}

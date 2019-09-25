@@ -1,0 +1,335 @@
+//
+//  BUTTONS
+//  
+//  @project:       Empregos.com.br
+//  @version:       3.5.3
+//  @description:   Layout dos botões.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @date:          27/02/2018
+//
+
+@import "../base/mixins";
+
+.btn-padrao{
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    padding: $btn-padding;
+    font-size: $btn-font-size;
+    display: inline-block;
+    line-height: $btn-height;
+	zoom: 1;
+	min-width: $btn-min-width;
+	cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    letter-spacing: normal;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid $color-gray-dark;
+    color: $color-gray-dark;
+
+    @include box-sizing();
+    @include border-radius($btn-border-radius);
+    @include user-select(none);
+
+    &:hover{
+        background-color: $color-gray-dark;
+        border-color:  transparent;
+        color:$color-white;
+    }
+
+    &:focus{ outline: none;}
+    &:link, &:active, &:focus, &:visited, &:hover{text-decoration: none;}
+
+    // Colors
+    &.primary {
+        background-color: $color-blue7;
+        color: $color-white;
+        border-color: $color-blue7;
+        &:hover{
+            background-color: darken($color-blue7, 8%);
+            border-color: transparent;
+        }
+    }
+
+    &.orange {
+        background-color: $color-orange;
+        color: $color-white;
+        border-color: $color-orange;
+        &:hover{
+            background-color: darken($color-orange, 6%);
+            border-color: transparent;
+        }
+    }
+
+    &.secondary {
+        color: $color-blue7;
+        border-color: $color-blue7;
+        &:hover{
+            background-color: $color-blue7;
+            border-color: transparent;
+            color: $color-white;
+        }
+        
+        &.orange{
+            background: transparent;
+            color: $color-orange6;
+            border-color: $color-orange;
+            
+            &:hover{
+                color: $color-white;
+                background-color: $color-orange;
+            }
+
+        }
+    }
+
+    &.invert {
+        color: $color-white;
+        border-color: $color-white;
+        background: transparent;
+
+        &:hover{
+            background-color: $color-white;
+            color: $color-blue7;
+        }
+
+        &.orange:hover{
+            color: $color-orange;
+        }
+    }
+
+    &.link{
+        background: none;
+        color:$color-blue7;
+        padding: 0;
+        border: 0;
+        text-decoration: underline;
+
+        &:hover{
+            text-decoration: none;
+        }
+    }
+
+    &.disabled, &.disabled:hover{
+        background-color: $color-gray6;
+        color: $color-gray4;
+        border-color: transparent;
+        @include cross-browser(user-select, none);
+        cursor: default;
+    }
+
+    // Sizes
+    &.lg{
+        padding: 0 em(22);
+        font-size: 18px;
+        line-height: 46px;
+        @include border-radius(4px);
+    }
+    &.sm{
+        padding: 0 em(18);
+        font-size: 12px;
+        line-height: 20px;
+    }
+    &.xs{
+        padding: 0 em(16);
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+    // Loading
+    &.loading:after{
+        content: "";
+        width: 14px;
+        height: 14px;
+        border: 2px solid $color-gray;
+        border-bottom-color: transparentize($color-white,.7);
+        border-left-color: transparentize($color-white,.7);
+        display: inline-block;
+        margin-left: 15px;
+        margin-right: -15px;
+        vertical-align: middle;
+        @include border-radius(50%);
+        @include animation(rotatespinner .5s linear infinite);
+    }
+
+    &.success{
+        background-color: $color-green2;    
+        padding-right: 1.14em;
+        border-color: transparent;
+
+        &:after{
+            content: $glyphicon-check;
+            font-family: $font-emp-icons;
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            line-height: 16px;
+            color: $color-white;
+            margin-left: 10px;
+        }
+
+    }
+
+}
+
+
+/* FACEBOOK */
+.btn-padrao.facebook {
+    background: $color-facebook;
+    filter: none;
+    color: $color-white;
+    box-shadow: inset 1px 1px rgba(255, 255, 255, 0.6), 0 2px 0 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid darken($color-facebook,5%); //#404f7e
+    font-size: 12px;
+    font-weight: 400;
+    line-height:44px;
+    padding:0 1em 0 3.846153846153846em;
+    position: relative;
+    border-radius: 5px;
+}
+
+.btn-padrao.facebook:before {
+    content: $glyphicon-facebook;
+    font-family: $font-emp-icons;
+    font-size: 1.85em;
+    font-size: 28px;
+    display: block;
+    width: 1.8em;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-weight: normal;
+    border-right: 1px solid saturate(lighten($color-facebook,10%),0%);
+}
+
+.btn-padrao.facebook:hover,
+.btn-padrao.facebook:active {
+    background: lighten($color-facebook,5%); // #596aa0
+    background-image: none;
+    filter: none;
+}
+
+.btn-padrao.facebook:active {
+    box-shadow: inset 1px 1px transparentize($color-white,.4), 0 0 0 0 transparentize($color-black,.9);
+}
+
+/* Padrão Novo Carreiras */
+.btn-padrao-carreiras {
+    display: block;
+    font-family: $font-family-primary;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #bbb;
+    border-bottom-color: #a2a2a2;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    text-shadow: none;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 1px 1px 0 transparentize($color-white,.8),0 1px 2px transparentize($color-black,.9);
+    -moz-box-shadow: inset 1px 1px 0 transparentize($color-white,.8),0 1px 2px transparentize($color-black,.9);
+    box-shadow: inset 1px 1px 0 transparentize($color-white,.8),0 1px 2px transparentize($color-black,.9);
+    color: $color-white;
+    background-color: #df7516;
+    background-image: -webkit-gradient(linear, 0 0, 0 100, from(#ee8221), to(#df7516));
+    background-image: -webkit-linear-gradient(top, #ee8221, #df7516);
+    background-image: -o-linear-gradient(top, #ee8221, #df7516);
+    background-image: linear-gradient(to bottom, #ee8221, #df7516);
+    background-image: -moz-linear-gradient(top, #ee8221, #df7516);
+    background-repeat: repeat-x;
+    border-color: #b25113;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fffbb450',endColorstr='#fff89406',GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    padding: 7px 17px;
+    text-decoration: none !important;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.btn-padrao-carreiras:hover {
+    background-position: 0 -15px;
+    background-image: none;
+    background-color: #df7516;
+}
+
+.btn-padrao-carreiras:active {
+    color: $color-white;
+    background-color: #f89406;
+    background-position: 0;
+    outline: 0;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+}
+
+// Buttons Group Select
+.button-group{
+    display: flex;
+    border: 1px solid $color-gray5;
+    overflow: hidden;
+    margin: 10% auto 0;    
+    width: 780px;
+    justify-content: center;
+
+    @include border-radius(3px);
+    @include user-select(none);
+
+    a,button{
+        text-decoration: none;
+        display: inline-block;
+        height: 34px;
+        line-height: 34px;
+        padding: 0 30px;
+        min-width: 116px;
+        text-align: center;
+        font-family: $font-family-primary;
+        font-size: 14px;
+        color:$color-gray4;
+        border-right: 1px solid $color-gray5;
+        background: $color-white;
+        font-weight: 600;
+        
+        &:last-child{ border: 0;}
+        &.selected{
+            background-color: $color-blue7;
+            color: $color-white;
+            cursor: default;
+        }
+    }
+
+    &:hover{
+        border-color: $color-blue7;
+
+        a,button{
+            @extend .button-group:hover;
+
+            &:hover, &.selected:hover{
+                background-color: lighten($color-blue7,15%);
+                color:$color-white;
+            }
+
+            &.selected, &.selected:hover{
+                background-color: $color-blue7;
+                color:$color-white;
+            }
+        }
+    }
+
+    @media (max-width: $screen-sm ){
+        display:block;
+        a,button{
+            border-right:0;
+            display:block; 
+            border-bottom: 1px solid $color-gray5;
+        }
+    }
+}

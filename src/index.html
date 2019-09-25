@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/empregos.css" type="text/css">
+</head>
+
+<body>
+
+    <div class="geral">
+        <div id="content">
+
+            <!-- TOPO -->
+            <header class="header ng-star-inserted" style="height: 117px;"><div class="main-top-content"><validation-bar><!----></validation-bar><div class="main-bar"><div class="container"><div class="row"><div class="col-md-12"><button class="btn-main-menu" title="Menu" type="button" data-opened="false"><span class="icon-menu"></span>MENU</button><div class="logo-area"><a title="Empregos.com.br" href="/"><img alt="Empregos.com.br" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMjkiIHZpZXdCb3g9IjAgMCAxNzkuNiAyOC45Ij48Y2lyY2xlIGN4PSI5OC45IiBjeT0iMTQuNCIgcj0iMTAuNiIgZmlsbD0iI0ZGRDQ3RCIvPjxwYXRoIGQ9Ik0xMDkuNiAxNC40Yy02LjktNC42LTEzLjMtNy4zLTIxLjMgMCAwLTQgNC44LTEwLjYgMTAuNi0xMC42QzEwNC44IDMuOCAxMDkuNiA5LjYgMTA5LjYgMTQuNHoiIGZpbGw9IiNGRkE3NDkiLz48cGF0aCBkPSJNOTkgMi4yYy02LjggMC0xMi4yIDUuNS0xMi4yIDEyLjIgMCA2LjcgNS41IDEyLjIgMTIuMiAxMi4yIDYuNyAwIDEyLjItNS41IDEyLjItMTIuMkMxMTEuMiA3LjcgMTA1LjcgMi4yIDk5IDIuMnpNMTA4LjIgMTQuNGMwIDUuMS00LjEgOS4yLTkuMiA5LjIgLTUuMSAwLTkuMi00LjEtOS4yLTkuMiAwLTAuMSAwLTAuMyAwLTAuNCAxLjktMS40IDQuMS0yLjMgNi41LTIuNyAtMS43IDAuOS0yLjkgMi44LTIuOSA0LjkgMCAzLjEgMi41IDUuNiA1LjYgNS42IDMuMSAwIDUuNi0yLjUgNS42LTUuNiAwLTItMS4xLTMuOC0yLjctNC44IDIuMyAwLjUgNC41IDEuNSA2LjMgM0MxMDguMiAxNC40IDEwOC4yIDE0LjQgMTA4LjIgMTQuNHpNOTYuNiAxMS44YzAuOCAwIDEuNCAwLjYgMS40IDEuNCAwIDAuOC0wLjYgMS40LTEuNCAxLjQgLTAuOCAwLTEuNC0wLjYtMS40LTEuNEM5NS4xIDEyLjQgOTUuOCAxMS44IDk2LjYgMTEuOHpNOTguNyA3LjljLTMuNSAwLTYuNyAxLjctOC43IDQuNCAxLTQuMSA0LjYtNy4xIDktNy4xIDQuNyAwIDguNiAzLjUgOS4xIDhDMTA2LjEgMTAgMTAyLjcgNy45IDk4LjcgNy45ek0xMy4xIDE1LjdjLTAuMiAwLjEtMS42IDEuOC0zLjYgMS43IC0yLTAuMi0zLTEuMS0zLjUtMy4xbDcuOC0xLjFjMC4zLTAuMiAwLjUtMC41IDAuNS0wLjkgMC0xLjktMS4xLTUtNS4zLTUuMSAtMy4xIDAtNi43IDEuOS02LjcgNi45IDAgNC45IDMuNiA2LjkgNi42IDYuOSAxLjQgMCAyLjktMC41IDMuOS0xLjQgMS4yLTEuMSAxLjctMi41IDEuNi0zLjFDMTQuNCAxNS4zIDEzLjMgMTUuNiAxMy4xIDE1Ljd6TTcuNyA5LjVjMS40LTAuMyAyLjIgMC44IDIuNCAyLjMgLTAuMiAwLTMuNSAwLjUtNC4zIDAuNkM2IDEwLjggNi4zIDkuOCA3LjcgOS41ek03MS4yIDE1LjdjLTAuMiAwLjEtMS42IDEuOC0zLjYgMS43IC0yLTAuMi0zLTEuMS0zLjUtMy4xbDcuOC0xLjFjMC4zLTAuMiAwLjUtMC41IDAuNS0wLjkgMC0xLjktMS4xLTUtNS4zLTUuMSAtMy4xIDAtNi43IDEuOS02LjcgNi45czMuNiA2LjkgNi42IDYuOWMxLjQgMCAyLjktMC41IDMuOS0xLjQgMS4yLTEuMSAxLjctMi41IDEuNi0zLjFDNzIuNCAxNS4zIDcxLjQgMTUuNiA3MS4yIDE1Ljd6TTY1LjcgOS41YzEuNC0wLjMgMi4yIDAuOCAyLjQgMi4zIC0wLjIgMC0zLjUgMC41LTQuMyAwLjZDNjQgMTAuOCA2NC4zIDkuOCA2NS43IDkuNXpNMzUuNSAxMS4zYzAgNC40IDAgOC45IDAgOC45bDAgMGMwIDAuMi0wLjIgMC40LTAuNCAwLjRoLTMuNmMtMC4yIDAtMC40LTAuMi0wLjQtMC40aDB2LTkuMmMwLTAuOC0wLjgtMS40LTEuNy0xLjQgLTAuOSAwLTEuNyAwLjYtMS43IDEuNHY5LjJoMGMwIDAuMi0wLjIgMC40LTAuNCAwLjRoLTMuNmMtMC4yIDAtMC40LTAuMi0wLjQtMC40IDAgMCAwIDAgMCAwdi05LjJjMC0wLjgtMC44LTEuNC0xLjctMS40IC0wLjkgMC0xLjcgMC42LTEuNyAxLjR2OS4yaDBjMCAwLjItMC4yIDAuNC0wLjQgMC40aC0zLjZjLTAuMiAwLTAuNC0wLjItMC40LTAuNCAwIDAgMC04LjEgMC0xMC43IDAtMS4yIDEuOC0xLjggMy41LTIuMSAxLjYtMC40IDUuMS0wLjQgNi44IDEuMiAxLjItMS4zIDUuNy0xLjkgNy41LTFDMzUuMSA4LjUgMzUuNSA5LjcgMzUuNSAxMS4zek00Ny42IDguNWMtMC4xIDAtMC4xLTAuMS0wLjItMC4xIDAgMCAwIDAtMC4xLTAuMSAtMC4zLTAuMi0wLjUtMC40LTAuOC0wLjUgLTEtMC41LTIuNS0wLjctNC4xLTAuNyAtMy4xIDAtNS42IDEtNS42IDIuM3Y3LjVoMHY5LjJjMCAwLjIgMC4yIDAuNCAwLjQgMC40aDMuNmMwLjIgMCAwLjQtMC4yIDAuNC0wLjRsMCAwYzAgMCAwLTIuNSAwLTUuNiAwLjcgMC4zIDEuNSAwLjQgMi4zIDAuNCAxLjcgMCAzLjEtMC43IDQtMS42IDEuMi0xLjEgMi0zLjEgMi01LjQgMC0yLjMtMC43LTQuNC0xLjktNS41QzQ3LjYgOC41IDQ3LjYgOC41IDQ3LjYgOC41ek00NS4xIDE0LjFjMCAxLjMtMC4yIDIuNC0wLjYgMy4xIDAgMCAwIDAuMSAwIDAuMSAwIDAgMCAwIDAgMCAwIDAuMS0wLjEgMC4yLTAuMSAwLjIgLTAuNCAwLjctMS4yIDEtMS44IDAuOSAtMC40IDAtMC44LTAuMS0xLjMtMC4zIDAtMC4zIDAtMC42IDAtMC44aDB2LTEuNmMwIDAgMCAwIDAgMHYtNS4zYzAtMC42IDAuNS0xIDEtMSAwLjMgMCAxLjMgMC4xIDIuMSAxLjNDNDUuMSAxMi4xIDQ1LjEgMTMuMiA0NS4xIDE0LjF6TTYwLjYgOS40YzAgMi4xLTIuNiAyLTMuMSAwLjggLTAuNC0xLjItMS4yLTEuMS0xLjUtMS4xIC0wLjYgMC0xIDAuNS0xIDFsMCAxLjJoMGMwIDAuMyAwIDAuNiAwIDAuOHYyLjRjMCAzLjEgMCA1LjYgMCA1LjZsMCAwYzAgMC4yLTAuMiAwLjQtMC40IDAuNGgtMy42Yy0wLjIgMC0wLjQtMC4yLTAuNC0wLjR2LTkuMmgwVjljMC0xLjMgMi41LTEuOSA1LjYtMS45QzU3LjkgNy4xIDYwLjYgNy4yIDYwLjYgOS40ek04Ni4zIDE5LjRjMCAwIDAgMCAwIDAgLTAuMy0wLjMtMC42LTAuNi0xLTAuNyAtMC41LTAuMy0xLjItMC42LTIuMS0wLjcgLTIuMS0wLjItNC42LTAuMi00LjYtMC4ycy0xLjIgMC0xLjQtMC42Yy0wLjEtMC4zIDAuMi0wLjggMC40LTEuMSAwLjQgMC4xIDAuOCAwLjEgMS4zIDAuMSAzLjggMCA1LjctMS45IDUuOC00LjMgMC0wLjgtMC4yLTEuNS0wLjYtMi4xIDAuNi0wLjIgMi41LTAuNiAyLjUtMC43IDAuMS0wLjEtMC4zLTEuNC0wLjUtMS40IC0wLjIgMC0xLjQgMC4zLTIuOCAwLjMgLTAuNiAwLTEuNi0wLjUtMi41LTAuNiAtMS4zLTAuMi0yLjMtMC4xLTIuMy0wLjEgLTMuMSAwLjEtNS4xIDItNS4yIDQuNCAwIDEuNyAwLjggMy4yIDIuNSA0IC0wLjQgMC4zLTEuMSAwLjktMS43IDEuNSAtMC42IDAuNi0wLjcgMS40LTAuOCAxLjcgMCAwIDAgMCAwIDAgMCAwLjEgMCAwLjIgMCAwLjIgMCAxIDAuOCAxLjcgMS43IDEuOSAtMS42IDEtMi41IDIuMS0yLjIgMy40IDAuMiAwLjggMC43IDEuNCAxLjcgMS44IDIuMiAwLjkgNi4xIDAuOSA4IDAuMSAyLjktMS4xIDQuNC0yLjkgNC41LTQuNiAwIDAgMCAwIDAgMCAwLTAuMSAwLTAuMiAwLTAuMyAwIDAgMCAwIDAgMCAwLTAuNy0wLjMtMS40LTAuNy0xLjlIODYuM3pNNzguMyA5LjJjMC45LTAuMyAyIDAuNSAyLjMgMS44IDAuNCAxLjItMC4xIDIuNS0xIDIuNyAtMC45IDAuMy0yLTAuNS0yLjMtMS44Qzc3IDEwLjcgNzcuNCA5LjUgNzguMyA5LjJ6TTgyLjggMjNjLTAuMyAwLjctMS42IDEuMy0zLjMgMS4zIC0xLjYgMC0yLjktMC41LTMuMy0xLjNoMGMwIDAgMCAwIDAgMCAwIDAgMC0wLjEgMC0wLjEgMC0wLjEgMC0wLjEgMC0wLjIgMCAwIDAgMCAwIDAgMC0wLjEgMC0wLjMgMC4xLTAuNSAwLjItMC40IDAuNi0wLjggMC42LTAuOHMwLjUgMCAxLjIgMC4xYzAuNSAwIDIuMSAwIDMuMSAwLjEgMCAwIDAgMCAwIDAgMC4yIDAgMC4zIDAgMC41IDAuMSAwLjEgMCAwLjEgMCAwLjEgMCAwLjYgMC4yIDEuMSAwLjYgMS4xIDEuMUM4Mi45IDIyLjggODIuOSAyMi45IDgyLjggMjN6TTEyMi42IDE2LjFjMCAwLjIgMC4xIDAuNCAwLjEgMC43IDAgMC4yIDAgMC40IDAgMC42IDAgMS4zLTEuMyAzLjUtNS40IDMuNSAtMy40IDAtNS4yLTEuNS01LjItMy42IDAtMC4xIDAtMC44IDAuOS0xLjIgMC45LTAuNCAxLjkgMCAyLjMgMC42IDAuOCAxLjEgMS41IDEuOSAyLjIgMS45IDAuNyAwIDEuNC0wLjUgMS4zLTEuNSAwLTAuMi0wLjMtMC43LTAuNy0xIC0wLjktMC42LTIuMy0xLTMuMi0xLjVoMGMwIDAtMC4zLTAuMi0wLjgtMC41IDAgMCAwIDAgMCAwIC0wLjMtMC4yLTAuNi0wLjUtMC45LTAuOCAtMC41LTAuNi0wLjctMS41LTAuNy0xLjcgMC0wLjIgMC0wLjQgMC0wLjYgMC0wLjIgMC0wLjQgMC0wLjYgMC0xLjIgMS4zLTMuMyA1LjEtMy4zIDMuMiAwIDQuOCAxLjIgNC44IDMuMSAwIDAuMSAwIDAuOC0wLjkgMS4yIC0wLjggMC40LTEuNyAwLjEtMi4xLTAuNCAtMC44LTEtMS4xLTEuOS0yLTEuOSAtMC45IDAuMS0xLjMgMC42LTEuMiAxLjUgMCAwLjIgMC4yIDAuNiAwLjcgMC45IDAuOCAwLjUgMi40IDEgMy4zIDEuNSAwLjMgMC4yIDAuNiAwLjMgMC43IDAuNCAwIDAgMC4xIDAgMC4xIDAuMSAwLjEgMC4xIDAuMSAwLjEgMC4xIDAuMWwwIDBjMC4zIDAuMiAwLjYgMC41IDAuOSAwLjcgMC4xIDAuMSAwLjIgMC4yIDAuMyAwLjRDMTIyLjQgMTUuMiAxMjIuNSAxNS42IDEyMi42IDE2LjF6TTE1Ni45IDE0LjhjMCAyLjkgMCA1LjkgMCA1LjloMGMwIDAuMS0wLjEgMC4zLTAuMyAwLjNoMCAtMS45Yy0wLjIgMC0wLjMtMC4xLTAuMy0wLjMgMCAwIDAgMCAwIDB2LTYuMmMwLTAuNS0wLjUtMS4zLTEuNC0xLjMgLTEgMC0xLjQgMC42LTEuNCAxLjF2Ni40aDBjMCAwLjEtMC4xIDAuMy0wLjMgMC4zaC0xLjkgMGMtMC4xIDAtMC4zLTAuMS0wLjMtMC4zIDAgMCAwIDAgMCAwdi02LjJjMC0wLjUtMC41LTEuMy0xLjQtMS4zIC0xIDAtMS40IDAuNi0xLjQgMS4xdjYuNGgwYzAgMC4xLTAuMSAwLjMtMC4zIDAuM2gtMS45Yy0wLjEgMC0wLjMtMC4xLTAuMy0wLjMgMCAwIDAtNS40IDAtNy4xIDAtMC44IDEtMS4yIDItMS40IDEuMS0wLjIgMy40LTAuMyA0LjUgMC44IDAuOC0wLjkgMy44LTEuMiA1LTAuNkMxNTYuOSAxMi45IDE1Ni45IDEzLjcgMTU2LjkgMTQuOHpNMTYxIDE5LjdjMCAwLjctMC42IDEuMy0xLjQgMS4zIC0wLjggMC0xLjQtMC42LTEuNC0xLjMgMC0wLjcgMC42LTEuMyAxLjQtMS4zQzE2MC40IDE4LjQgMTYxIDE4LjkgMTYxIDE5Ljd6TTEyNiAxOS43YzAgMC43LTAuNiAxLjMtMS40IDEuMyAtMC43IDAtMS40LTAuNi0xLjQtMS4zIDAtMC43IDAuNi0xLjMgMS40LTEuM0MxMjUuNCAxOC40IDEyNiAxOC45IDEyNiAxOS43ek0xNjguNSAxMi4yYy0xLjgtMS4xLTMuOSAwLjMtNC4xIDAuNiAwLTIuMSAwLTQuNiAwLTQuNmwwIDBjMC0wLjEtMC4xLTAuMy0wLjMtMC4zaC0xLjdjLTAuMiAwLTAuMyAwLjEtMC4zIDAuM3Y2LjJoMHY1YzAgMC45IDEuNyAxLjYgMy43IDEuNiAwLjYgMCAyLjEtMC4zIDMuMS0xLjQgMC45LTEgMS4yLTIuNiAxLjItMy40QzE3MC4xIDE1LjUgMTcwLjMgMTMuMyAxNjguNSAxMi4yek0xNjcuMiAxOC43Yy0wLjcgMC45LTAuOSAwLjktMS43IDAuOXMtMS4yLTAuNy0xLjItMS4xdi0zLjNjMCAwIDAgMCAwIDB2LTAuN2wwLTAuNGMwLTAuMiAwIDAgMC0wLjIgMC40LTAuNCAwLjgtMC42IDEuMi0wLjYgMC42LTAuMSAxLjIgMC4yIDEuNyAwLjYgMCAwLjEgMC4xIDAuMSAwLjEgMC4yIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjEgMC4zIDAuNSAwLjUgMS4zIDAuNSAyLjJDMTY3LjkgMTcgMTY4IDE3LjggMTY3LjIgMTguN3pNMTc3LjMgMTMuM2MwIDEuNC0xLjYgMS4xLTEuOSAwLjNzLTEuOS0wLjctMS45IDAuNGwwIDAuOGgwYzAgMC4yIDAgMC40IDAgMC42djEuNmMwIDIuMSAwIDMuOCAwIDMuOGwwIDBjMCAwLjEtMC4xIDAuMy0wLjMgMC4zaC0xLjhjLTAuMSAwLTAuMy0wLjEtMC4zLTAuM3YtNi4xaDB2LTEuMmMwLTAuOSAxLjctMS4zIDMuNy0xLjNDMTc1LjkgMTIgMTc3LjMgMTEuOSAxNzcuMyAxMy4zek0xMzguNyAxMS43Yy0yLjUgMC00LjQgMS45LTQuNCA0LjZzMiA0LjYgNC40IDQuNmMyLjUgMCA0LjQtMS43IDQuNC00LjZDMTQzLjEgMTMuNCAxNDEuMSAxMS43IDEzOC43IDExLjd6TTEzOC45IDE5LjZjLTEuMSAwLjEtMi4xLTEuNC0yLjItMy4yIC0wLjEtMS44IDAuOC0zLjMgMS45LTMuNCAxLjEtMC4xIDIuMSAxLjQgMi4yIDMuMkMxNDAuOSAxOCAxNDAgMTkuNSAxMzguOSAxOS42ek0xMzMuNiAxOC42Yy0wLjMgMS4zLTEuOSAyLjMtMy4zIDIuMyAtMC45IDAtMS45LTAuMi0yLjYtMC45IC0wLjktMC44LTEuNC0yLjItMS40LTMuNyAwLTEuMiAwLjQtMi4yIDEtM2wwIDBjMCAwIDAgMCAwIDAgMC42LTAuOCAxLjUtMS40IDIuNS0xLjUgMCAwIDAgMCAwIDAgMC4zLTAuMSAwLjctMC4xIDEuMSAwIDIuMiAwLjMgMy4xIDEuNiAyLjUgMi42IC0wLjIgMC4zLTAuOCAwLjctMS4zIDAuNCAtMC41LTAuMy0wLjgtMS40LTEuNC0xLjYgLTAuMy0wLjEtMS0wLjEtMS40IDAuMSAtMC40IDAuMi0wLjYgMC42LTAuNyAwLjggLTAuMyAwLjUtMC40IDEuMS0wLjQgMS44IDAgMC4xIDAgMC4zIDAgMC40IDAuMSAxLjUgMS4xIDIuNyAyLjQgMi43IDEuNSAwIDItMS41IDIuMy0xLjZDMTMzLjMgMTcuNCAxMzMuOSAxNy40IDEzMy42IDE4LjZ6IiBmaWxsPSIjMDAzQ0E0Ii8+PC9zdmc+DQo=" title="Empregos.com.br"></a></div><div class="buttons-menu-candidate"><!----><!----><div class="logged-candidate ng-star-inserted" data-opened="false"><span class="text ">Olá, <strong>Rosangela</strong></span><div class="area-foto tiny no-icon-photo"><div class="thumb"><a class="btn-candidate-menu" href="javascript:void(0); "><span class="moldura"><!----></span><span class="menu-icon-closed"></span></a></div></div></div></div></div><div class="main-menu-area"><nav class="main-menu " role="menubar "><span class="title">Buscar</span><ul><li class="job " role="menuitem "><a href="https://h.empregos.com.br/vagas">Vagas</a></li><li class="companys " role="menuitem "><a href="https://h.empregos.com.br/empresas">Empresas</a></li><li class="resumes " role="menuitem "><a href="https://h.empregos.com.br/curriculos">Currículos</a></li><li class="careers " role="menuitem "><a href="https://hcarreiras.empregos.com.br">Carreiras</a></li></ul></nav><!----><!----><div class="other-links-logged ng-star-inserted"><ul><li><a routerlink="/minha-pagina" href="/minha-pagina">Minha página</a></li><li><a routerlink="/quem-viu-meu-cv" href="/quem-viu-meu-cv">Quem viu meu currículo</a></li><li><a routerlink="/processo-seletivo" href="/processo-seletivo">Processos Seletivos</a></li><li><a routerlink="/assinatura" href="/assinatura">Assinatura</a></li><!----></ul><a class="link-employer" href="https://h.empregos.com.br/faq">Ajuda</a></div><!----></div><div class="candidate-area "><box-user><!----><div class="logged-candidate ng-star-inserted"><div class="area-foto small"><div class="thumb fade"><a class="btn-alterar-foto" href="https://hcandidato.empregos.com.br/meu-curriculo.aspx"><span class="moldura"><!----></span></a></div><div class="dados-candidato"><div class="nome-candidato"><a routerlink="/minha-pagina" href="/minha-pagina">Rosangela Souza</a></div><span class="cargo-candidato"><a routerlink="/minha-pagina" href="/minha-pagina">Estágio em secretariado</a></span></div></div><emp-resume-force><div spinner-directive="" class=" " style=""><!----><div class="emp-resume-force-area ng-star-inserted" style="display: none;"><!----><span class="title ng-star-inserted">Força do Currículo</span><div class="emp-resume-force ng-star-inserted" id="divResumeForce"><div class="speedometer"><div class="fill" style="transform: rotate(117deg);"></div><div class="outline"></div><div class="text" data-value="0"></div></div><div class="pointer" style="transform: rotate(117deg);"></div></div><ul class="list-links ng-star-inserted"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><li class="ng-star-inserted"><a track="" href="https://hcandidato.empregos.com.br/meu-curriculo.aspx">Edite seu currículo</a><span></span></li><!----><!----><!----><!----></ul><!----></div></div></emp-resume-force><nav><ul><li class="assinatura"><a routerlink="/assinatura" href="/assinatura"><span>Assinatura</span><!----></a><!----><a class="cta ng-star-inserted" href="https://hcandidato.empregos.com.br/candidato/pagamento/forma-pagamento.aspx">ASSINE</a></li><li><a routerlink="/alerta-de-vagas" href="/alerta-de-vagas"><span>Meu Alerta de vagas</span></a></li><li><a routerlink="/seguir-empresas" href="/seguir-empresas"><span>Empresas Seguidas</span></a></li><li><a href="https://hcandidato.empregos.com.br/servicos-candidato.aspx"><span>Guia do usuário</span></a></li><li><a href="https://h.empregos.com.br/comunicados/configura-endereco.aspx"><span>Comunicados por email</span></a></li><li><a routerlink="/alterar-minha-senha" href="/alterar-minha-senha"><span>Alterar minha senha</span></a></li><!----></ul></nav><a class="exit" href="https://h.empregos.com.br/sair.aspx"><span>Sair</span></a></div></box-user></div></div></div></div><searche-engine><div class="area-search-menu"><div class="container"><div class="row justify-content-center"><div class="content col-md-6 col-sm-7"><nav class="main-menu-vertical" id="navMainMenuVertical"><button class="dropdown-searcher" id="dropdownSearcher" type="button">Buscar por Vagas</button><ul><!----><li class="ng-star-inserted"><button type="button" class="active">Vagas</button></li><li class="ng-star-inserted"><button type="button">Empresas</button></li><li class="ng-star-inserted"><button type="button">Currículos</button></li></ul></nav><div class="search-area default"><!----><div class="suggest-area default ng-star-inserted"><div class="box-form jobrole text"><autocomplete-job-role><input class="ui-autocomplete-input emp-form ng-untouched ng-pristine ng-valid" type="text" typeaheadoptionfield="description" typeaheadwaitms="200" placeholder="Digite um cargo ou palavra-chave"></autocomplete-job-role><button class="btn-open-search" id="btnOpenSearch" type="button"></button></div><div class="box-form text city"><autocomplete-locality><!----><input class="emp-form box-sizing ui-autocomplete-input ng-untouched ng-pristine ng-valid" type="text" typeaheadoptionfield="autocompleteItem.description" typeaheadwaitms="200" placeholder="Digite uma cidade"></autocomplete-locality></div></div><!----><a class="lnk-encontrar" tabindex="3">Encontrar</a></div></div></div></div></div></searche-engine></div></header>
+
+            <!-- CONTEÚDO -->
+            <div class="pg-payment">
+
+                <div class="banner-payment">
+                    <div class="container">
+
+                        <!-- Default -->
+                        <div id="divDefault" class="banner-payment-default">
+                            <!-- Currículo  -->
+                            <div class="cv">
+                                <div class="cv--front">
+                                    <span class="cv-title"><span>Plano Completo</span></span> 
+                                    <span class="cv-photo"><img src="assets/images/cv-photo-female-user.jpg" alt=""></span>
+                                    
+                                    <div class="cv-text">
+                                        <div class="cv-line"></div>
+                                        <div class="cv-line"></div>
+                                        <div class="cv-line"></div>
+                                        <div class="cv-line"></div>
+                                    </div>
+                                </div>
+
+                                <div class="cv--back"></div>
+
+                            </div>
+
+
+                            <div id="divBulletsContainer" class="bullets-container">
+                                
+                                <!-- CV ILIMITADO -->
+                                <div class="bullet bullet--top bullet--cv-ilimitado bullet-show">
+                                    <div class="glyphicon-area"></div>
+                                    <div class="text-area">
+                                        <span class="title">Envio de CV ilimitado</span>
+                                        <p>Você pode enviar seu currículo ilimitadamente e se candidatar a mais de xxx mil vagas do site.</p>
+                                    </div>
+
+                                </div>
+
+                                <!-- DESTAQUE CV -->
+                                <div class="bullet bullet--right bullet--destaque-cv bullet-show">
+                                    <div class="glyphicon-area"></div>
+                                    <div class="text-area">
+                                        <span class="title">DESTAQUE DE CV</span>
+                                        <p>Seu currículo aparece com prioridade nas buscas de currículos feitas pelos recrutadores.</p>
+                                    </div>
+                                </div>
+
+                                <!-- BUSCA VAGAS -->
+                                <div class="bullet bullet--left bullet--busca-vagas bullet-show">
+                                    <div class="glyphicon-area"></div>
+                                    <div class="text-area">
+                                        <span class="title">Envio de CV ilimitado</span>
+                                        <p>Temos 8.000 oportunidades na área Técnicos (Manutenção, Instalações e Reparos) em Rio Grande do Norte.</p>
+                                    </div>
+                                </div>
+
+                                <!-- QUEM VIU MEU CV -->
+                                <div class="bullet bullet--top bullet--quem-viu-cv bullet-show">
+                                    <div class="glyphicon-area"></div>
+                                    <div class="text-area">
+                                        <span class="title">QUEM VIU MEU CV</span>
+                                        <p>Te avisamos quando uma empresa visualiza suas informações de currículo. Em média XX mil currículos são visualizados por mês..</p>
+                                    </div>
+                                </div>
+
+                                <!-- GUIA DE EMPRESAS -->
+                                <div class="bullet bullet--right bullet--guia-de-empresas bullet-show">
+                                    <div class="glyphicon-area"></div>
+                                    <div class="text-area">
+                                        <span class="title">GUIA DE EMPRESAS</span>
+                                        <p>Você encontra o perfil de mais de XXX mil empresas. Siga as empresas e envie seu currículo diretamente para os recrutadores.</p>
+                                    </div>
+                                </div>
+
+                                <!-- PROCESSO SELETIVO -->
+                                <div class="bullet bullet--left bullet--processo-seletivo bullet-show">
+                                    <div class="glyphicon-area"></div>
+                                    <div class="text-area">
+                                        <span class="title">Processo Seletivo</span>
+                                        <p>Você pode acompanhar todas as etapas do processo seletivo que está participando.</p>
+                                    </div>
+                                </div>
+
+
+                                
+
+
+                            </div>
+
+                            <div class="cv-shadow"></div>
+                        </div>
+
+                        <!-- Products -->
+                        <div id="divProducts" class="banner-payment-products banner-payment--animate">
+
+                            <div class="navigator">
+                                <div class="navigator-bar"><span class="balls"></span></div>
+                                
+                                <!-- Empresa -->
+                                <div id="divEmpresa" class="navigator-content empresa ">
+                                    
+                                    <div class="logo">
+
+                                        <!-- Imagem que será substituida quando vier da página de empresa -->
+                                        <img src="assets/images/mini-logo.gif" class="thumb-img" width="76" height="76" alt="@@Nome_Empresa">
+
+                                        <div class="text typing">
+                                            <span>IBM do Brasil</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+
+                                        <div class="collumn lines">
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                        </div>
+
+                                        <div class="rating">
+                                            <svg class="progress" width="80" height="80" viewBox="0 0 120 120">
+                                                <circle class="bg" cx="60" cy="60" r="54" fill="none" stroke-width="12" />
+                                                <circle class="progress__value" cx="60" cy="60" r="54" fill="none" stroke-width="12" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="collumn stars-container">
+                                            <div class="stars">
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                            </div>
+                                            <div class="stars">
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                            </div>
+        
+                                            <div class="stars">
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                            </div>
+                                            <div class="stars">
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                            </div>
+                                            <div class="stars">
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                                <div class="star"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <!-- Vagas -->
+                                <div id="divVagas" class="navigator-content vagas">
+                                    
+                                    <div class="box box-search">
+                                        <div class="text typing"><span>Vagas de emprego</span></div>
+                                    </div>
+
+                                    <div class="dflex">                                    
+                                        <div class="box box-job">
+                                            <div class="box-logo"></div>
+                                            <div class="lines">
+                                                <div class="line"></div>
+                                                <div class="line"></div>
+                                                <div class="line"></div>
+                                            </div>
+                                            <div class="button-cv"></div>
+                                        </div>
+                                        <div class="box box-job">
+                                            <div class="box-logo"></div>
+                                            <div class="lines">
+                                                <div class="line"></div>
+                                                <div class="line"></div>
+                                                <div class="line"></div>
+                                            </div>
+                                            <div class="button-cv"></div>
+                                        </div>
+                                        <div class="box box-job">
+                                            <div class="box-logo"></div>
+                                            <div class="lines">
+                                                <div class="line"></div>
+                                                <div class="line"></div>
+                                                <div class="line"></div>
+                                            </div>
+                                            <div class="button-cv"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Processo Seletivo -->
+                                <div id="divProcessoSeletivo" class="navigator-content processo-seletivo ">
+                                    <div class="box box-search">
+                                        <div class="text typing"><span>Processo Seletivo</span></div>
+                                    </div>
+
+                                    <div class="dflex">                                    
+                                            <div class="box box-job">
+                                                <div class="box-logo"></div>
+                                                <div class="lines">
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                </div>
+                                                <div class="hp-container">
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-line"></div>
+                                                </div>
+                                            </div>
+                                            <div class="box box-job">
+                                                <div class="box-logo"></div>
+                                                <div class="lines">
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                </div>
+                                                <div class="hp-container">
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-line"></div>
+                                                </div>
+                                            </div>
+                                            <div class="box box-job">
+                                                <div class="box-logo"></div>
+                                                <div class="lines">
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                </div>
+                                                <div class="hp-container">
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-bullet"></div>
+                                                    <div class="hp-line"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <!-- Quem viu meu CV -->
+                                <div id="divQvmcv" class="navigator-content qvmcv">
+                                    
+                                    <div class="dflex">
+                                        <div class="collumn">
+                                            <div class="box box-search">
+                                                <div class="text typing"><span>Quem viu meu CV</span></div>
+                                            </div>
+
+                                            <div>
+                                                <div class="box box-job">
+                                                    <div class="box-logo"></div>
+                                                    <div class="lines">
+                                                        <div class="line"></div>
+                                                        <div class="line"></div>
+                                                        <div class="line"></div>
+                                                    </div>
+                                                    <div class="icon"></div>
+                                                </div>
+                                                <div class="box box-job">
+                                                    <div class="box-logo"></div>
+                                                    <div class="lines">
+                                                        <div class="line"></div>
+                                                        <div class="line"></div>
+                                                        <div class="line"></div>
+                                                    </div>
+                                                    <div class="icon"></div>
+                                                </div>
+                                                <div class="box box-job">
+                                                    <div class="box-logo"></div>
+                                                    <div class="lines">
+                                                        <div class="line"></div>
+                                                        <div class="line"></div>
+                                                        <div class="line"></div>
+                                                    </div>
+                                                    <div class="icon"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="collumn cv">
+                                            <div class="box box-job">
+                                                <div class="cv-logo"></div>
+                                                <div class="lines">
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                    <div class="line"></div>
+                                                    <div class="line last"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                
+                <div class="container txtcenter">
+                    <div id="divGroupButtons" class="button-group">
+                        <button type="button">Padrão</button>
+                        <button type="button">Empresa</button>
+                        <button type="button">Vagas</button>
+                        <button type="button">Processo Seletivo</button>
+                        <button type="button">Quem viu meu CV</button>
+                    </div>
+
+                    <br>
+                    <button id="buttonPlay" type="button" class="btn-padrao" onclick="main.play()">Play</button>
+                    <button id="buttonStop" type="button" class="btn-padrao" onclick="main.stop()">Stop</button>
+                    <button id="buttonStop" type="button" class="btn-padrao link" onclick="main.reset()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="./js/main.js"></script>
+    <script>
+            var main = new Main();
+    </script>
+   
+</body>
+
+</html>

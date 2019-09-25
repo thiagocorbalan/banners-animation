@@ -1,0 +1,74 @@
+//
+//  RATING
+//  
+//  @project:       Empregos.com.br
+//  @version:       1.0.1
+//  @description:   Adaptação do componente "rating" do bootstrap.
+//  @author:        Carlos Novais
+//  @date:          28/11/2017
+//  @update:        30/05/2018
+//
+
+@import "./../../sass/base/mixins.scss";
+
+
+rating {
+    height: 30px;
+    display: inline-block;
+    span{
+        outline: none;
+        cursor: pointer;
+        height: 30px;
+        display: block;
+        span{
+            text-indent: -5000px; ///// aqui!!!
+            font-style: normal;
+            margin-right: 3px;
+            &.sr-only{ display: none; position: absolute; }
+            &.bs-rating-star{
+                position: relative;
+                display: inline-block;
+                border-radius: 50%;
+                line-height: 30px;
+                width: 30px;
+                height: 30px;
+                border: 3px solid #ddd;
+                &:before{
+                    color:#ddd;
+                    position: absolute;
+                    top: -4px;
+                    left: 4px;
+                    font-family: $font-emp-icons;
+                    font-style: normal;
+                    font-size: 16px;
+                    line-height: 30px;
+                    content: $glyphicon-star;
+                    text-indent: 0;
+                }
+            }
+            &.active{
+                position: relative;
+                display: inline-block;
+                border-radius: 50%;
+                line-height: 30px;
+                width: 30px;
+                height: 30px;
+                background-color: $color-blue;
+                border: 3px solid $color-blue;
+    
+                &:before{
+                    color:$color-white;
+                    position: absolute;
+                    top: -3px;
+                    left: 4px;
+                    font-family: $font-emp-icons;
+                    font-style: normal;
+                    font-size: 16px;
+                    line-height: 30px;
+                    content: $glyphicon-star;
+                    text-indent: 0;
+                }
+            }
+        }
+    }
+}

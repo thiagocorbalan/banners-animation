@@ -1,0 +1,668 @@
+﻿//
+//   MIXINS
+//
+//  $project:       Empregos.com.br
+//  $version:       2.1.1
+//  $description:   Aqui ficam os Mixins, ou funções, que facilitam a escrita das declarações CSS.
+//  $author:        Thiago Corbalan
+//  $date:          25/07/2017
+//  $update:        24/08/2018
+//
+@import "variables";
+// @import "../libs/bootstrap/mixins/vendor-prefixes";
+// @import "../libs/bootstrap/mixins/opacity";
+///*
+//    Cross Browser
+//    $description:   Usado para adicionar propriedades que não são supportadas por outros navegadores, como
+//                    por exemplo o box-sizing que para funcionar no o firefox precisa colocar o prefixo -moz- na frente.
+//    $version: 1.0
+//
+//*/
+@mixin cross-browser($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    #{$property}: $value;
+}
+
+
+///* 
+//    Box Shadow
+//
+//    $description: Para aplicar sombra aos elementos;
+//    $version: 1.0
+//    $parameters: out-shadow e in-shadow
+//*/
+@mixin box-shadow($out-shadow, $in-shadow) {
+    -webkit-box-shadow: $out-shadow, $in-shadow;
+    -moz-box-shadow: $out-shadow, $in-shadow;
+    box-shadow: $out-shadow, $in-shadow;
+}
+
+@function replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+@mixin user-select($user-select:none){
+    @include cross-browser(user-select, $user-select );
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    // IE8 filter
+    $opacity-ie: ($opacity * 100);
+    filter: alpha(opacity=#{$opacity-ie});
+}
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+        -ms-transform: rotate($degrees); // IE9 only
+         -o-transform: rotate($degrees);
+            transform: rotate($degrees);
+}
+@mixin rotateY($degrees) {
+    -webkit-transform: rotateY($degrees);
+        -ms-transform: rotateY($degrees); // IE9 only
+         -o-transform: rotateY($degrees);
+            transform: rotateY($degrees);
+}
+
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+       -moz-transition: $transition;
+         -o-transition: $transition;
+            transition: $transition;
+}
+
+@mixin translate3d($x, $y, $z) {
+    -webkit-transform: translate3d($x, $y, $z);
+            transform: translate3d($x, $y, $z);
+}
+
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+            box-shadow: $shadow;
+}
+
+@mixin animation($animation...) {
+    -webkit-animation: $animation;
+         -o-animation: $animation;
+            animation: $animation;
+  }
+
+@mixin scaleX($ratio) {
+    -webkit-transform: scaleX($ratio);
+    -ms-transform: scaleX($ratio); // IE9 only
+    -o-transform: scaleX($ratio);
+    transform: scaleX($ratio);
+}
+@mixin scale($ratio) {
+    -webkit-transform: scale($ratio);
+    -ms-transform: scale($ratio); // IE9 only
+    -o-transform: scale($ratio);
+    transform: scale($ratio);
+}
+  
+
+@mixin grayscale($value) {
+    -webkit-filter: #{"grayscale(#{$value})"};
+    -moz-filter: #{"grayscale(#{$value})"};
+    filter:#{"grayscale(#{$value})"};
+}
+
+
+///*
+//    Gera Fonte
+//
+//    $description: Gerador de fonte,
+//    $version: 1.1
+//    $parameters: font-name, font-file-name, font-weight, font-style, font-url, font-path
+//*/
+@mixin font-face( $font-name, // Nome da fonte
+$font-file-name, // Nome do arquivo da fonte
+$font-weight: normal, // Larguda da fonte (normal|bold|bolder|lighter|100|200|300|400|500|600|700|800|900|initial|inherit)
+$font-style:normal, // Estilo da fonte (normal|italic|oblique|initial|inherit)
+$font-url:"#{$path-font}", // Url padrão de onde estão localizadas as fontes
+$font-path: "" // Pasta da fonte
+//$otherParams: {}
+) {
+    $svg-id: replace($font-file-name, "-", "_");
+    @font-face {
+        font-family: $font-name;
+        src: url('#{$font-url}#{$font-path}#{$font-file-name}.eot');
+        src: url('#{$font-url}#{$font-path}#{$font-file-name}.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-url}#{$font-path}#{$font-file-name}.woff') format('woff'),
+        url('#{$font-url}#{$font-path}#{$font-file-name}.ttf') format('truetype'),
+        url('#{$font-url}#{$font-path}#{$font-file-name}.svg#${svg-id}') format('svg');
+        font-weight: $font-weight;
+        font-style: $font-style; //$otherParams();
+
+        @content;
+    }
+}
+
+///*
+//    Border Radius
+//
+//    $description: Gera borda arredondadas
+//    $parameters: border-radius (Raio de arredondamento da borda)
+//*/
+@mixin border-radius($border-radius: $radius) {
+    @include cross-browser(border-radius, $border-radius);
+}
+
+///*
+//    Border Side Radius
+//
+//    $description: Gera a direção para a qual as bordas arredondadas apontam EX: top-left, bottom-left
+//    $parameters: border-side-radius (Direção, Raio de arredondamento da borda)
+//      EX: .border-side-radius(top-left, 3px);
+//*/
+@mixin border-side-radius($property,
+$value) {
+    -webkit-border-#{$property}-radius: $value;
+    -moz-border-#{$property}-radius: $value;
+    border-#{$property}-radius: $value;
+}
+
+///*
+//    Box Sizing
+//    $description:   Por padrão ele atribui o valor do box-sizing para border-box, onde a largura da borda é
+//                    somando junto com o largura do elemento.
+@mixin box-sizing($value:border-box) {
+    @include cross-browser(box-sizing,$value);
+}
+
+//
+//    Font-size
+//
+//    $description: Mixin que converte PX em EM.
+//                  Por padrão esse mixin converte tudo para EM
+//
+//    Ex.
+//    Input
+//    --------------------
+//        body{font-size: em(16);}
+//        body{font-size: em(16px);}
+//
+@function em($sizeValue, $sizebase: $font-size-main) {
+    @if(unitless($sizeValue)) {
+        $sizeValue: $sizeValue * 1px;
+    }
+    @if(unitless($sizebase)) {
+        $sizebase: $sizebase * 1px;
+    }
+    @return $sizeValue/$sizebase * 1em;
+}
+
+///*
+//    Color Button
+//
+//    $description: Gera propriedades de uma variação de cor para os botões.
+//    $version: 2.0
+//    $parameters:  bg-color (HEX|$variables).
+//                  Ex. .color-button(#F0F0F) ou .color-button($variavel)
+//*/
+@mixin color-button($bg-color) {
+    background: $bg-color;
+    border: 1px solid darken($bg-color, 5%); // Quando o BG não for #CCC
+    //& when not($bg-color = #ccc ){ color:#fff; }
+    @if($bg-color !=#CCC) {
+        color: $color-white;
+    } // Quando o BG for $btn-cor-amarelo
+    //& when ($bg-color = $btn-cor-amarelo ){ color:#5e3900; }
+    @if($bg-color==$btn-cor-amarelo) {
+        color: $color-white;
+    } // Quando o BG for $btn-cor-vermelho OU quando o BG for $btn-cor-verde
+    // & when ($bg-color = $btn-cor-vermelho), ($bg-color = $btn-cor-verde) {
+    //    &:hover { background-color: lighten($bg-color, 3%); }
+    // }
+    // Quando o BG não for $btn-cor-vermelho e quando o BG não for $btn-cor-verde
+    // & when not($bg-color = $btn-cor-vermelho) and not ($bg-color = $btn-cor-verde){
+    //   &:hover { background-color: lighten($bg-color, 10%); }
+    // }
+    @if($bg-color==$btn-cor-vermelho or $bg-color=$btn-cor-verde) {
+        &:hover {
+            background-color: lighten($bg-color, 3%);
+        }
+    }
+    @else if($bg-color !=$btn-cor-vermelho or $bg-color !=$btn-cor-verde) {
+        &:hover {
+            background-color: lighten($bg-color, 10%);
+        }
+    }
+}
+
+///*
+//    Button Size
+//
+//    $description: Gera os botões com tamanhos diferenciados.
+//    $version: 2.0
+//    $parameters:  size (string|[lg, sm, sx]).
+//                  Ex. .button-size(lg);
+//*/
+@mixin button-size($size) {
+    @if($size==lg) {
+        padding: 6px 16px;
+        font-size: 18px;
+        height: 46px;
+        @include border-radius(4px);
+    }
+    @if ($size==sm) {
+        padding: 4px 10px;
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
+    }
+    @if ($size==sx) {
+        padding: 2px 6px;
+        font-size: 12px;
+        height: 22px;
+        line-height: 22px;
+    }
+}
+
+///*
+//    Centralize
+//
+//    $description:   Centraliza o elemento em X e Y. Esse mixin usa outros 2 mixins suportes
+//                    para centralizar na largura (.centralize-width) e na altura (.centralize-height).
+//    $version: 2.0
+//    $parameters: width, height;
+//*/
+@mixin centralize($width,
+$height) {
+    @include centralize-width($width);
+    @include centralize-height($height);
+}
+
+///*
+//    Centralize Width
+//
+//    $description:   Centraliza o elemento em X
+//    $version: 2.0
+//    $parameters: width
+//*/
+@mixin centralize-width($width) {
+    position: absolute;
+    width: $width;
+    left: 50%;
+    margin-left: -($width / 2);
+} 
+
+///*
+//    Centralize Height
+//
+//    $description:   Centraliza o elemento em Y
+//    $version: 2.0
+//    $parameters: height
+//*/
+@mixin centralize-height($height) {
+    position: absolute;
+    height: $height;
+    top: 50%;
+    margin-top: -($height / 2);
+} 
+
+///*
+//    Placeholder
+//
+//    $description:   Responsável por estilizar os placeholders dando suporte para todos os navegadores.
+//    $version: 1.0
+//    $parameters: color, font-family, font-style
+//
+//*/
+@mixin placeholder-input( $color: $input-placeholder-color,
+$font-family: $input-placeholder-font-family,
+$font-style: $input-placeholder-font-style,
+$font-size: $input-placeholder-font-size,
+$font-weight: normal) {
+    // Firefox
+    &::-moz-placeholder {
+        font-family: $font-family;
+        font-style: $font-style;
+        font-weight: $font-weight;
+        color: $color;
+        opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+        @if ($font-size !=$input-placeholder-font-size) {
+            font-size: $font-size;
+        }
+    } // IE
+    &:-ms-input-placeholder {
+        color: $color;
+        font-family: $font-family;
+        font-style: $font-style;
+        font-weight: $font-weight;
+        @if ($font-size !=$input-placeholder-font-size) {
+            font-size: $font-size;
+        }
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+        font-family: $font-family;
+        font-style: $font-style;
+        font-weight: $font-weight;
+        @if ($font-size !=$input-placeholder-font-size) {
+            font-size: $font-size;
+        }
+    }
+} 
+
+// Keyframes para animação
+// Ex. .keyframes( nomeanimacao, {
+//          0%   { opacity: 0; }
+//		    100% { opacity: 1; }
+//     });
+//
+@mixin keyframes($name) {
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+} 
+
+///*
+//  Transform
+//
+//  $description:   Aplica algum transform dando suporte para todos os navegadores.
+//  $version:       1.0
+//  $parameters: transform (any)
+//  Ex. .transform( rotateZ(60deg) rotateX(60deg) );
+//*/
+@mixin transform($transform) {
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    transform: $transform;
+} 
+
+///*
+//  Translate X
+//
+//  $description:   Usado para deslocar o elemento na linha de X (Horizontal). Adaptação do mixin .translate3d do bootstrap.
+//  $version:       1.0
+//  $parameters: x (int) - deslocamento da horizontal
+//*/
+@mixin translateX($x) {
+    -webkit-transform: translateX($x);
+    -ms-transform: translateX($x); // IE9 only
+    -o-transform: translateX($x);
+    transform: translateX($x);
+} ///*
+//  Translate Y
+//
+//  $description: Usado para deslocar o elemento na linha de Y (Vertical)
+//  $version: 1.0
+//  $parameters: y (int) - deslocamento da vertical
+///*
+@mixin translateY($y) {
+    -webkit-transform: translateY($y);
+    -ms-transform: translateY($y); // IE9 only
+    -o-transform: translateY($y);
+    transform: translateY($y);
+} ///*
+//    Arrow
+//
+//    $description: É um gerador de setas responsável pela criação da seta dinamica através dos pseudo-elementos :before e :after.
+//    Ex.
+//        .classe:before{ .arrow(); }
+//        .classe:after{ .arrow(); }
+//
+//    $parameters: arrow-position, arrow-width, arrow-color e center.
+//    $version: 2.0
+//*/
+@mixin arrow( 
+    $arrow-position: bottom, // Posição da seta (top|right|bottom|left)
+    $arrow-width: 10px, // Tamanho da seta (size)
+    $arrow-color: $color-black, // Cor da seta (color)
+    $center: true // Centraliza a seta (boolean)
+) {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: $arrow-width solid transparent;
+    #{$arrow-position}: -($arrow-width * 2);
+    @if($arrow-position==top) {
+        border-bottom-color: $arrow-color;
+    }
+    @if($arrow-position==bottom) {
+        border-top-color: $arrow-color;
+    }
+    @if($arrow-position==left) {
+        border-right-color: $arrow-color;
+    }
+    @if($arrow-position==right) {
+        border-left-color: $arrow-color;
+    }
+    @if ($center and ($arrow-position==right or $arrow-position==left)) {
+        top: 50%;
+        margin-top: -$arrow-width;
+    }
+    @if ($center and ($arrow-position==top or $arrow-position==bottom)) {
+        left: 50%;
+        margin-left: -$arrow-width;
+    }
+} ///*
+//    Blend
+//
+//    $description: Blend do Background;
+//*/
+@mixin blend($blend-mode: multiply) {
+    -webkit-background-blend-mode: $blend-mode;
+    background-blend-mode: $blend-mode;
+} 
+
+/// Convert a direction to legacy syntax
+/// $param {Keyword | Angle} $value - Value to convert
+/// $require {function} is-direction
+/// $require {function} convert-angle
+@function legacy-direction($value) {
+    @if is-direction($value) == false {
+      @error "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be a direction.";
+    }
+  
+    $conversion-map: (
+      to top          : bottom,
+      to top right    : bottom left,
+      to right top    : left bottom,
+      to right        : left,
+      to bottom right : top left,
+      to right bottom : left top,
+      to bottom       : top,
+      to bottom left  : top right,
+      to left bottom  : right top,
+      to left         : right,
+      to left top     : right bottom,
+      to top left     : bottom right
+    );
+  
+    @if map-has-key($conversion-map, $value) {
+      @return map-get($conversion-map, $value);
+    }
+  
+    @return 90deg - $value;
+  }
+  
+  /// Test if `$value` is a valid direction
+  /// $param {*} $value - Value to test
+  /// $return {Bool}
+  @function is-direction($value) {
+    $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+    $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  
+    @return $is-keyword or $is-angle;
+  }
+  
+  
+  @mixin linear-gradient($direction: left, $color-stops...) 
+  {
+    @if is-direction($direction) == false {
+      $color-stops: $direction, $color-stops;
+      $direction: 180deg;
+    }
+     
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+  }
+  
+@mixin radial-gradient($from, $to) {
+    background: -moz-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $from), color-stop(100%, $to));
+    background: -webkit-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: -o-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: -ms-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background-color: $from;
+}
+
+
+///*
+//    Gradiente Vertical
+//
+//    $description: Reposnável por criar background grandientes Vertical.
+//    $version: 1.0
+//    $parameters: start-color, end-color, start-percent, end-percent
+//*/
+// .gradient-vertical( $start-color: #555; // Inicio da Cor
+// $end-color: #333; // Final da Cor
+// $start-percent: 0%; // Porcentagem da Cor inicial
+// $end-percent: 100% // Porcentagem da Cor Final
+// ) {
+//     background: -moz-linear-gradient(top, $start-color 0, $end-color 100%);
+//     background: -webkit-gradient(left top, left bottom, color-stop(0, $start-color), color-stop(100%, $end-color));
+//     background: -webkit-linear-gradient(top, $start-color 0, $end-color 100%);
+//     background: -o-linear-gradient(top, $start-color 0, $end-color 100%);
+//     background: -ms-linear-gradient(top, $start-color 0, $end-color 100%);
+//     background: linear-gradient(to bottom, $start-color 0, $end-color 100%);
+// }
+///*
+//    Loop
+//
+//    $description: Responsável por criar classes com repetição, um exemplo disso são as classes de grid e clear.
+//
+//    $parameters: from, to, multiply, classname, property e unit.
+//        - from: int (default: 5)
+//        - to: int (default: 100)
+//        - multiply: int (default: 5)
+//        - classname: nameclass (default: width)
+//        - property: property (default: width)
+//        - unit: unit [px,em,cm,etc..] (default: %)
+//
+//    $version: 1.0
+//*/
+@mixin loop( 
+    $from: 5, // DE
+    $to: 100, // ATÉ
+    $multiply: 5, // MULTIPLICADO POR
+    $classname: class-name, // NOME DA CLASSE
+    $property: width, // NOME DA PROPRIEDADE
+    $unit: 0%, // px | em | 0% (PARA PASSAR UNIDADE COMO PORCENTAGEM É PRECISO COLOCAR O 0 NA FRENTE)
+    $extend: false, // PARA USAR COMO EXTEND
+    $value-from: $from, // From value
+		$value-to: $to, // To value
+		$value-multiply: $multiply // Multiple value
+) 
+{   
+    @while $from <= $to{
+        
+        @if ($extend==true) {
+            &.#{$classname}#{$from} {
+                #{$property}: $value-from + $unit;
+            }
+        } 
+        @else {
+            .#{$classname}#{$from} {
+                #{$property}: $value-from + $unit;
+            }
+        }
+        
+        $from: $from + $multiply;
+        $value-from: $value-from + $value-multiply;
+    }
+}
+
+
+
+
+///*
+//    Grayscale
+//
+//    @description: Desaturation of images
+//    @version: 1.0
+//    @parameters: gray (0-100)%
+//*/
+@mixin glyphicon($gray:100%){
+    -webkit-filter: grayscale($gray);
+    filter: grayscale($gray);
+    @if ($gray = 0){
+        filter: none;
+    } @else {
+        filter: gray;
+    }
+}
+
+
+@mixin glyphicon($glyphicon-name:""){
+    content: $glyphicon-name;
+    font-family: $font-emp-icons;
+}
+
+@mixin selection($selection-color: $color-orange){
+    ::selection {
+        background: $selection-color; /* WebKit/Blink Browsers */
+    }
+    ::-moz-selection {
+        background: $selection-color; /* Gecko Browsers */
+    }
+}
+
+
+@mixin icon($icon: $glyphicon-empregos, $size: 16px, $color: $color-black, $centralized: true){
+    &:before{        
+        content: $icon;
+        font-family: $font-emp-icons;
+        color:$color;
+        font-weight: normal;
+        font-size: $size;
+        line-height: $size;
+
+        @if($centralized){
+            @include centralize($size,$size);
+        } @else{
+            vertical-align: bottom;
+            position: relative;
+            margin-right: 10px;            
+            top: 3px;
+        }
+      }
+}
+
+//  map-deep-get
+//  @description: Usado para pegar um valor de um sass map dentro de outro sass map
+//  @version: 1.0.0
+//  @parameters: $map, $keys
+//  Ex.  map-deep-get($map, item, value)
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+
+@mixin blur($blur){
+    -webkit-filter: blur($blur); /* Safari */
+    filter: blur($blur);
+}

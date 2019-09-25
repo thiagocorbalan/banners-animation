@@ -1,0 +1,28 @@
+//
+//  FONTS
+//
+//  @project:       Empregos.com.br
+//  @Version:       3.0.0
+//  @description:   Construção das chamadas das fonts e iconfonts.
+//  @author:        Thiago Corbalan
+//  @date           25/07/2017
+//  @update         06/09/2017
+//
+
+@import "mixins"; 
+ 
+@include font-face("Open Sans", "open-sans-light", $font-weight:300, $font-path:"open-sans/");
+@include font-face("Open Sans", "open-sans-regular", $font-path:"open-sans/");
+@include font-face("Open Sans", "open-sans-semibold", $font-weight:600, $font-path:"open-sans/");
+@include font-face("Open Sans", "open-sans-bold", $font-weight:700, $font-path:"open-sans/");
+@include font-face("Open Sans", "open-sans-extrabold", $font-weight:800, $font-path:"open-sans/");
+
+// Icons
+@include font-face("emp-icons","emp-icons",$font-path:"iconfont/", $font-weight: 300) { 
+    speak: none;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+};
+  

@@ -1,0 +1,1007 @@
+//
+//  Animação dos Banners
+//  
+//  @project:       Empregos.com.br
+//  @version:       1.0.1
+//  @description:   Destinado ao componentente área da foto do candidato.
+//  @author:        Thiago Corbalan
+//  @date:          27/08/2018
+//  @update:        ---
+//
+
+/**! BANNER */
+
+@import "../base/mixins";
+
+
+.geral #content [class^=pg-]{
+    overflow: unset;
+}
+
+.pg-payment .banner-payment{ 
+    display: block;    
+    height: 470px;
+    background: $color-blue7;
+    @include radial-gradient($color-blue7,darken($color-blue7,10%));
+
+    > .container{ position: relative; height: 470px;}
+
+
+    // Banner Default
+    .banner-payment-default{
+        position: absolute;
+        right: 20%;
+        display: none;
+        width: 400px;
+        height: 470px;
+        @include user-select(none);
+
+        &:before{
+            content: "";
+            background: darken($color-blue7,10%);
+            border-radius: 100%;
+            display: block;
+            @include opacity(0);
+            @include centralize(300px,300px);
+            @include blur(30px);
+
+        }
+
+        .cv{
+            position: absolute;
+            display: block;
+            width: 340px;
+            bottom: 0;
+            height: 395px;
+            z-index: 2;
+            @include opacity(0);
+            @include transform( perspective(1000px) rotate(-30deg) skewX(28.7deg) translate(-100px, 100px));
+
+            .cv--front,
+            .cv--back{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 2;                
+                @include border-radius(10px);
+            }
+
+            .cv--front{
+                @include linear-gradient(45deg, $color-gray-10 0%, $color-white 20%);
+                padding: 10%;
+            }
+
+            .cv--back{
+                background: $color-orange;
+                z-index: 1;
+                @include linear-gradient(45deg,  darken($color-orange,10) 0%,  $color-orange 100%);
+                @include transform( translate(-10px,10px) scale(1));
+                @include transition(transform 1s linear);
+
+                &:before,
+                &:after{
+                    content: "";
+                    border: 10px solid transparent;
+                    position: absolute;
+                    position: absolute;
+                    @include rotate(45deg);
+                }
+
+                &:before{
+                    left: 6px;
+                    top: -6px;
+                    border-left-color: $color-orange;
+                }
+
+                &:after{
+                    right: -6px;
+                    bottom: 6px;
+                    border-right-color: $color-orange;
+                }
+            }
+
+            .cv-title{
+                color: $color-blue7;
+                font-weight: 600;
+                font-size: 17px;
+                display: flex;
+                justify-content: center;                
+                width: 135px;
+                margin: 0 auto;
+                text-align: center;
+
+                span{
+                    overflow: hidden;
+                    border-right: .1em solid $color-gray-60;
+                    white-space: nowrap; 
+                    width: 0;
+                }
+            }
+
+            .cv-photo{
+                overflow: hidden;
+                display: block;
+                margin: 20px auto;
+                width: 160px;
+                height: 160px;
+                border: 3px solid #9dcce8;                
+                
+                @include scale(0);
+                @include border-radius(50%);
+                @include blur(10px);
+
+
+                > img{ width: 100%;}
+            }
+
+            .cv-text{
+                display: block;
+                position: relative;
+
+                > .cv-line{
+                    @include border-radius(30px);
+                    height: 12px;
+                    width: 0;
+                    background: $color-gray-light;
+                    margin-bottom: 17px;
+                }
+
+
+            }
+
+        }
+        .cv-shadow{
+            z-index: 1;
+            height: 45px;
+            background: #000;
+            @include blur(22px);
+            border-radius: 100%;
+            position: absolute;
+            bottom: -100px;
+            width: 200px;
+            opacity: 0.25;
+            left: 50%;
+            margin-left: -90px;
+            @include scale(0);
+            @include transform(rotateX(76deg) scale(0));
+        }
+
+        // Bullets
+        .bullets-container{            
+            position: absolute;
+            z-index: 2;
+            height: 396px;
+            bottom: 0;
+            width: 668px;
+            right: -104px;
+            
+
+            .bullet{
+                display: flex;
+                position: absolute;
+                width: 360px;
+                background: $color-white;
+                padding: 18px;                
+                padding-right: 10px;
+                @include opacity(0);
+                @include border-radius(5px);
+                @include box-shadow(0 2px 5px rgba($color-black,0.2));
+
+                &:not(.bullet--left){
+                    right: -15%;
+                    @include translateX(5%);  
+                    @include transition(all 1s cubic-bezier(.25,.46,.45,.94));
+                    &:before{ @include arrow(left, 10px, $color-gray-10) }
+                }
+
+
+                .glyphicon-area{
+                    background: $color-gray-10;
+                    min-width: 75px;
+                    margin: -18px;
+                    margin-right: 18px;
+                    border: 1px solid transparent;
+                    border-right-color: $color-gray-20;
+                    position: relative;
+                    @include border-radius(5px 0 0 5px);
+                    @include icon($glyphicon-bar-chart-o, 44px,$color-gray);
+                }
+
+                &.bullet--cv-ilimitado      .glyphicon-area:before{ content: $glyphicon-resume-unlimited; }
+                &.bullet--destaque-cv       .glyphicon-area:before{ content: $glyphicon-resume-highlight; }
+                &.bullet--busca-vagas       .glyphicon-area:before{ content: $glyphicon-search-jobs; }
+
+                &.bullet--quem-viu-cv       .glyphicon-area:before{ content: $glyphicon-resume-eyes; }
+                &.bullet--processo-seletivo .glyphicon-area:before{ content: $glyphicon-hiring-process; }
+                &.bullet--guia-de-empresas  .glyphicon-area:before{ content: $glyphicon-company-guide; }
+                
+                .text-area{
+                    font-size: 14px;
+                    
+                    .title{ 
+                        text-transform: uppercase;
+                        color: $color-blue7;
+                        font-weight: bold;
+                    }
+                    p{
+                        color: $color-gray;
+                        margin: 0;
+                    }
+
+                }
+
+                &.bullet--left {
+                    flex-direction: row-reverse;
+                    text-align: right;
+                    left: -15%;
+                    top: 60%;
+                    @include translateX(-20%);
+
+                    &:before{ @include arrow(right, 10px, $color-gray-10) }
+
+                    .glyphicon-area{
+                        margin-left: 18px;
+                        margin-right: -10px;
+                        border-left-color: $color-gray-20;
+                        @include border-radius(0 5px 5px 0);
+
+                    }
+
+                }
+                // Positions
+                &.bullet--top{top: -5%;right: 2%;}
+                &.bullet--right{top: 48%;}
+
+
+
+                
+            }
+            
+        }
+
+        &.selected{
+            display: block;
+        }
+
+        // Animated
+        &.banner-payment--animate{
+            &:before{@include animation(opacityThin 1s .5s linear forwards);}
+            .cv-shadow{@include animation( slideShadow .5s .4s ease-in-out forwards);}
+
+            .cv{
+                @include animation( slideUp 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, hideandshow .5s .5s  linear forwards);
+
+                .cv-title span{ @include animation( typing 1s 1s steps(40, end) forwards, blink-caret .8s 2s step-end forwards);}
+                .cv-photo { @include animation( zoomIn 1s .5s cubic-bezier(.25,.46,.45,.94) forwards, blur .5s .5s  cubic-bezier(.25,.46,.45,.94) forwards); }
+    
+                .cv-text > .cv-line{ 
+                    @include animation( typing 1s .6s ease-in-out forwards);
+                    &:nth-child(2){ @include animation( typing 1s .8s ease-in-out forwards);}
+                    &:nth-child(3){ @include animation( typing 1s .9s ease-in-out forwards);}
+                    &:nth-child(4){ @include animation( typing 1s 1s ease-in-out forwards);}
+    
+                }
+            }
+
+             // Bullets
+            .bullets-container .bullet.bullet-show{
+                $timer: 20s;
+                $timerFloating: .5s;
+
+                &.bullet--cv-ilimitado {      
+
+                    @include animation( bulletAnimation $timer linear alternate infinite);
+                }
+
+                &.bullet--quem-viu-cv  {
+                    @include animation( bulletAnimation $timer linear $timer alternate infinite);
+                }    
+
+                
+                &.bullet--destaque-cv  {
+                    @include animation( bulletAnimation $timer linear .3s alternate infinite);
+                }      
+                &.bullet--guia-de-empresas  {
+                    @include animation( bulletAnimation $timer linear ($timer + .3) alternate infinite);
+                }
+
+
+                &.bullet--busca-vagas  {
+                    @include animation( bulletAnimation $timer linear .6s alternate infinite);
+                }
+                &.bullet--processo-seletivo  {   
+                    @include animation( bulletAnimation $timer linear ($timer + .6s) alternate infinite);
+                }
+
+
+            }
+
+        }
+
+    }
+
+    // Banner Empresa    
+    .banner-payment-products{
+        position: absolute;
+        display: none;
+        width: 447px;
+        height: 340px;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+
+        @include user-select(none);
+        @include border-radius(0 340px 340px 0);
+
+        &:before{
+            content: "";
+            width: 340px;
+            height: 340px;
+            position: absolute;
+            background: $color-orange;
+            @include linear-gradient(90deg, darken($color-orange,15%) 0%, $color-orange 100%);
+            @include border-radius(100%);
+            right: 0;
+            bottom: 0;
+        }
+
+        .navigator{
+            display: block;
+            position: absolute;
+            width: 416px;
+            height: 253px;
+            background: $color-white;
+            bottom: -5px;
+            left: 0;
+            overflow: hidden;
+            @include opacity(0);
+            @include border-radius(4px);
+            @include box-shadow(4px 4px 8px rgba($color-black, .3));
+            @include linear-gradient(90, #abd2f0 0%, #e4f2fd 60%);
+
+            .navigator-content{ display: none; }
+
+            .navigator-bar{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 17px;
+                background: #fff;
+                border-bottom: 1px solid #d6e3ed;
+
+                .balls{
+                    left: 17px;
+                    
+                    &, &:before, &:after{
+                        width: 5px;
+                        background: $color-blue7;
+                        @include centralize-height(5px);
+                        @include border-radius(50%);
+                    }
+
+                    &:before, &:after{content: "";}
+
+                    &:before { left: -9px; }
+                    &:after { left: 9px; }
+
+                }
+            }
+
+            .line{
+                width: 100%;
+                height: 5px;
+                display: block;
+                @include border-radius(5px);
+                background: #88b5fa;
+                margin: 8px 0;
+            }
+
+            .typing{
+                display: flex;
+                justify-content: flex-start;
+
+                span{
+                    overflow: hidden;
+                    white-space: nowrap; 
+                    width: 0;
+                }
+            }
+
+            // Box
+            .box{
+                background: $color-white;
+                padding: 0 20px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 11px;
+                position: relative;
+                @include border-radius(3px);
+               
+                // TODO: Mudar o nome dessa classe para deixar mais genérica.
+                &.box-job{ @include opacity(0); }
+
+                &.box-search{
+                    padding: 5px 20px;
+                    height: 30px;
+                    line-height: 20px;
+                    margin-bottom: 20px;
+
+                    .text span{
+                        font-size: 14px;
+                        color: $color-gray-dark;
+                        font-weight: bold;
+                        border-right: .1em solid $color-gray-60;
+                    }
+                }
+                
+                .box-logo{
+                    position: relative;
+                    width: 37px;
+                    height: 35px;
+                    border: 1px solid #c0e3fd;
+                    background: $color-gray-10;
+                    margin-right: 12px;
+                    @include border-radius(4px);
+                    @include icon($glyphicon-building-2, 28px, $color-gray-70);
+                }
+
+                .lines{
+                    .line{
+                        margin: 3px 0;
+                        &:nth-child(1){ width: 100px; }
+                        &:nth-child(2){ width: 50px; }
+                        &:nth-child(3){ width: 75px; }
+                    }
+                }
+            }
+
+
+            // Empresa
+            .empresa{
+                border: 1px solid $color-gray7;
+                background: $color-white;
+                padding: 62px 25px 0;
+                bottom: 0;
+                height: 185px;
+
+                display: none;
+
+                @include centralize-width(375px);
+                @include border-radius(4px);
+
+                .logo{
+                    position: absolute;
+                    display: block;
+                    width: 78px;
+                    height: 78px;
+                    border: 1px solid $color-gray7;
+                    top: -28px;
+                    background: $color-gray-10; 
+                    
+                    @include icon($glyphicon-building-2, 50px, $color-gray-70);
+
+                    .thumb-img{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                    }
+
+                    .text{
+                        position: absolute;
+                        width: 250px;
+                        bottom: 14px;
+                        left: 86px;
+                        font-weight: bold;
+                        font-size: 14px;
+                        color: $color-gray-dark;
+                    }
+                }
+
+                .content{
+                    display: flex;
+                    justify-content: space-between;                    
+                    align-items: center;
+
+                    .collumn{width: 30%;}
+                    .lines > .line{ width: 0; }
+
+                    .stars{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 6px;
+
+                        .star{
+                            position: relative;
+                            display: block;
+                            width: 6px;
+                            height: 6px;
+                            @include icon($glyphicon-star, 8px, $color-gray-light);
+                        }
+                    }
+
+                    .rating{
+                        position: relative;
+                        width: 80px;
+                        height: 80px;
+                        @include rotate(-90deg);
+
+                        .bg{
+                            stroke: $color-gray-10;
+                        }
+
+                        .progress__value{
+                            stroke-dasharray: 339.292;
+                            stroke-dashoffset: 339.292;
+                            stroke: $color-orange;
+                            animation: progress 2s 1s ease-in-out forwards;
+                        }
+
+                        @include icon($glyphicon-like, 22px, $color-orange);
+                        &:before{ @include transform(rotate(90deg) scale(0));}
+                    }
+                }
+
+            }
+
+            // Vagas
+            .vagas, .processo-seletivo, .qvmcv{
+                padding: 28px 20px 18px;
+            }
+            .qvmcv .collumn{
+                width: 50%;
+
+            }
+
+            // Vagas
+            .vagas {
+                .box-search{
+                    position: relative;
+
+                    @include icon($glyphicon-search, 20px, $color-orange);
+                    &:before{
+                        left: auto;
+                        right: 20px;
+
+                    }
+                }
+
+                .button-cv{
+                    width: 38px;
+                    height: 13px;
+                    background: $color-gray-10;
+                    position: absolute;
+                    right: 20px;
+                    @include border-radius(4px);
+                    @include icon($glyphicon-check, 9px, $color-gray-10);
+
+                }
+            }
+
+            // Processo Seletivo
+            .processo-seletivo{
+
+                .hp-container{
+                    position: absolute;
+                    right: 30px;
+                    width: 70px;
+                    height: 5px;
+                    background: $color-gray-light;
+
+                    &, .hp-line{
+                        @include border-radius(10px);
+                    }
+
+                    .hp-line{
+                        width: 0;
+                        background: $color-orange;
+                        z-index: 1;
+                        @include centralize-height(5px);
+                    }
+
+                    .hp-bullet{
+                        width: 17px;
+                        background: $color-gray-light;
+                        margin-left: -(17px / 2);
+                        color: $color-gray-light;
+                        z-index: 2;
+
+                        @include border-radius(50%);
+                        @include centralize-height(17px);
+                        @include icon($glyphicon-check, 9px, inherit);
+
+                        &:nth-child(1){ left: 0;  background: $color-orange; color: $color-white;}
+                        &:nth-child(2){ left: 33%; }
+                        &:nth-child(3){ left: 66%; }
+                        &:nth-child(4){ left: 100%; }
+
+                        &:before{ z-index: 2;}
+                    }
+                }
+            }
+
+            // Quem viu meu CV
+            .qvmcv {
+                
+                .dflex{
+                    display: flex;
+                    justify-content: space-between;
+
+                    .collumn > div .box.box-job{
+
+                        .lines{
+                            width: 50%;
+                            .line{ width: 75%;}
+                            .line:nth-child(2){ width: 50%;}
+                            .line:nth-child(3){ width: 25%;}
+                        }
+
+                        .icon{
+                            right: 20px;
+                            position: absolute;
+                            color: $color-orange;
+                            @include icon($glyphicon-search-eye,20px, inherit);
+                        }
+
+
+                    }
+
+                    .collumn.cv{ 
+                        width: 45%; 
+
+                        .box.box-job{
+                            height: 100%;
+
+                            .cv-logo{
+                                width: 56px;
+                                height: 56px;
+                                border: 2px solid #c0e3fd;
+                                background: $color-gray-10;
+                                overflow: hidden;
+                                position: absolute;
+                                left: 50%;
+                                top: 20px;
+                                margin-left: -28px;
+
+                                &, &:before, &:after {
+                                    @include border-radius(50%);
+                                }
+
+                                &:before, &:after {
+                                    content: "";
+                                    width: 28px;
+                                    height: 28px;
+                                    display: block;
+                                    position: absolute;
+                                    border: 4px solid $color-gray-light;
+                                    left: 50%;
+                                    margin-left: -14px;
+                                    bottom: 16px;
+                                }
+
+                                &:after{
+                                    bottom: -24px;
+                                    width: 44px;
+                                    height: 44px;
+                                    margin-left: -22px;
+                                }
+
+                                
+                            }
+
+                            .lines{
+                                margin-top: 40px;
+
+                                &, .line {width: 100%;} 
+                                .line{margin:0 0 10px;}
+                                .line.last{ width: 75%;}
+                            }
+
+                        }                        
+                    }
+                }
+
+
+
+            }
+        }
+
+
+        &.banner-payment--animate{
+            .navigator{ 
+                @include animation(navigatorSlideUp 1s ease-in-out forwards);
+
+                .navigator-content{
+                    // Empresa
+                    &.navigator-content--active{
+                        display: block;
+                    }
+
+                }
+                
+                .typing span{@include animation( 
+                    typing 1s steps(30, end) 1s forwards, 
+                    blink-caret .6s linear forwards 10);
+                }
+
+                .box.box-job{
+                    &:nth-child(1){ @include animation(boxSlideUp .4s 2.3s ease-in-out forwards); }
+                    &:nth-child(2){ @include animation(boxSlideUp .4s 2.5s ease-in-out forwards); }
+                    &:nth-child(3){ @include animation(boxSlideUp .4s 2.7s ease-in-out forwards); }
+                }
+
+                // Vagas
+                .vagas {
+                    .box-search:before{
+                        @include animation(zoomIn .4s 2s ease-in-out forwards);
+                    }
+
+                    .box-job{
+                        @for $i from 1 through 3 {
+                            $timer: .8s;
+                            $delay: 3s + ($i /4);
+                            &:nth-child(#{$i}) .button-cv{ @include animation(buttonColorButton $timer $delay ease-in-out forwards);}
+                        }
+                    }
+                }
+
+                // Empresa
+                .empresa{
+                    .content .lines > .line{
+                        @for $i from 0 through 4 {
+                            &:nth-child(#{$i+1}){
+                                $timer: 1s;
+                                $effect:  cubic-bezier(.25,.46,.45,.94);
+                                $delay: $i * .5s;
+
+                                @if($i == 0 or $i == 3){
+                                    @include animation(line100 $timer $delay $effect forwards);
+                                }
+                                @if($i == 1){
+                                    @include animation(line75 $timer $delay $effect forwards);
+                                }
+                                @if($i == 2 or $i == 4){
+                                    @include animation(line50 $timer $delay $effect forwards);
+                                }
+                            }
+                        }
+                    }
+
+                    .stars{
+                        @for $i from 0 through 4 {
+                            /* Stars #{$i} ---- */
+                            &:nth-child(#{$i+1}) { 
+                                @for $a from 0 through 4 {
+                                    .star:nth-child(#{$a+1}):before{
+                                        $timer: .5s;
+                                        $delay:  ($timer * ($a+1));
+
+                                        @if(($i == 0 or $i == 2) and $a <= 2){ animation: starsShow $timer $delay ease-in-out forwards;}                                        
+                                        @if(($i == 1 or $i == 3) and $a <= 3){ animation: starsShow $timer $delay ease-in-out forwards;}                                        
+                                        @if($i == 4){ animation: starsShow $timer $delay ease-in-out forwards;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    .rating:before{ @include animation( likeShow .8s 1s ease-in-out forwards);}                    
+                }
+
+                // Processo Seletivo
+                .processo-seletivo{
+
+                    .box.box-job:nth-child(3) .hp-container {
+                        .hp-line{ @include animation(line33 1s ease-in-out 3s forwards); }
+                        .hp-bullet:nth-child(2){ 
+                            @include animation(hpColoring .3s ease-in-out  3.5s forwards);
+
+                            &:before{
+                                @include scale(0);
+                                @include animation(zoomIn .6s ease-in-out  3.5s forwards); 
+                            }
+                        }
+                    }
+                    
+                    .box.box-job:nth-child(2) .hp-container {
+                        .hp-bullet:nth-child(2) {@include animation(hpColoring .3s ease-in-out 3.5s forwards);}
+                        .hp-bullet:nth-child(3){ @include animation(hpColoring .3s ease-in-out 4.5s forwards);}
+                        .hp-bullet:nth-child(4){ @include animation(hpColoring .3s ease-in-out 5.5s forwards);}
+                        .hp-line{ @include animation(line100 3s linear 3s forwards); }
+                    }
+
+                    .box.box-job:nth-child(1) .hp-container {
+                        .hp-line{ @include animation(line66 2s ease-in-out 3s forwards);}
+                        .hp-bullet:nth-child(2) {@include animation(hpColoring .3s cubic-bezier(.25,.46,.45,.94) 3.5s forwards);}
+                        .hp-bullet:nth-child(3){ @include animation(hpColoring .3s cubic-bezier(.25,.46,.45,.94) 4s forwards);}
+                    }
+                }
+                
+                // Quem viu me CV
+                .qvmcv {
+                    .dflex .collumn{
+
+                        > div .box.box-job{
+                            &:nth-child(1) { animation-delay: 3s; }
+                            &:nth-child(2) { animation-delay: 3.2s; }
+                            &:nth-child(3) { animation-delay: 3.4s; }
+
+                        }
+                    }
+                }
+            }
+
+            
+        }
+    }
+
+    .banner-payment--show{
+        display: block;
+    }
+}
+
+@include keyframes(buttonColorButton){
+    from {
+        background:  $color-gray-10;
+        @include scale( .3);
+    }
+    to {
+        background: $color-orange;
+        @include scale(1);
+    }
+    70% { @include scale(1.6);}
+    90% { @include scale(.9);}
+}
+
+
+@include keyframes(navigatorSlideUp){
+    from {bottom: -30px; @include opacity(0);}
+    to {bottom: -5px; @include opacity(1);}
+}
+
+@include keyframes(hpColoring){
+    from { 
+        background: $color-gray-light; 
+        color: $color-gray-light; 
+        @include scale(1);
+    }
+    to   { 
+        background: $color-orange; 
+        color: $color-white;
+        @include scale(1);
+    }
+
+    50% {color: $color-white; @include scale(1.6); }
+}
+
+@include keyframes(boxSlideUp){
+    from {bottom: -30px; @include opacity(0);}
+    to {bottom: 0; @include opacity(1);}
+}
+
+@include keyframes(likeShow){
+    from { @include transform(rotate(0deg) scale(0)) }
+    to { @include transform(rotate(90deg) scale(1))}
+    75% { @include transform(rotate(90deg) scale(1.6))}
+    90% { @include transform(rotate(90deg) scale(.8))}
+}
+
+@include keyframes(buttonCv){
+    from { @include transform(rotate(-90deg) scale(0)) }
+    to { @include transform(rotate(0deg) scale(1))}
+    75% { @include transform(rotate(0deg) scale(1.6))}
+    90% { @include transform(rotate(0deg) scale(.8))}
+}
+
+@include keyframes(line100){
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@include keyframes(line50){
+    from { width: 0; }
+    to { width: 50%; }
+}
+
+@include keyframes(line75){
+    from { width: 0; }
+    to { width: 75%; }
+}
+@include keyframes(line66){
+    from { width: 0; }
+    to { width: 66%; }
+}
+
+@include keyframes(line33){
+    from { width: 0; }
+    to { width: 33%; }
+}
+@include keyframes(line25){
+    from { width: 0; }
+    to { width: 25%; }
+}
+
+@include keyframes(starsShow){
+    from { color: $color-gray-light;}
+    to { color: $color-orange;}
+}
+
+@include keyframes(progress){
+    from { stroke-dashoffset: 339.292;}
+    to { stroke-dashoffset: 84.823;}
+}
+
+@include keyframes(bulletAnimation){
+    from, 58%   { -webkit-transform: translate3d( -30px, 0px, 0px); opacity: 0; }
+    60%, to     { -webkit-transform: translate3d(0, 0px, 0px); opacity: 1; }
+}
+
+@include keyframes(floating){
+    from, to    { margin-top: 0 }
+    50%      { margin-top: 9px; }
+}
+
+@include keyframes(typing) {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@include keyframes(blur) {
+    from { @include blur(10px); }
+    to { @include blur(0px); }
+}
+  
+@include keyframes(blink-caret) {
+    from, to { border-color: transparent }
+    50% { border-color:$color-gray-60 }
+}
+
+@include keyframes(slideLeftIn) {
+    from { @include translateX(-30%) }
+    to { @include translateX(0) }
+}
+
+@include keyframes(slideLeftOut) {
+    from { @include translateX(0) }
+    to { @include translateX(-30%) }
+}
+
+@include keyframes(slideRightIn) {
+    from { @include translateX(30%) }
+    to { @include translateX(0) }
+}
+
+@include keyframes(slideRightOut) {
+    from { @include translateX(0) }
+    to { @include translateX(30%) }
+}
+
+
+
+@include keyframes(zoomIn) {
+    from { @include scale(.1) }
+    50% { @include scale(1.2)}
+    75% { @include scale(.9)}
+    to { @include scale(1) }
+}
+
+@include keyframes(fadeOut) {
+    from {@include opacity(1);}
+    to {@include opacity(0);}
+}
+
+@include keyframes(opacityThin) {
+    from {@include opacity(0);}
+    to {@include opacity(.3);}
+}
+
+@include keyframes(slideUp) {
+    from { @include transform( perspective(1000px) rotate(-30deg) skewX(28.7deg) translate(-100px, 100px)); }
+    to {@include transform( perspective(1000px) rotate(-30deg) skewX(28.7deg) translate(0, 0));}
+}
+
+@include keyframes(slideShadow){
+    from {@include transform(rotateX(76deg) scale(0));}
+    75% { @include transform(rotateX(76deg) scale(1.1));}
+    to { @include transform(rotateX(76deg) scale(1));}
+}

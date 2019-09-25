@@ -1,0 +1,160 @@
+//
+//  COLORS
+//
+//  $project:       Empregos.com.br
+//  $version:       2.3.6
+//  $description:   Algumas cores teve pequenas alterações portanto seus hexadecimais ficaram um pouco diferentes, ao lado das variáveis,
+//                  dentro dos parenteses, tem as cores que serão substituidas pelas variáveis.
+//  $author:        Thiago Corbalan
+//  $date:          04/08/2017
+//  $update:        24/08/2018
+
+// COMMON
+$color-black:#000000;
+$color-white:#FFFFFF;
+
+// RED
+$color-red:#DD2233;
+$color-red1: #F44336;
+
+// Orange
+$color-orange:#FF9922;
+$color-orange1:#e74106;
+$color-orange2:#fa5f00;
+$color-orange3:#fa961e;
+$color-orange4:#f0821e;
+$color-orange5:#f0a046;
+$color-orange6:#FAA332;
+
+// Yellow
+$color-yellow: #ffd728;
+
+// Brown
+$color-brown: #5e3900;
+
+// Green
+$color-green1: #028e33;
+$color-green2: #05be1e; //08c719;
+$color-green3: #5ac80f;
+$color-green4: #afe14b;
+$color-green5: #B4B430;
+$color-green6: #E1FCD1;
+$color-green7: #4D7472; // Carreiras
+$color-green8: #3e948e; // Carreiras
+$color-green9: #449F9A; // Carreiras
+$color-green10: #87db87;
+
+// Purple
+$color-purple: #523776;
+
+// Blue
+$color-blue1: #0a3264;
+$color-blue2: #0a3c82;
+$color-blue3: #0f64b4;
+$color-blue4: #1e87af;
+$color-blue5: #4699cf;
+$color-blue6: #52B0CE;
+$color-blue7: #4499CC; // links
+$color-blue8: #3a6c81;
+$color-blue9: #7bd3bb;
+$color-blue10: #224466;
+$color-social-media: $color-blue10;
+
+// Novas Cores da peleta de cores - 03/07/2017
+
+// Cores Base
+// Azul
+// Laranja
+// Cinza
+$color-blue-dark:#224466;
+$color-blue:#4499cc; // links
+$color-blue-light:#bbddee;
+
+//$color-orange-dark:#4499cc;
+$color-orange:#ff9922;
+//$color-orange-light:#bbddee;
+
+
+$color-gray:#979797;
+$color-gray-light:#d1d1d1;
+$color-gray-dark:#616161;
+
+$color-gray-10: #f4f4f4;
+$color-gray-20: #eaeaea;
+$color-gray-30: #e0e0e0;
+$color-gray-40: #d5d5d5;
+$color-gray-50: #cbcbcb;
+$color-gray-60: #c1c1c1;
+$color-gray-70: #b6b6b6;
+$color-gray-80: #acacac;
+$color-gray-90: #a1a1a1; 
+
+// Gray
+//$color-gray:#5B5B5F; // Cinza do MKT
+$color-gray1:#333333;
+$color-gray2:#444444; // (414141)
+$color-gray3:#666666;
+$color-gray4:#999999;
+$color-gray5:#CCCCCC; // (c6c6c6)
+$color-gray6:#dddddd;
+$color-gray7:#e6e6e6;
+$color-gray8:#efefef; // (eff0f4)
+$color-gray9:#f7f7f7;
+$color-gray10:#fcfcfc;
+    
+
+
+// Others
+//TODO: Colocar para inglês essas variáveis.
+$cor-laranja:     $color-orange2;   //#f85e07
+$cor-azul:        $color-blue8;     //#0252b3
+$cor-amarelo:     $color-yellow;    //#ffd92b
+$cor-roxo:        $color-purple;
+$cor-verde:       $color-green1;
+$cor-vermelho:    $color-red;       //#d70101;
+
+// Colors Social Media
+$color-facebook:    #4f629b; //#4267b2 
+$color-linkedin:    #0073B2;
+$color-twitter:     #2DAAE1;
+$color-youtube:     #FF3132;
+$color-googleplus:  #F63E28;
+
+$emp-blue: (
+	50: #4499CC,
+	100: #52B0CE,
+	200: #4699cf,
+	300: #1e87af,
+	400: #0f64b4,
+	500: #0a3c82,
+	600: #0a3264
+);
+
+// Ui Card Color Theme
+
+$theme-uicard: (
+	visa: (
+		800:#285dda, 
+		300:#5280ff
+	),
+	mastercard: (
+		800:#2b5b6b,
+		300:#4a94b7
+	),
+	elo:(
+		800:#1d1d1d,
+		300:#7b7b7b
+	),
+	hipercard:(
+		800:#da3f3f,
+		300:#ff4a4a
+	),
+	dinners:(
+		800:$color-gray-50,
+		300:$color-gray-10
+	)  
+);
+
+
+// COMPARAR HEXADECIMAL
+//http://www.colortools.net/color_compare_colors.html

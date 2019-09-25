@@ -1,0 +1,179 @@
+//
+//  NEW MODAL COMPONENT
+//  
+//  @project:       Empregos.com.br
+//  @version:       2.4.2
+//  @description:   Este será o estilo do novo componente de modal do site padrão Empregos.com.br.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        27/02/2018
+//
+
+@import "../base/mixins";
+
+
+.modal{
+    // DEFAULT
+    .modal-content{
+        border: 0; 
+        background: $color-gray-10;
+        color: $color-gray-dark;
+        @include box-shadow(none);
+        @include border-radius(3px);
+
+        .modal-header,
+        .modal-footer{
+            border:0;        
+            justify-content: center;
+        }
+
+        .modal-footer{
+            text-align: center;
+            padding: 0 30px 30px;
+
+            .btn-padrao{
+                margin: 0 5px;
+            }
+        }
+
+        .modal-header{
+            padding: 30px 30px 0;
+
+            .close{
+                position: absolute;
+                top: 25px;
+                right: 25px;
+                color: $color-white;
+                text-shadow: 0;                
+                text-align: center;
+                background: $color-blue7;
+                z-index: 1;
+                @include border-radius(50%);
+                @include opacity(1);
+                padding: 0.5rem;
+
+                span{                    
+                    line-height: 16px;
+                    font-size: 25px;
+                    font-weight: 600;
+                    display: block;
+                    text-shadow: none;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .modal-title{
+                font-family: $font-family-primary;
+                font-weight: 700;
+                font-size: 20px;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        .modal-body{
+            text-align: center;
+            padding: 10px 40px 20px;
+            line-height: 1.4em;
+            font-size: 14px;
+        }
+    }
+
+    // LAYOUT 
+    &.no-header{
+        .modal-content{
+            .modal-header{            
+                border-bottom: none;
+                padding: 0;
+            }
+            .modal-body{
+                padding: 40px;
+            }
+        }
+    }
+
+    &.theme-orange{
+        .modal-content{
+            .modal-header{            
+                background: $color-orange4;
+                border-bottom: 3px solid $color-gray6;
+
+                .close{
+                    color: $color-white;
+                    @include opacity(.5);
+                    &:hover{@include opacity(1);}
+                }
+
+                .modal-title{color:$color-white;}
+            }
+        }
+    }
+
+    .modal-dialog{
+        
+        // MODAL ESQUECI MINHA SENHA
+        &.modal-forget-password{
+
+            .modal-body{ padding: 40px;}
+
+            .content-text {
+                width: 60%;
+                text-align: left;
+                padding-top: 20px;
+            }
+
+            
+            .img-woman {
+                width: auto;
+                height: auto;
+                display: block;
+                position: absolute;
+                right: 30px;
+                bottom: -28px;
+
+
+                &.error{
+                    bottom: 0;
+                }
+            }
+            @media (max-width: $screen-sm) {
+                .content-text { 
+                    &,.input-group, .input-group .mdl-textfield .mdl-textfield__input{
+                        width: 100%;
+                        max-width: initial;
+                    }
+                }
+                .img-woman{ display: none;}
+                .ladoEsquerdo {margin: 0;}
+            }
+        }
+
+        // MODAL CONFIRMAR EMAIL (BARRA AMARELA NO TOPO)
+        &.modal-confirm-email{
+            .modal-body{
+                color:$color-gray1;
+                text-align: center;
+                .button-email{
+                    margin: 10px auto 20px;
+                    width: auto;
+                    text-align: center;
+                    display: table;
+                    height: auto;
+                    line-height: 44px;
+                    color: $color-white;
+                    text-decoration: none;
+                }
+                .link{color:$color-gray3;}
+            }
+        }
+
+        // MODAL OF PAYMENT COMPONET
+        &.modal-form-payment{
+            @media (max-width:$screen-sm){
+                .modal-body{padding:10px;}
+            }
+        }
+
+    }
+}

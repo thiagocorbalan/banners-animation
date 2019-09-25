@@ -1,0 +1,1307 @@
+//
+//  FORMS
+//
+//  @project:       Empregos.com.br
+//  @version:       2.1.3
+//  @description:   Estilos dos formulários e tudo que estiver relacionado.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        27/02/2018
+//
+
+@import "../base/mixins";
+
+//@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// @include mat-core();
+
+// // Define the palettes for your theme using the Material Design palettes available in palette.scss
+// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
+// $candy-app-primary: mat-palette($mat-indigo);
+// $candy-app-accent: mat-palette($mat-light-blue, A200, A100, A400);
+
+// // The warn palette is optional (defaults to red).
+// $candy-app-warn: mat-palette($mat-red);
+
+// // Create the theme object (a Sass map containing all of the palettes).
+// $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// @include angular-material-theme($candy-app-theme);
+
+
+
+
+body {
+  // PADRÃO ANTIGO - Rever essas classes futuramente quando todos os campos e componentes de formulários tiverem o mesmo visual.
+  .checkboxList input,
+  .checkboxList label {
+    height: 15px;
+    margin: 1px 0 !important;
+    padding: 0px;
+  }
+
+  .checkboxList {
+    height: 172px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  textarea {
+    font-size: 12px;
+    font-family: $font-family-tertiary;
+  }
+  // FORMULÁRIO
+  .emp-form .rows {
+    display: block;
+    float: none;
+    width: 100%;
+    background: #f5f8fc;
+    margin-bottom: 2px;
+    padding: 6px 0;
+  }
+  //  LABEL
+  //  OBS. Até que os formulários do site não mudem, essa clase funcionará provisóriamente.
+  .emp-form label,
+  .emp-form select,
+  .emp-form input[type=text],
+  .emp-form input[type=password] {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: $font-family-secondary;
+    font-size: .75em;
+  }
+
+  .emp-form select,
+  .emp-form input[type=text],
+  .emp-form input[type=password] {
+    margin: 0;
+    margin-left: 10px;
+  }
+
+
+  .emp-form input[type=text] {
+    width: 57%;
+  }
+
+  .emp-form label {
+    width: 20%;
+    text-align: right;
+    font-weight: 600;
+    font-size: .8125em;
+    position: relative;
+  }
+
+  .emp-form select {
+    min-width: 20%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .emp-form .input[type=password] {
+    width: 20%;
+  }
+
+  .emp-form .check {
+    text-align: left;
+  }
+
+  .emp-form .check label {
+    width: auto;
+    padding-left: 16px;
+    font-weight: normal;
+    text-align: left;
+    font-size: .6875em;
+  }
+
+  .emp-form .check label:after {
+    content: " ";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: -2px;
+    top: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+    background-image: url("#{$path-img}icons/sprite-icones-cinza-16x16.png");
+    background-repeat: no-repeat;
+    background-position: -32px -144px;
+  }
+
+  .emp-form .check a {
+    font-family: $font-family-secondary;
+    font-size: .6875em;
+    margin-left: 16px;
+    color: #333333;
+  }
+
+  .emp-form .check input[type=checkbox]:checked ~ label:after {
+    background-position: -48px -144px;
+  }
+
+  .emp-form .check input[type=checkbox] {
+    display: none;
+  }
+
+
+  .emp-form .area-botao button {
+    margin-right: 16px;
+    cursor: pointer;
+  }
+  ///**
+  // *  FORMULÁRIOS
+  // *
+  // *  @project        Empregos.com.br
+  // *  @version        1.0
+  // *  @author         Thiago Corbalan
+  // *  @date           14/08/2015
+  // *  @description    Esse será o novo padrão de campos de formulário e tudo relacionado.
+  // *
+  // *
+  //*/
+  ///**
+  // *  RESET
+  // *  Para que possamos zerar todos os estilos dos formulários precisamos zerar os estilos
+  // *  utilizados no projeto.
+  // *
+  // *  Obs. Depois que esses estilos foram inseridos nas demais páginas, precisa ser retirado o prefixo " "
+  // *
+  //*/
+  input.emp-form,
+  input.emp-form[type=text],
+  input.emp-form[type=tel],
+  input.emp-form[type=password],
+  textarea.emp-form,
+  .box-form label,
+  select.emp-form {
+    font-family: $input-font-family;
+    font-size: $font-size-main;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  input.emp-form,
+  textarea.emp-form {
+    @include placeholder-input();
+  }
+
+  input.emp-form,
+  select.emp-form,
+  input.emp-form[type=text],
+  input.emp-form[type=tel],
+  input.emp-form[type=password],
+  .box-form.checkbox:before,
+  .box-form.radio:before,
+  textarea.emp-form {
+    @include border-radius(5px);
+    padding: 11px 12px;
+  }
+
+
+  textarea.emp-form {
+    display: block;
+    padding-right: 30px;
+  }
+
+  .box-form select.emp-form {
+    padding: 6px 36px 6px 12px;
+    cursor: pointer;
+  }
+
+
+  .box-form.select {
+    height: 38px;
+    background: #fff;
+  }
+
+  .box-form.select select {
+    background: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  // for IE10
+  .box-form.select select::-ms-expand {
+    display: none;
+  }
+
+  .box-form.select .seta,
+  .box-form.select .seta:before {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 35px;
+  }
+
+  .box-form.select .seta {
+    border-left: 1px solid #ccc;
+    color: #999;
+    cursor: pointer;
+    background: #FFFFFF;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .box-form.select .seta:before {
+    text-align: center;
+    line-height: 40px;
+    content: $glyphicon-chevron-down;
+    font-family: $font-emp-icons;
+    font-size: 1em;
+  }
+  // Compatibilidade com IE9
+  .ie9 .box-form select.emp-form {
+    padding: 6px 5px 6px;
+  }
+
+  .ie9 .box-form.select .seta {
+    display: none;
+  }
+
+  .box-form.select:hover .seta,
+  .box-form.select:focus .seta {
+    border-left: 1px solid #999;
+    color: #333;
+  }
+
+
+  .box-form.select.error .parsley-errors-list {
+    margin-top: 42px;
+  }
+  // BOX FORM
+  .box-form {
+    display: block;
+    width: 100%;
+    clear: both;
+    margin: 0 0 15px;
+    padding: 0;
+    position: relative;
+    border: 1px solid #ccc;
+
+    @include transition(all .4s cubic-bezier(.25,.8,.25,1));
+    @include user-select(none);
+    @include border-radius(5px);
+    
+  }
+
+  .box-form.focus,
+  //.box-form:hover,
+  .box-form.checkbox:hover:before,
+  .box-form.radio:hover:before,
+  .box-form.checkbox:focus:before,
+  .box-form.radio:focus:before {
+    border: 1px solid $color-blue7;
+  }
+  
+  .box-form:focus,
+  .box-form:hover{
+    border-color: $color-gray4;
+  }
+
+  .box-form.checkbox:hover label,
+  .box-form.radio:hover label,
+  .box-form.checkbox:focus label,
+  .box-form.radio:focus label,
+  .box-form.checkbox.is-checked label,
+  .box-form.radio.is-checked label {
+    color: #333333;
+  }
+
+
+  .box-form:after {
+    content: "";
+    width: 10px;
+    bottom: -1px;
+    position: absolute;
+    left: 45%;
+    visibility: hidden;
+    height: 1px;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+  }
+
+  .box-form label {
+    position: absolute;
+    cursor: text;
+    font-weight: 400;
+    width: auto;
+    left: 0;
+    top: 0;
+    padding: 0 10px;
+    line-height: 45px;
+    @include transition(all .1s ease-in);
+    @include user-select(none);
+  }
+
+
+  .box-form label,
+  .box-form select.emp-form,
+  .box-form input.emp-form[type=text],
+  .box-form input.emp-form[type=password],
+  .box-form textarea.emp-form {
+    color: #999999;
+  }
+
+
+
+  .box-form:hover select.emp-form,
+  .box-form.focus input.emp-form[type=text],
+  .box-form.focus input.emp-form[type=password],
+  .box-form.focus textarea.emp-form,
+  .box-form.filled input.emp-form[type=text],
+  .box-form.filled input.emp-form[type=password],
+  .box-form.filled textarea.emp-form,
+  .box-form.filled select,
+  .box-form.ng-dirty input.emp-form[type=text],
+  .box-form.ng-dirty input.emp-form[type=password],
+  .box-form.ng-dirty textarea.emp-form,
+  .box-form.ng-dirty select,
+  .box-form.text.money.focus:after,
+  .box-form.text.money:hover:after {
+    color: $color-gray-dark;
+  }
+
+  .box-form button.btn-ver-senha {
+    width: 6px;
+    height: 6px;
+    display: block;
+    position: absolute;
+    right: 13PX;
+    top: 50%;
+    margin-top: -3px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-transition: all .05s ease-in;
+    -webkit-transition: all .05s ease-in;
+    -o-transition: all .05s ease-in;
+    transition: all .05s ease-in;
+    visibility: hidden;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .box-form button.btn-ver-senha:before {
+    content: $glyphicon-eye;
+    font-family: $font-emp-icons;
+    font-size: 2.2em;
+    text-align: center;
+    font-weight: normal;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    text-indent: 0;
+    line-height: 24px;
+    left: 50%;
+    margin-left: -15px;
+    top: 50%;
+    margin-top: -10px;
+    color: #c6c6c6;
+    speak: none;
+  }
+
+
+  .box-form.focus label,
+  .box-form.filled label,
+  .box-form.ng-dirty label {
+    top: -10px;
+    left: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    width: auto;
+    padding: 0 6px;
+    line-height: normal;
+    -moz-transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    transition: all .1s linear;
+    background: #fff;
+  }
+
+  .box-form.filled label {
+    color: #999999;
+  }
+
+  .box-form.ng-dirty label {
+    color: #999999;
+  }
+
+  .box-form.focus label {
+    color: $color-blue7;
+  }
+
+  .box-form button.btn-ver-senha:active,
+  .box-form button.btn-ver-senha:focus,
+  .box-form textarea:focus {
+    outline: none;
+  }
+  // Count
+  .box-form.textarea.count {
+    margin-bottom: 35px;
+  }
+
+  .box-form.textarea.count .span-count {
+    position: absolute;
+    right: 0;
+    font-size: .75em;
+    color: #999;
+    width: 100%;
+    text-align: right;
+    margin-top: 6px;
+  }
+
+  .box-form.textarea.count.error .span-count {
+    visibility: hidden;
+  }
+
+
+
+
+  .box-form.filled button.btn-ver-senha,
+  .box-form.ng-dirty button.btn-ver-senha {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    visibility: visible;
+  }
+
+  .box-form button.btn-ver-senha:active {
+    width: 15px;
+    height: 15px;
+    right: 20px;
+    margin-top: -7.5px;
+    -moz-transform: scale(.8);
+    -ms-transform: scale(.8);
+    -o-transform: scale(.8);
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  .box-form.view-password button.btn-ver-senha:before {
+    color: #2F5EB5;
+  }
+
+  .box-form.success button.btn-ver-senha {
+    right: 30px;
+  }
+
+  .box-form.success button.btn-ver-senha:active {
+    right: 36px;
+  }
+  // DESATIVADO
+  .box-form select[disabled],
+  .box-form input.emp-form[type=text][disabled],
+  .box-form input.emp-form[type=tel][disabled],
+  .box-form.textarea.disabled,
+  .box-form.checkbox.disabled:before,
+  .box-form.radio.disabled:before,
+  .box-form.checkbox.disabled:hover:before,
+  .box-form.radio.disabled:hover:before {
+    color: #afafaf;
+    background: #f4f4f4;
+    text-shadow: none;
+    cursor: default;
+  }
+
+  .box-form.textarea.disabled textarea {
+    background: transparent;
+    color: #afafaf;
+  }
+
+  .box-form.disabled:hover,
+  .box-form.checkbox.disabled:before,
+  .box-form.radio.disabled:before,
+  .box-form.checkbox.disabled:hover:before,
+  .box-form.radio.disabled:hover:before {
+    border: 1px solid #ccc;
+  }
+  // VARIAÇÃO DE DINHEIRO
+  .box-form.text.money {
+    margin-left: 40px;
+    width: 45%;
+  }
+
+  .box-form.text.money:after {
+    content: "R$";
+    bottom: auto;
+    left: -40px;
+    top: 50%;
+    height: 40px;
+    margin-top: -20px;
+    font-family: $font-family-primary;
+    font-weight: 600;
+    font-size: 1.5625em;
+    color: #999999;
+    width: 40px;
+    border: 0;
+    visibility: visible;
+  }
+
+  .box-form.text.money.dollar {
+    margin-left: 60px;
+  }
+
+  .box-form.text.money.dollar:after {
+    content: "US$";
+    left: -60px;
+  }
+
+  .box-form.text.money.euro {
+    margin-left: 70px;
+  }
+
+  .box-form.text.money.euro:after {
+    content: "EUR$";
+    left: -70px;
+  }
+
+
+  .box-form.inline {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    margin: 0 0 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  // TAMANHOS
+  .box-form.small, .box-form.inline.small {
+    width: 37%;
+  }
+
+  .box-form.medium {
+    width: 100%;
+  }
+
+
+  .box-form.inline.small,
+  .box-form.inline.medium {
+    margin-right: 3%;
+    margin-bottom: 15px;
+    float: left;
+  }
+
+  .box-form.inline.medium {
+    width: 60%;
+    margin-right: 0;
+  }
+
+  .box-form.inline.radio label,
+  .box-form.inline.checkbox label {
+    padding-right: 10px;
+  }
+  // SUCESSO
+  .box-form.success,
+  .box-form.focus.success,
+  .box-form.filled.success,
+  .box-form.ng-dirty.success {
+    border-color: #07c919;
+  }
+
+  .box-form.password:before,
+  .box-form.text:before,
+  .box-form.tel:before,
+  .box-form.number:before,
+  .box-form.email:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    display: block;
+    top: 50%;
+    margin-top: -8px;
+    opacity: 0;
+    visibility: hidden;
+    background: url("#{$path-img}icons/sprite-icones-cinza-16x16.png") -96px -160px;
+    z-index: 1;
+    -moz-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+  }
+
+  .box-form.password.success:before,
+  .box-form.text.success:before,
+  .box-form.tel.success:before,
+  .box-form.number.success:before,
+  .box-form.email.success:before {
+    right: 8px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .box-form.success label,
+  .box-form.focus.success label,
+  .box-form.filled.success label,
+  .box-form.ng-dirty.success label {
+    color: #333;
+  }
+
+
+  .box-form.success input,
+  .box-form[class*=ico-emp-].filled.success input,
+  .box-form[class*=ico-emp-].success input.ng-dirty {
+    padding-right: 30px;
+  }
+  // ERROR
+  .box-form.error,
+  .box-form.focus.error,
+  .box-form.filled.error,
+  .box-form.error {
+    border-color: #e74106;
+    margin-bottom: 1.34375em;
+
+    &[class*=ico-emp-]:after,
+    &[class*=ico-emp-].ng-dirty:after {
+      color: #e74106;
+    }
+  }
+
+  .box-form.error.container,
+  .box-form.focus.error.container,
+  .box-form.filled.error.container,
+  .box-form.ng-dirty.error.container {
+    margin-bottom: 15px;
+  }
+
+  .box-form.radio.error:before,
+  .box-form.checkbox.error:before {
+    border-color: #e74106;
+  }
+
+  .custom-error-parsley ul {
+    font-size: .75em;
+    color: #e74106;
+    margin-top: 6px;
+  }
+
+  .custom-error-parsley.inline ul {
+    margin: -10px 0 15px;
+  }
+  // ADPTAÇÃO PARA PLUGIN parsleyjs
+  .box-form .parsley-errors-list {
+    position: absolute;
+    font-size: .75em;
+    color: #e74106;
+    visibility: hidden;
+    margin-top: 6px;
+  }
+
+  .box-form.error .parsley-errors-list {
+    visibility: visible;
+  }
+
+  .box-form.error input.emp-form,
+  .box-form.radio.error label,
+  .box-form.checkbox.error label,
+  .box-form.focus.error input.emp-form,
+  .box-form.filled.error input.emp-form,
+  .box-form.error input.emp-form.ng-dirty,
+  .box-form.error label,
+  .box-form.focus.error label,
+  .box-form.filled.error label,
+  .box-form.ng-dirty.error label {
+    color: #e74106;
+  }
+  // CHECKBOX e RADIO
+  .box-form.checkbox,
+  .box-form.radio {
+    border: 0;
+    padding: 0;
+    margin: 0 0 10px;
+    outline: none;
+  }
+
+  .box-form.checkbox:before,
+  .box-form.radio:before {
+    content: "";
+    left: 0;
+    bottom: auto;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 20px;
+    display: block;
+    height: 20px;
+    padding: 0;
+    border: 1px solid #cccccc;
+    background-color: #FFFFFF;
+    z-index: 1;
+    @include box-sizing();
+  }
+
+  .box-form.radio:before {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin-top: -14px;
+  }
+
+  .box-form.checkbox input.emp-form,
+  .box-form.radio input.emp-form {
+    visibility: hidden;
+    display: none;
+  }
+
+  .box-form.checkbox label,
+  .box-form.radio label {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    line-height: normal;
+    font-size: .875em;
+    color: #999999;
+    padding-left: 28px;
+    padding-right: 0;
+    z-index: 2;
+    @include transition(none);
+    @include user-select(none);
+  }
+
+  .box-form.radio label {
+    padding-left: 40px;
+  }
+
+
+
+  .box-form.text.disabled:hover,
+  .box-form.textarea.disabled:hover {
+    border-color: #ccc;
+  }
+
+  .box-form.checkbox.disabled label,
+  .box-form.radio.disabled label {
+    cursor: default;
+  }
+  // IS-CHECKED
+  .box-form.checkbox:after,
+  .box-form.radio:after {
+    width: 16px;
+    height: 16px;
+    display: block;
+    left: 2px;
+    top: 50%;
+    margin-top: -8px;
+    z-index: 1;
+    -moz-transform: scale(2.5);
+    -ms-transform: scale(2.5);
+    -o-transform: scale(2.5);
+    -webkit-transform: scale(2.5);
+    transform: scale(2.5);
+    opacity: 0;
+    visibility: visible;
+    -moz-transition: transform .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    -webkit-transition: transform .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    -o-transition: transform .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transition: transform .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
+
+  .box-form.checkbox:after {
+    background: url("#{$path-img}icons/sprite-icones-cinza-16x16.png") no-repeat -96px -160px;
+  }
+
+  .box-form.radio:after {
+    background: #07c919;
+    width: 18px;
+    height: 18px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-top: -9px;
+    left: 5px;
+  }
+
+  .box-form.checkbox.is-checked:after,
+  .box-form.radio.is-checked:after {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  // Checked Desabilitado
+  .box-form.checkbox.disabled.is-checked:after,
+  .box-form.radio.disabled.is-checked:after {
+    -webkit-filter: grayscale(100%);
+    opacity: .5;
+  }
+  // ALINHAMENTO DOS CHECKBOX E RADIOS
+  .box-form.checkbox.top:before,
+  .box-form.radio.top:before {
+    top: 4px;
+    margin: 0;
+  }
+
+  .box-form.checkbox.top:after,
+  .box-form.radio.top:after {
+    top: 6px;
+    margin: 0;
+  }
+
+  .box-form.checkbox.pointer,
+  .box-form.radio.pointer {
+    cursor: pointer;
+  }
+
+  .box-form[class*=ico-emp-]:after {
+    content: $glyphicon-user-o;
+    width: 29px;
+    height: 24px;
+    font-family: $font-emp-icons;
+    font-weight: 400;
+    font-size: 29px;
+    text-indent: -5px;
+    line-height: 26px;
+    color: #c6c6c6;
+    visibility: visible;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+    border-right: 1px solid #ccc;
+    margin-left: 10px;
+    box-shadow: none;
+  }
+
+  .box-form.focus[class*=ico-emp-]:after,
+  .box-form[class*=ico-emp-]:hover:after {
+    color: #333333;
+  }
+
+
+
+  .box-form.right[class*=ico-emp-]:after {
+    left: auto;
+    right: 0;
+    border: 0;
+    border-left: 1px solid #ccc;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+
+  .box-form.right.success[class*=ico-emp-]:after {
+    visibility: hidden;
+  }
+
+
+
+
+  .box-form.ico-emp-mail:after {
+    content: $glyphicon-envelope-o;
+    font-size: 24px;
+    text-indent: -3px;
+  }
+
+  .box-form.ico-emp-lock:after {
+    content: $glyphicon-lock-o;
+    font-size: 23px;
+    text-indent: -2px;
+  }
+
+  .box-form.ico-emp-card:after {
+    content: $glyphicon-credit-card;
+  }
+
+  .box-form.ico-emp-mark:after {
+    content: $glyphicon-map-marker-o;
+    text-indent: -3px;
+    line-height: normal;
+  }
+
+  .box-form.ico-emp-refresh:after {
+    content: $glyphicon-rotate-right;
+  }
+
+  .box-form.ico-emp-phone:after {
+    content: $glyphicon-phone-o;
+  }
+
+  .box-form.ico-emp-cellphone:after {
+    content: $glyphicon-mobile-phone-o;
+    text-indent: 0px;
+    line-height: 1.1em;
+    font-size: 24px;
+  }
+
+  .box-form[class*=ico-emp-] label {
+    margin-left: 40px;
+  }
+
+  .box-form[class*=ico-emp-] input,
+  .box-form[class*=ico-emp-].focus input,
+  .box-form[class*=ico-emp-].filled input,
+  .box-form[class*=ico-emp-].ng-dirty input {
+    padding: 7px 12px 7px 50px;
+  }
+
+  .box-form[class*=ico-emp-].focus label,
+  .box-form[class*=ico-emp-].filled label,
+  .box-form[class*=ico-emp-].ng-dirty label {
+    margin-left: 0;
+  }
+  // SUGGEST
+  .box-form .resultado-suggest {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    z-index: 10000;
+  }
+
+
+  .box-form .resultado-suggest .ui-autocomplete {
+    overflow-y: scroll;
+  }
+
+  .box-form .resultado-suggest .ui-autocomplete li {
+    font-family: $font-family-primary;
+    font-size: 1em;
+    padding: 4px;
+    padding: 6px 10px;
+    color: #333;
+  }
+
+  .box-form .resultado-suggest .ui-autocomplete li:hover,
+  .box-form .resultado-suggest .ui-autocomplete li.ui-state-focus {
+    background-color: #3399ff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width:480px), (min-width:690px) and (max-width:900px) {
+    .box-form.text.money {
+      width: auto;
+    }
+  }
+
+
+
+  @media screen and (min-width:690px) {
+    // TAAMNHOS
+    .box-form.small {
+      width: 20%;
+    }
+
+    .box-form.medium {
+      width: 70%;
+    }
+
+    .box-form.inline.small {
+      width: 17%;
+    }
+
+    .box-form.inline.medium {
+      width: 50%;
+    }
+  }
+
+
+
+  %matFormField {
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: border .1s ease-in-out;
+  }
+
+  %matInput {
+    @extend %matFormField;
+    height: 46px;
+    border-right: 0;
+    border-radius: 5px 0 0 5px;
+    color: $color-gray;
+  }
+
+  %lastChild {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+  }
+
+  %firstChild {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  %matFormFieldHide {
+    display: none;
+  }
+  // Input Group
+  .input-group {
+    display: table;
+    margin-bottom: 15px;
+
+    .input-group-btn {
+      display: table-cell;
+      width: 1%;
+      position: relative;
+      font-size: 0;
+      white-space: nowrap;
+      z-index: 1;
+
+      .btn-padrao {
+        width: 100%;
+        vertical-align: top;
+      }
+
+      &:last-child > .btn-padrao {
+        @extend %lastChild;
+        margin-left: -1px;
+        line-height: 42px;
+      }
+
+      &:first-child > .btn-padrao {
+        @extend %firstChild;
+        line-height: 42px;
+      }
+    }
+
+    .mat-form-field {
+      display: table-cell;
+      width: 100%;
+      position: relative;
+
+      &, &:hover {
+        z-index: 1;
+      }
+
+      input {
+        @extend %matFormField;
+        @extend %matInput;
+      }
+
+      &:last-child input {
+        @extend %lastChild;
+      }
+
+      &:first-child input {
+        @extend %firstChild;
+      }
+      //  &.is-focused, &:hover{
+      //     z-index: 2;
+      //  }
+      &.is-focused {
+        box-shadow: 0 0 10px transparentize($color-blue7,.5);
+      }
+    }
+  }
+  
+  
+  mat-form-field.mat-form-field-appearance-outline {
+    line-height: normal; 
+
+    .mat-form-field-infix{
+      padding: .3em 0 .7em
+    }
+    .mat-form-field-label,
+    .mat-form-field-infix .mat-input-element{font-family: $input-font-family;}
+
+
+    .mat-form-field-label{
+      top: 1.34375em;
+      color: $color-gray4;
+    }
+
+    .mat-form-field-infix{
+      width: 246px;
+
+      .mat-input-element{
+        color: $color-gray-dark;
+      }
+    }
+
+    &.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, 
+    &.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label{
+      transform: translateY(-1.3em) scale(0.75);
+    }
+    
+    .mat-form-field-outline-thick{
+      color: $color-gray4;
+      .mat-form-field-outline-gap,
+      .mat-form-field-outline-end,
+      .mat-form-field-outline-start{ border-width: 1px; }
+    }
+
+    &.mat-focused{
+      .mat-form-field-label,
+      .mat-form-field-outline-thick { color: $color-blue7; }
+    }
+
+    &.mat-form-field-invalid .mat-form-field-label{
+      color: #f44336; // Não foi usada a variavel, porque o Material não facilmente apenas uma varial de cores
+    }
+  }
+  
+
+
+  mat-hint.mat-hint {
+    color: #ccc;
+  }
+  // Checkbox
+  mat-checkbox {
+    .mat-checkbox-layout .mat-checkbox-label {
+      font-size: 14px;
+      color: $color-gray-dark;
+    }
+
+    &.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+      background-color: $color-blue7;
+    }
+
+    &.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background: transparentize($color-blue7,.74);
+    }
+  }
+  // Radio Button
+  mat-radio-button {
+    .mat-radio-label-content {
+      font-size: 14px;
+      color: $color-gray-dark;
+      padding: 0 8px;
+    }
+
+    &.mat-radio-button{
+      margin-right: 20px;
+    }
+
+    &.mat-radio-button.mat-accent .mat-radio-inner-circle,
+    .mat-radio-container,
+    .mat-radio-outer-circle{ 
+      width: 31px; 
+      height: 31px; 
+    }
+
+    .mat-radio-outer-circle{ border-color: $color-gray-light; }
+
+    .mat-radio-label-content{
+      font-family: $font-family-primary;
+      font-size: 14px;
+      color: $color-gray-dark;
+      padding-left: 20px;
+      
+    }
+    
+    &.mat-radio-button.mat-accent .mat-radio-inner-circle{
+      background-color: $color-blue7;
+    }
+    &.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{ border-color: $color-blue7;}
+    &.mat-radio-checked{
+      .mat-radio-inner-circle{
+        @include scale(1);
+        @include icon($glyphicon-check, 20px, $color-white);
+      }
+
+      .mat-radio-label-content{
+        font-weight: 700;
+        color: $color-blue7;
+      }
+    }
+
+    
+
+  }
+  // Slide Toogle
+  mat-slide-toggle {
+    .mat-slide-toggle-content {
+      font-size: 14px;
+      color: $color-gray-dark;
+    }
+
+    &.mat-slide-toggle {
+
+      .mat-slide-toggle-thumb-container {
+        top: -1px;
+
+        &, .mat-slide-toggle-thumb {
+          width: 16px;
+          height: 16px;
+          position: relative;
+          @include box-shadow(none);
+        }
+
+        .mat-slide-toggle-thumb:before {
+          content: $glyphicon-check;
+          font-family: $font-emp-icons;
+          font-size: 12px;
+          line-height: 14px;
+          text-align: center;
+          color: $color-blue7;
+          @include centralize(12px,12px);
+          @include opacity(0);
+          @include transition(opacity 80ms linear);
+        }
+
+        @include translate3d(-1px,0,0);
+      }
+
+      .mat-ripple-element {
+        background: transparentize($color-blue7,.74);
+      }
+
+      .mat-slide-toggle-bar {
+        border: 3px solid $color-gray-40;
+        transition-property: all;
+        background: $color-gray-40;
+        @include box-sizing(content-box);
+        @include border-radius(12px);
+      }
+
+      &.mat-checked:not(.mat-disabled) {
+        .mat-slide-toggle-thumb-container {
+          @include translate3d(20px,0,0);
+        }
+
+        .mat-slide-toggle-bar {
+          background-color: $color-blue7;
+          border-color: $color-blue7;
+        }
+
+        .mat-slide-toggle-thumb {
+          background-color: $color-white;
+
+          &:before {
+            @include opacity(1);
+          }
+        }
+      }
+    }
+  }
+}

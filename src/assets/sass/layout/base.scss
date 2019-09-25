@@ -1,0 +1,68 @@
+//
+//  BASE
+//
+//  @project:       Empregos.com.br
+//  @version:       2.0.0
+//  @description:   Estilos basicos da p�gina. Existe um arquivo global que futuramente precisar� rever e traze-lo para esse arquivo.
+//  @author:        Thiago Corbalan    
+//  @date:          25/07/2017
+// 
+
+@import "../base/mixins";
+
+
+body{
+    width: auto;
+    height: auto;
+    background: #045DC6;
+    font-family: $font-family-primary;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Compatibilidade com a estrutura antiga */
+.geral #content {
+    position:relative;
+    overflow-x:auto;
+    width:100%;
+    overflow-x:auto;
+ 
+    .container{
+        min-height: 600px; 
+    }
+
+}
+
+.geral #content,
+.centraliza,
+.geral .page-width{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.geral #content > div:first-child{width:1000px; }
+
+.geral {
+    
+
+    .tituloPagina {
+        margin: 5px 0;
+        height: 60px;
+        border-bottom: 3px solid #EEF1F9;
+        h1, h2, h3, h4, p.tituloAzul{
+            font-family: $font-family-primary;
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF6600;
+            float: left;
+            margin: 25px 0 0;
+            clear: both;
+        }
+        p.tituloAzul{
+            font-size: $font-size-main;
+            color: #045DC6;
+            margin: 35px 0 0;
+        }
+    }
+}

@@ -1,0 +1,223 @@
+﻿//
+//  ANIMATIONS
+//  
+//  @project:       Empregos.com.br
+//  @version:       4.0.0
+//  @description:   Animações do site, mais especificamente os keyframes().
+//  @author:        Thiago Corbalan
+//  @date:          30/11/2017
+//  @update:        08/03/2018
+//
+
+@import "../base/mixins";
+
+//   SPINNER (loading)
+@include keyframes(rotatespinner) {
+    100% { transform: rotate(360deg); }
+}
+
+// Animação da seta que fica localizado na Home.
+@include keyframes(kf-pulse) {
+    from { margin-bottom: 0;}
+    to {margin-bottom: 10px;}
+}
+
+// Animação do Tooltip no topo;
+@include keyframes(kf-tooltip) {
+    0% {
+        top: ($top-height - 10px);
+        @include opacity(0);
+    }
+
+    100% {
+        top: $top-height + 10px;
+        @include opacity(1);
+    }
+}
+
+@include keyframes(tag-existing) {
+    from { background-color: transparentize($color-yellow,.7);}    
+    to { background-color: $color-gray-10;}
+}
+
+@include keyframes(dashspinner) {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@include keyframes(zoomlines) {
+    from {transform: scale(.9);}
+    to {transform: scale(1);}
+}
+
+@include keyframes(hideandshow) {
+    from { opacity: 0;}
+    to { opacity: 1; }
+}
+
+// Animação do componente de visibilidade (Taça)
+@include keyframes(stars) {
+    0% {
+        @include opacity(0);
+        transform: translateY(20px);
+    }
+
+    10%, 85% {
+        @include opacity(1);
+        transform: translateY(0px);
+    }
+
+    100% {
+        @include opacity(0);
+        transform: translateY(-20px);
+    }
+}
+
+@include keyframes(starsleft) {
+    0% {
+        @include opacity(0);
+        transform: translateY(20px) translateX(10px);
+    }
+
+    10%, 85% {
+        @include opacity(1);
+        transform: translateY(0px) translateX(0);
+    }
+
+    100% {
+        @include opacity(0);
+        transform: translateY(-20px) translateX(-10px) rotate(-90deg);
+    }
+}
+
+@include keyframes(starsright) {
+    0% {
+        @include opacity(0);
+        transform: translateY(20px) translateX(-10px);
+    }
+
+    10%, 85% {
+        @include opacity(1);
+        transform: translateY(0px) translateX(0);
+    }
+
+    100% {
+        @include opacity(0);
+        transform: translateY(-20px) translateX(10px) rotate(90deg);
+    }
+}
+
+@include keyframes(linewaves) {
+    0% {
+        width: 0;
+        transform: translateY(-100%);
+    }
+
+    5%, 98%, 100% {
+        margin-left: -1.5px;
+        width: 3px;
+        transform: translateY(0);
+    }
+
+    100% { transform: translateY(100%); }
+}
+
+@include keyframes(wave) {
+    0% { height: 100%;}
+    50% { height: 90%;}
+    100% { height: 100%;}
+}
+
+@include keyframes(step25) {
+    from {transform: translateY(0);}
+    to {transform: translateY(-25%);}
+}
+
+@include keyframes(step50) {
+    from {transform: translateY(0);}
+    to {transform: translateY(-50%);}
+}
+
+@include keyframes(step75) {
+    from { transform: translateY(0); }
+    to {transform: translateY(-75%);}
+}
+
+@include keyframes(step100) {
+    from {transform: translateY(0);}
+    to  { transform: translateY(-100%); }
+}
+//   SPEEDOMETER (Resumo do CV)
+@include keyframes(speedometerAnimation) {
+    0% { @include rotate(0deg); }
+}
+
+@include keyframes(heartElastic) {
+    0% { @include transform(scale(1.4)); }
+    25% { @include transform(scale(.8)); }
+    75% { @include transform(scale(1.2)); }
+    100% { @include transform(scale(1)); }
+}
+
+@include keyframes(heartPress) {
+    from { @include transform(scale(1)); }
+    to { @include transform(scale(.8)); }
+}
+
+@include keyframes(removedElasticX) {
+    0% {    @include translateX(0); }
+    65% {   @include translateX(10%); }
+    100% {  @include translateX(-110%); }
+}
+
+
+// CAROUSEL EM HIRING PROCESS
+@include keyframes(animation-how-works-step) {
+    100% { 
+        color: $color-blue;
+        border-color: $color-blue;
+    }
+}
+@include keyframes(animation-coloring-li-title) {
+    100% {color: $color-blue;}
+}
+@include keyframes(animation-how-works-play) {
+    0% {width: 0%;}
+    33% {width: 33%;}
+    66% {width: 66%;}
+    100% {width: 100%;}
+}
+@include keyframes(animation-how-works-fadeout) {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@include keyframes(animation-how-works-fadein) {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@include keyframes(animation-how-works-to-position) {
+    100% {
+        left: 50px;
+        top: 46px;
+        width: 20px;
+        height: 20px;
+    }
+}
+@include keyframes(animation-how-works-decrease) {
+    100% {
+        font-size: 16px;
+        left: 17px;
+    }
+}

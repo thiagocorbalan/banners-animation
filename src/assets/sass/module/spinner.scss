@@ -1,0 +1,94 @@
+//
+//  SPINNER
+//
+//  @project:       Empregos.com.br
+//  @version:       2.0.0
+//  @description:   Componente usado para estilizar o loading da página.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//
+
+@import "../base/mixins";
+.emp-spinner-container{
+    position: relative;
+    clear: both;    
+    display: block;
+    min-height: 100px;
+    
+
+    // Spinner com o fundo cinza
+    &.primary .emp-spinner{
+        background: $color-gray-10;
+    }
+
+    // Spinner com o fundo branco
+    &.secondary .emp-spinner{
+        background: $color-white;
+    }
+
+    // Spinner fixo na tela com fundo branco transparente
+    &.tertiary{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background: transparentize($color-white,.25);
+
+        .emp-spinner {
+            @include centralize(90px,90px);
+            background:$color-white;
+            .loader{
+                span.circular{
+                    @include centralize(70px,70px);
+                    border-width:10px;
+                }
+            }
+        }
+    }
+
+    .emp-spinner{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index:10;
+        overflow: hidden;
+        @include border-radius(3px);
+
+        &.hide{display: none;}
+
+        .loader {
+            @include centralize(50px,50px);
+            @include border-radius(50%);
+
+            &:before {
+                content: '';
+                display: block;
+                padding-top: 100%;
+            }
+
+            span{
+                display: block;
+                margin-top: 10px;
+                font-family: $font-family-primary;
+                color:$color-blue7;
+                text-align: center;
+            }
+        }
+
+        span.circular{
+            margin: auto;
+            border:5px solid $color-gray8;
+            border-top-color: $color-blue7;
+            border-right-color: $color-blue7;
+            @include centralize(50px,50px);
+            @include border-radius(50%);
+            @include animation(rotatespinner .5s linear infinite);
+        }
+    }
+
+}

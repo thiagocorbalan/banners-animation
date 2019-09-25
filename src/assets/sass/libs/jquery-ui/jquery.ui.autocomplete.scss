@@ -1,0 +1,61 @@
+﻿.ui-autocomplete
+{
+    position: absolute;
+    cursor: default;
+    /*border: 1px solid black;*/
+    background-color: white;
+    list-style-position: outside;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    max-height: 160px;
+    overflow-y: auto; /* prevent horizontal scrollbar */
+    overflow-x: hidden; /* add padding to account for vertical scrollbar */
+    z-index:1000!important;
+
+    border: 1px solid #bbbbbb;    
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    
+}
+
+.ui-autocomplete
+{
+    width: 1px; /* without this, the menu expands to 100% in IE6 */
+}
+
+.ui-autocomplete li
+{
+    margin: 0px; /*padding: 5px 2px;*/
+    cursor: default;
+    display: block; /*  	if width will be 100% horizontal scrollbar will apear  	when scroll mode will be used 	*/
+    font: menu;
+    font-size: 11px; /*  	it is very important, if line-height not setted or setted  	in relative units scroll will be broken in firefox 	*/
+    line-height: 22px;
+    overflow: hidden;
+    background-color: #FFF;
+}
+
+.ui-autocomplete li a
+{
+    display: block; /*padding: 5px 2px;*/
+    padding: 0 0.4em;
+    text-decoration: none;
+}
+
+.ui-autocomplete li a.ui-state-hover
+{
+    font-weight: normal;
+    /*margin: -1px; /* border: 1px solid #FBCB09;*/
+    color: #fff;
+    background-color: #0A246A;
+    font-weight: bold;
+    outline: medium none;
+}
+
+.ui-autocomplete .ui-item-odd
+{
+    background-color: #eee;
+}

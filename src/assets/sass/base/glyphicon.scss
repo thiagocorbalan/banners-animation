@@ -1,0 +1,158 @@
+//  
+//  GLYPHICON
+//	
+//  @project:       Empregos.com.br
+//  @version: 		  2.11.1
+//  @description:   Aqui estão todas as variáveis relacionadas aos font-icons existentes.
+//                  As variáveis aqui contidas estão seguindo a nomenclaturas existentes do https://icomoon.io/app/#/select. 
+//                  mesmo não utilizando a biblioteca deles, está sendo seguido a mesma nomenclatura no qual a comunidade
+//                  usa em seus projetos.
+//                      1. Fazer upload dos arquivos SVG no icomoon.io | 2. Depois do download do .rar, sobrescrever os arquivos da pasta assets/fonts/iconfont | 3. Copiar as variáveis do arquivo variables.scss para cá.
+//  @author:        Thiago Corbalan
+//  @date:          10/07/2017
+//  @update:        30/08/2018
+//
+//
+
+$glyphicon-user-circle: "\e900";
+$glyphicon-user-ghost: "\e901";
+$glyphicon-user-group: "\e902";
+$glyphicon-user-headphone: "\e903";
+$glyphicon-user-mercy-o: "\e904";
+$glyphicon-user-o: "\e905";
+$glyphicon-user-search: "\e906";
+$glyphicon-users-search-o: "\e907";
+$glyphicon-user-telemarketing: "\e908";
+$glyphicon-wrench-o: "\e909";
+$glyphicon-write-paper-o: "\e90a";
+$glyphicon-paper-o: "\e90b";
+$glyphicon-pause: "\e90c";
+$glyphicon-pencil: "\e90d";
+$glyphicon-pencil-ruler-o: "\e90e";
+$glyphicon-phone: "\e90f";
+$glyphicon-phone-call: "\e910";
+$glyphicon-phone-o: "\e911";
+$glyphicon-pig-bank-o: "\e912";
+$glyphicon-play: "\e913";
+$glyphicon-plus: "\e914";
+$glyphicon-print: "\e915";
+$glyphicon-print-o: "\e916";
+$glyphicon-quote-left: "\e917";
+$glyphicon-refresh: "\e918";
+$glyphicon-resume-eyes: "\e919";
+$glyphicon-resume-highlight: "\e91a";
+$glyphicon-resume-unlimited: "\e91b";
+$glyphicon-return: "\e91c";
+$glyphicon-rotate-right: "\e91d";
+$glyphicon-sad-smile: "\e91e";
+$glyphicon-search: "\e91f";
+$glyphicon-search-eye: "\e920";
+$glyphicon-search-jobs: "\e921";
+$glyphicon-search-o: "\e922";
+$glyphicon-shopping-cart: "\e923";
+$glyphicon-shutdown: "\e924";
+$glyphicon-sign-out: "\e925";
+$glyphicon-filter-slider: "\e926";
+$glyphicon-folder-o: "\e927";
+$glyphicon-folders-office-o: "\e928";
+$glyphicon-gear-o: "\e929";
+$glyphicon-gear: "\e92a";
+$glyphicon-globe: "\e92b";
+$glyphicon-globe-o: "\e92c";
+$glyphicon-google-plus-circle: "\e92d";
+$glyphicon-hand: "\e92e";
+$glyphicon-heart: "\e92f";
+$glyphicon-heart-o: "\e930";
+$glyphicon-hiring-process: "\e931";
+$glyphicon-industry-o: "\e932";
+$glyphicon-info-circle: "\e933";
+$glyphicon-info-circle-o: "\e934";
+$glyphicon-instagram-circle: "\e935";
+$glyphicon-key-o: "\e936";
+$glyphicon-lamp-o: "\e937";
+$glyphicon-laptop-o: "\e938";
+$glyphicon-line-bar-chart: "\e939";
+$glyphicon-linkedin: "\e93a";
+$glyphicon-linkedin-circle: "\e93b";
+$glyphicon-lock: "\e93c";
+$glyphicon-lock-o: "\e93d";
+$glyphicon-map-marker: "\e93e";
+$glyphicon-map-marker-o: "\e93f";
+$glyphicon-mobile-phone-o: "\e940";
+$glyphicon-monument-o: "\e941";
+$glyphicon-pallet-painter: "\e942";
+$glyphicon-check: "\e943";
+$glyphicon-check-circle-o: "\e944";
+$glyphicon-check-rounded: "\e945";
+$glyphicon-chevron-double-right: "\e946";
+$glyphicon-chevron-double-rounded-right: "\e947";
+$glyphicon-chevron-down: "\e948";
+$glyphicon-chevron-right: "\e949";
+$glyphicon-chevron-rounded-down: "\e94a";
+$glyphicon-chevron-rounded-right: "\e94b";
+$glyphicon-chevron-thin-right: "\e94c";
+$glyphicon-chevron-up-right: "\e94d";
+$glyphicon-clock-o: "\e94e";
+$glyphicon-college-o: "\e94f";
+$glyphicon-company-guide: "\e950";
+$glyphicon-credit-card: "\e951";
+$glyphicon-crown: "\e952";
+$glyphicon-curriculum: "\e953";
+$glyphicon-desktop-o: "\e954";
+$glyphicon-empregos: "\e955";
+$glyphicon-envelope-o: "\e956";
+$glyphicon-exclamation: "\e957";
+$glyphicon-exclamation-circle-o: "\e958";
+$glyphicon-exclamation-triangle-o: "\e959";
+$glyphicon-external-link: "\e95a";
+$glyphicon-eye: "\e95b";
+$glyphicon-facebook: "\e95c";
+$glyphicon-facebook-circle: "\e95d";
+$glyphicon-file-pdf: "\e95e";
+$glyphicon-files: "\e95f";
+$glyphicon-file-text: "\e960";
+$glyphicon-file-text-check-circle-o: "\e961";
+$glyphicon-file-text-o: "\e962";
+$glyphicon-address-book: "\e963";
+$glyphicon-arrow-circle-o-bold-right: "\e964";
+$glyphicon-arrow-circle-o-left: "\e965";
+$glyphicon-balance-scale-o: "\e966";
+$glyphicon-ban: "\e967";
+$glyphicon-bar-chart: "\e968";
+$glyphicon-bar-chart-o: "\e969";
+$glyphicon-bar-money-chart: "\e96a";
+$glyphicon-bar-right-chart: "\e96b";
+$glyphicon-bar-up-chart-o: "\e96c";
+$glyphicon-bell-ring: "\e96d";
+$glyphicon-bell-slash: "\e96e";
+$glyphicon-binoculars: "\e96f";
+$glyphicon-building: "\e970";
+$glyphicon-building-1: "\e971";
+$glyphicon-building-1-o: "\e972";
+$glyphicon-building-2: "\e973";
+$glyphicon-building-o: "\e974";
+$glyphicon-building-search-o: "\e975";
+$glyphicon-camera: "\e976";
+$glyphicon-certificate: "\e977";
+$glyphicon-chat: "\e978";
+$glyphicon-chat-o: "\e979";
+$glyphicon-chat-single-o: "\e97a";
+$glyphicon-chat-square: "\e97b";
+$glyphicon-suitcase-2: "\e97c";
+$glyphicon-like: "\e97d";
+$glyphicon-smile-face: "\e97e";
+$glyphicon-info-circle-interrogation-o: "\e97f";
+$glyphicon-star: "\e980";
+$glyphicon-star-half: "\e981";
+$glyphicon-star-o: "\e982";
+$glyphicon-suitcase: "\e983";
+$glyphicon-suitcase-o: "\e984";
+$glyphicon-suitcase-o-2: "\e985";
+$glyphicon-target-locale: "\e986";
+$glyphicon-times: "\e987";
+$glyphicon-transport-cart: "\e988";
+$glyphicon-triple-circle-o: "\e989";
+$glyphicon-trophy: "\e98a";
+$glyphicon-truck-o: "\e98b";
+$glyphicon-twitter: "\e98c";
+$glyphicon-twitter-circle: "\e98d";

@@ -1,0 +1,87 @@
+///
+//  FEEDBACKS
+//  ------------
+//  @author: Thiago Corbalan
+//  @version: 1.0.0
+//  @Description: --
+///
+
+
+//@import "../base/mixins";
+
+.feedback {
+    width:100%;
+    display:block;
+    padding:10px 10px 10px 25px;
+    background-color: #efefef;
+    border-style:solid;
+    border-width:1px;
+    border-color: #DADADA;
+
+    &.alerta-confirma-email{
+        text-align:center;
+        font-size: 0.875em;
+        font-family:$font-family-primary;
+        color:#333;
+        border:0;
+        background-color: #ffffba !important;
+        padding: 14px 10px;
+        position: relative;
+        z-index: 3;
+        border-bottom:1px solid #CCC;
+
+        a{
+            font-family:Arial;
+            color:#333;
+            text-decoration: underline;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+
+        span.icons{
+            margin-right: 6px;                    
+            height: 16px;
+            line-height: 12px;
+            width:auto; 
+
+            &:before{
+                content: $glyphicon-info-circle-o;
+                font-family: "emp-icons";
+                font-size: 22px;
+                color: #000;
+                line-height: inherit;
+            }
+        }
+        
+    }
+}
+
+.feedback p, .feedback span.icons {
+    display: inline-block;
+    vertical-align: middle;
+    *float:left;
+    font-size: 12px;
+    font-family:$font-family-primary;
+    line-height: 20px;
+    color:#666666;
+}
+
+
+.feedback :hover span[class^=cross] {
+    @include rotate(90deg);
+}
+
+
+/* ATTENTION */
+.feedback.attention     {border-color:#E3E0C9; background-color:#FFFADA;}
+.feedback.attention p   {color:#5E5E4A;}
+
+/* SUCCESS */
+.feedback.success       {border-color:#B2E0B2; background-color:#D0ECD0;}
+.feedback.success p     {color:#598059;}
+
+/* ERROR */
+.feedback.error         {border-color:#FFADAD; background-color:#FFD9D9;}
+.feedback.error p       {color:#b24747;}
+

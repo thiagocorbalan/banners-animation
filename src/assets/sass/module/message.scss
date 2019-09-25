@@ -1,0 +1,133 @@
+//
+//  MESSAGE
+//
+//  @project:       Empregos.com.br
+//  @version:       2.0.1
+//  @description:   Destinado ao locais onde aparecem as mensagens / banners do site.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        28/08/2017
+//
+
+
+message.message{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+
+    @include opacity(0);
+
+    .banner.bannerVaga{
+        margin:0 auto;
+        width: 700px;
+        height: 158px;
+        border: 1px solid #D3D3D3;
+        text-align: center;
+        font-family: $font-family-secondary;
+
+        &:hover{
+            background: $color-white;
+        }
+
+        .foto{
+            float: left;
+            width: 253px;
+        }
+        .conteudo{
+            float: left;
+            width: 420px;
+            height: 100px;
+
+            .tituloPrincipal{
+                float: left;
+                margin-top: 8px;
+                width: 420px;
+                color: #145FBB;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 24px;
+
+                span{
+                    font-size: 30px;
+                    line-height: 25px;
+                }
+            }
+            .tituloSecundario{
+                float: left;
+                width: 420px;
+                color: #F36518;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 20px;
+
+                span{
+                    font-size: 24px;
+                    line-height: 25px;
+                }
+            }
+        }
+        .btn{
+            display: table;
+            float: left;
+            margin-top: 8px;
+            margin-left: 100px;
+
+            .texto{
+                float: left;
+                padding: 11px 0 0 10px;
+                width: 200px;
+                color: $color-white;
+                text-align: center;
+                text-decoration: none;
+                letter-spacing: -1px;
+                font-weight: bold;
+                font-size: 16px;
+                font-family: Arial;
+            }
+            .seta{
+                float: right;
+                margin-top: 5px;
+                width: 35px;
+
+                img{
+                    border: none;
+                }
+            }
+            a {
+                float: left;
+                width: 250px;
+                height: 41px;
+                border: 1px solid #0D4384;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+                background: #1669CD;
+                background: -webkit-gradient(linear, left top, left bottom, from(#2D85EF), to(#1669CD));
+                background: -moz-linear-gradient(top, #2D85EF, #1669CD);
+                    -webkit-box-shadow: 0 1px #40B8F7 inset, 0 0 3px 0 rgba(0, 0, 0, 0.2);
+                box-shadow: 0 1px #40B8F7 inset, 0 0 3px 0 rgba(0, 0, 0, 0.2);
+                color: #FFFFFF;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                font-family: Arial;
+            }
+            a:hover{
+                background: #4B96F1;
+                background: -webkit-gradient(linear, left top, left bottom, from(#4B96F1), to(#1669CD));
+                background: -moz-linear-gradient(top, #4B96F1, #1669CD);
+            }
+            a:active {
+                background: #116AD7;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                -moz-box-shadow: none;
+            }
+        }
+    }
+}
+
+.message-lazyloaded{
+    @include animation(kfmessage 2s linear forwards);
+}

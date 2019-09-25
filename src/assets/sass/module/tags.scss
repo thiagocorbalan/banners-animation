@@ -1,0 +1,88 @@
+//
+//  TAGS
+//
+//  @project:       Empregos.com.br
+//  @version:       2.1.1
+//  @description:   Componentes das Tags.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        02/02/2018
+
+@import "../base/mixins";
+
+%add{
+    content: $glyphicon-plus;
+    background-color: $color-blue;
+    color: $color-white;
+    font-family: $font-emp-icons;
+    font-size: 18px;
+    right: -1px;
+    top: -1px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    @include border-radius(0 3px 3px 0)
+}
+
+.emp-tag{
+    font-family: $font-family-primary;
+    color: $color-gray-dark;
+    padding: 0 30px;
+    margin: 0 14px 9px 0;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    letter-spacing: normal;
+    text-decoration: none;
+    position: relative;
+    border: 1px dashed $color-gray-dark;
+    background-color: $color-gray-10;
+    cursor:default;
+    @include border-radius(3px);
+    @include box-sizing();
+    @include user-select(none);
+
+    &:hover, &:focus{ 
+        background-color: darken( $color-gray-10, 3% );
+        color: $color-gray-dark;
+        text-decoration: none;
+    }
+
+    &.add, &.remove{cursor:pointer;}
+    // ADICIONAR
+    &.add{
+        padding: 0 60px 0 30px;
+        &:after{@extend %add;}
+        &:hover:after,
+        &:focus:after{ background-color: darken( $color-blue, 10% );}
+    }
+    // REMOVER
+    &.remove{
+        padding: 0 60px 0 30px;
+        &:after{
+            content: $glyphicon-times;
+            background-color: $color-gray;
+            @extend %add; 
+        }
+        &:hover:after,
+        &:focus:after{ background-color: darken( $color-gray, 10% );}
+    }
+
+    //EXISTENTE
+    &.existing{
+        @include animation(tag-existing 1s linear );
+    }
+
+
+    @media (max-width: $screen-xs){
+        margin-right: 10px;
+    }
+
+
+}

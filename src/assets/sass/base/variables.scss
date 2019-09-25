@@ -1,0 +1,153 @@
+﻿//
+//  VARIABLES
+//
+//  @project:       Empregos.com.br
+//  @Version:       3.0.1
+//  @description:   Variáveis como tamanho de fonte, tipo de fonte, cores e etc.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        06/09/2017
+//
+
+
+@import "glyphicon";  // ICONS    
+@import "colors";     // COLORS
+@import "path";       // PATHS
+
+// STRUCTURE
+
+    // GRID
+    $grid-columns: 12;
+    $grid-gutter-width: 30px;
+
+
+    // SCREEN / MEDIA QUERIES
+    // @description: this variables are used on Bootstrap
+
+    // Extra small screen / phone
+    $screen-xs:                  480px;
+    // Small screen / tablet
+    $screen-sm:                  768px;
+    // Medium screen / desktop
+    $screen-md:                  992px;
+    // Large screen / wide desktop
+    $screen-lg:                  1200px;
+
+    //Container sizes
+    // Small screen / tablet
+    $container-tablet:             (720px + $grid-gutter-width); //720px -> default
+    // Medium screen / desktop
+    $container-desktop:            (940px + $grid-gutter-width); //940px -> default
+    // Large screen / wide desktop
+    $container-large-desktop:      (1140px + $grid-gutter-width); //1140px -> default
+
+
+// COMMONS VARIABLES
+$radius-base: 5px;
+$width-arrow: 22px;
+
+// LAYOUT
+
+    // FONTS & LINKS
+    $font-family-primary:       'Open Sans','Arial', sans-serif;
+    $font-family-secondary:     'Arial','Trebuchet MS','Tahoma', sans-serif;
+    $font-family-tertiary:      'Verdana','Arial', 'Helvetica', sans-serif;
+
+    $font-emp-icons: "emp-icons";
+
+    $font-size-main: 16; // size text main
+    $link-color-base: $color-blue3;
+
+    // TOP
+    $top-bgcolor-main: $color-orange;
+    $top-height: 64px;
+
+    // MENU
+    $menu-width: 280px;
+    $main-menu-bgcolor: $color-gray2;
+
+    // FOOTER
+
+    // FORMS
+    $input-font-family:  $font-family-primary;
+    $input-font-size:  $font-size-main;
+    $input-altura: 36px;
+    $input-padding: 8px 12px;
+    $input-border-radius: 4px;
+
+    $input-border-color: $color-gray5;
+    $input-border: 1px solid $input-border-color;
+
+    $textarea-min-height: 100px;
+
+    $form-checked-color: lighten($color-green1, 10%); //default: #07c919
+    $form-label-color: $color-blue3; // #3f51b5
+
+    $form-validate-success-color: $color-green2; //#07c919
+    $form-validate-error-color:$color-orange1;
+
+    $input-placeholder-color:$color-gray4;
+    $input-placeholder-font-family: $font-family-primary;
+    $input-placeholder-font-style: italic;
+    $input-placeholder-font-size: $input-font-size;
+    $input-placeholder-font-weight: normal;
+
+// MODULES VARIABLES
+
+    // BUTTONS
+    $btn-font-family:     $font-family-primary;
+    $btn-font-size:       14px;
+    $btn-font-weight:     600;
+    $btn-height:          38px;
+    $btn-min-width:       80px;
+    $btn-padding:         0 em(30, $btn-font-size);
+    $btn-border-radius:   4px;
+
+    $btn-cor-laranja:     $color-orange2;
+    $btn-cor-azul:        $color-blue2;
+    $btn-cor-amarelo:     $color-yellow;
+    $btn-cor-roxo:        $color-purple;
+    $btn-cor-verde:       $color-green1;
+    $btn-cor-vermelho:    $color-red;
+
+    // PROGRESS BAR / RESUME FORCE
+    $progress-bar-width: 160px;
+    $progress-bar-height: 22px;
+    $progress-bar-color-1: #fd6b2e ;
+    $progress-bar-color-2: #fead2d ;
+    $progress-bar-color-3: #fdd52d ; //fdd52d
+    $progress-bar-color-4: #afe04c ;
+    $progress-bar-color-5: #5cca11 ; //6cdc51
+
+    // NEW COMPONENT RESUME FORCE
+    $resume-force-width: 126px;
+    $resume-force-color: #faa434;
+
+
+    // PAGINATION
+    $pagination-border-color:           $color-gray6;
+    $pagination-font-family:            $font-family-secondary;
+    $pagination-font-size:              15px;
+    $pagination-font-color:             $color-gray3; // #848484
+    $pagination-font-nextprev-color:    $color-gray5; //#CDCDCD
+    $pagination-background:             $color-gray10; // #fcfcfc
+    $pagination-hover:                  $color-gray9;
+
+
+
+//  PAGES
+//  $description: Variables used on pages.
+
+    // HOME
+    $pg-home-color-orange: #ee8221;
+    $pg-home-color-orange-light: #ef9b50;
+    $pg-home-color-blue: #324371;
+    $pg-home-color-blue-light: #274995;
+    $pg-home-color-blue-dark: #162f66;
+
+
+
+
+
+
+

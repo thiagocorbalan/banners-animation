@@ -1,0 +1,536 @@
+﻿//
+//  CAREERS TOP
+//  
+//  @project:       Empregos.com.br
+//  @version:       2.0.1
+//  @description:   Layout do Topo Carreiras dentro do site empregos.
+//  @author:        Thiago Corbalan
+//  @date:          25/07/2017
+//  @update:        28/08/2017
+//
+
+
+@import "../base/mixins";
+
+
+.geral header.carreiras{    
+    &.header.without-search.carreiras{
+        height:154px;
+
+        .main-top-content{
+            background: url("#{$path-img}topos/pattern-linhas-carreiras.gif");
+        }
+    }
+}
+
+  
+.geral header.carreiras .topo-carreiras {
+    position: relative;
+    height: 50px;
+    display: block;
+    z-index: 1 ;
+    width: auto;
+    max-width: $container-large-desktop;
+    padding: 20px 0; 
+    padding-left: ($grid-gutter-width/2);
+    padding-right: ($grid-gutter-width/2);    
+}
+
+.geral header.carreiras .topo-carreiras .logo-carreiras,
+.geral header.carreiras .topo-carreiras .barra-transversal,
+.geral header.carreiras .topo-carreiras .area-menu {
+    position: relative;
+    float: left;
+    height: 50px;
+    box-shadow: 0 2px 0 rgba(0,0,0,.1);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+
+.geral header.carreiras .topo-carreiras .barra-transversal{
+    width:3%;
+    height:52px;
+    box-shadow:none;
+    background:url("#{$path-img}carreiras/bg-corte-vertical-topo.png") no-repeat top center;
+}
+
+
+.geral header.carreiras .topo-carreiras .logo-carreiras{
+    width:21%;
+    background:#419e99;
+}
+
+
+.geral header.carreiras .topo-carreiras .logo-carreiras a.logo {
+    position: absolute;
+    display: block;
+    width: 135px;
+    top: 50%;
+    left:40px;
+    margin-top:-18px;
+}
+.geral header.carreiras .topo-carreiras .logo-carreiras a.logo img{width:100%;height:auto;}
+
+
+.geral header.carreiras .topo-carreiras .area-menu{
+    width:76%;
+    background: #fff;
+    position: relative;
+}
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca{
+    display: block;
+    position:absolute;
+    min-width:50px;
+    width:50px;
+    height:50px;
+    right:0;
+}
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca input {
+    width: 90%;
+    left: 0;
+    height: 50px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+    padding-left: 50px;
+    border:0;
+    display:none;
+}
+.geral header.carreiras .topo-carreiras .area-menu .area-busca button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top:0;
+    right:0;
+    text-indent:-1000px;
+    overflow:hidden;
+    background-color:transparent;
+}
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca button.btn-fechar{overflow:visible; text-indent:-9999999px;}
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca:before,
+.geral header.carreiras .topo-carreiras .area-menu .area-busca button.btn-fechar:after{
+    content:"";
+    width:32px;
+    display:block;
+    position:absolute;
+    height:32px;
+    background:url("#{$path-img}icones/sprite-icones-32x32.png") no-repeat  -96px -128px;
+    top:50%;
+    left:50%;
+    margin-top:-16px;
+    margin-left:-16px;
+}
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca[data-aberto] button.btn-fechar:before{
+    content:"";
+    height:22px;
+    width:1px;
+    background:#ccc;
+    position:absolute;
+    left:-5px;
+    margin-top:-11px;
+    top:50%;
+}
+
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca:before {left:10px; margin-left:0; cursor:default;}
+.geral header.carreiras .topo-carreiras .area-menu .area-busca button.btn-fechar:after{background-position:-64px -128px; display:none;}
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca button.btn-lupa{cursor:pointer;z-index:10;}
+
+.geral header.carreiras .topo-carreiras .area-menu .area-busca[data-aberto]{ width:100%;}
+.geral header.carreiras .topo-carreiras .area-menu .area-busca[data-aberto] input{width:90%; display:block;}
+.geral header.carreiras .topo-carreiras .area-menu .area-busca[data-aberto] button.btn-fechar:after{display:block;z-index:10; cursor:pointer;}
+.geral header.carreiras .topo-carreiras .area-menu .area-busca[data-aberto] button.btn-lupa{display:none; }
+
+
+.geral header.carreiras .topo-carreiras .area-menu button:active,
+.geral header.carreiras .topo-carreiras .area-menu button:focus{outline:none;}
+
+.geral header.carreiras .topo-carreiras .area-menu button.btn-menu{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    text-indent: -999px;
+    overflow: hidden;
+    background: transparent;
+    right: 0;
+    top: 50%;
+    margin-top: -25px;
+    cursor:pointer;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-weight: 600;
+}
+
+.geral header.carreiras .topo-carreiras .area-menu button.btn-menu:after{
+    content:"";
+    width:16px;
+    height:16px;
+    background:url("#{$path-img}icones/sprite-icones-cinza-16x16.png") no-repeat -96px 0;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-8px;
+    margin-top:-8px;
+}
+
+
+
+.geral header.carreiras .topo-carreiras .area-menu button.btn-menu:hover:before{visibility:visible;}
+
+.geral header.carreiras .topo-carreiras .area-menu nav{background:rgba(255, 255, 255, .95); width:240px; right:0; left:auto;max-height:none; left:0; top:0; width:100%;}
+.geral header.carreiras .topo-carreiras .area-menu nav ul{padding:5px;padding:0;}
+.geral header.carreiras .topo-carreiras .area-menu nav li a{color:#456e6c; text-shadow:none; font-weight:400; position:relative;}
+.geral header.carreiras .topo-carreiras .area-menu nav li a:hover{background:transparent;}
+
+.geral header.carreiras .topo-carreiras .area-menu nav ul li a:before{
+    position: absolute;
+    content:"";
+    width:100%;
+    top:0;
+    left:0;
+    height:5px;
+    background:#419e99;
+    visibility:hidden;
+}
+
+.geral header.carreiras .topo-carreiras .area-menu nav ul li{float:left;}
+
+.geral header.carreiras .topo-carreiras .area-menu button.btn-menu,
+.geral header.carreiras .topo-carreiras .area-menu nav ul li:first-child{display:none;}
+.geral header.carreiras .topo-carreiras .area-menu nav ul li a {
+    padding: 0 10px;    
+    height: 50px;
+    display: block;
+    line-height: 50px;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+}
+.geral header.carreiras .topo-carreiras .area-menu nav ul li a:after{content:none;}
+.geral header.carreiras .topo-carreiras .area-menu nav ul li a:hover:before{visibility:visible;}
+
+
+/** 
+* CARREIAS /////////////////////////////////////
+*/
+.geral header.carreiras {    
+    //height: 147px;
+    height: auto;
+    max-height: 147px;
+    position: relative;
+    z-index:1000000; 
+
+    .vertical-nav {
+        background: url("#{$path-img}topos/pattern-linhas-carreiras.gif");
+
+        .pattern-lines {display: none;}
+    }
+
+    .topo-carreiras {
+        position: relative;
+        height: 90px;
+        display: block;
+        z-index: 1;
+        width: auto;
+
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        box-sizing:border-box;
+    }
+    
+    .topo-carreiras .logo-carreiras,
+    .topo-carreiras .barra-transversal,
+    .topo-carreiras .area-menu {
+        position: relative;
+        float: left;
+        height: 50px;
+        box-shadow: 0 2px 0 rgba(0,0,0,.1);
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .topo-carreiras .barra-transversal {
+        width: 7%;
+        height: 50px;
+        background: url("#{$path-img}carreiras/bg-corte-vertical-topo-mobile.gif") no-repeat top right #419e99;
+    }
+
+    .topo-carreiras .logo-carreiras {
+        width: 60%;
+        background: #419e99;
+        border-bottom: 2px solid #3b8f8b;
+    }
+
+    .topo-carreiras .logo-carreiras a.logo {
+        position: absolute;
+        display: block;
+        width: 135px;
+        top: 50%;
+        left: 40px;
+        margin-top: -18px;
+    }
+
+    .topo-carreiras .logo-carreiras a.logo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .topo-carreiras .area-menu {
+        width: 51%;
+        background: #419e99;
+        position: relative;
+    }
+
+    .topo-carreiras .area-menu .area-busca {
+        display: none;
+    }
+
+    .topo-carreiras .area-menu button:active,
+    .topo-carreiras .area-menu button:focus {
+        outline: none;
+    }
+
+    .topo-carreiras .area-menu button.btn-menu {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        text-indent: -999px;
+        overflow: hidden;
+        background: transparent;
+        right: 0;
+        top: 50%;
+        margin-top: -25px;
+        cursor: pointer;
+        font-family: 'Open Sans',Arial,sans-serif;
+        font-weight: 600;
+        display: block;
+    }
+
+    .topo-carreiras .area-menu button.btn-menu:after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: url("#{$path-img}icones/sprite-icones-cinza-16x16.png") no-repeat -96px 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -8px;
+        margin-top: -8px;
+    }
+
+    .topo-carreiras .area-menu nav {
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        background-color: rgba(65, 158, 153, .95);
+        left: 0;
+        max-height: 0;
+        overflow: hidden;
+        -moz-transition: max-height 0.5s ease-in-out;
+        -o-transition: max-height 0.5s ease-in-out;
+        -webkit-transition: max-height 0.5s ease-in-out;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .topo-carreiras .area-menu nav.aberto {
+        max-height: 430px;
+        box-shadow: 2px 2px 3px rgba(0,0,0,.1);
+    }
+
+    .topo-carreiras .area-menu nav ul {
+        padding: 40px 5px 5px;
+    }
+
+    .topo-carreiras .area-menu nav ul li {
+        float: none;
+    }
+
+    .topo-carreiras .area-menu nav ul li a {
+        display: block;
+        position: relative;
+        padding: 0 10px;
+        font-family: 'Open Sans',Arial,sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        color: #FFF;
+        border-bottom: 1px solid #fff;
+        text-shadow: 1px 1px rgba(0,0,0,.3);
+    }
+
+    .topo-carreiras .area-menu nav ul li a:after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: 10px;
+        top: 50%;
+        margin-top: -8px;
+        background: url("#{$path-img}icones/sprite-icones-cinza-16x16.png") no-repeat -112px 0;
+    }
+
+
+    .topo-carreiras .area-menu nav ul li a:hover {
+        background-color: #317774;
+    }
+
+    .topo-carreiras .area-menu nav ul li a:hover:before {
+        visibility: hidden;
+    }
+
+    .topo-carreiras .area-menu nav ul li:last-child a {
+        border: none;
+    }
+} 
+
+
+@media (min-width:481px) {
+    .geral header.carreiras .topo-carreiras {
+        .logo-carreiras {width: 42%;}
+        .area-menu {width: 52%;}
+        .barra-transversal {width: 6%;}
+    }
+}
+
+@media (min-width:690px) {
+    .geral header.carreiras .topo-carreiras {
+
+        .logo-carreiras { width: 32%; border: 0;}
+
+        .barra-transversal {
+            width: 6%;
+            height: 52px;
+            background: url("#{$path-img}carreiras/bg-corte-vertical-topo.png") no-repeat top center;
+            box-shadow: none;
+        }
+
+        .area-menu {
+            width: 62%;
+            background-color: #ffffff;
+
+            button.btn-menu {
+                width: 137px;
+                padding-right: 20px;
+                text-indent: 0;
+                color: #456e6c;
+                font-size: .9375em;
+                font-weight: 400;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            button.btn-menu:after {
+                left: auto;
+                margin-top: -8px;
+                margin-left: 0;
+                right: 10px;
+                background: url("#{$path-img}icones/sprite-icones-cinza-16x16.png") no-repeat -128px 0;
+            }
+
+            button.btn-menu:hover:before {
+                visibility: visible;
+            }
+
+            nav {
+                background: rgba(255, 255, 255, .95);
+                width: 240px;
+                right: 0;
+                left: auto;
+            }
+
+            nav ul {
+                padding: 5px;
+            }
+
+            nav ul li a {
+                color: #456e6c;
+                text-shadow: none;
+                font-weight: 400;
+            }
+
+            nav ul li a:hover {
+            background: #efefef;
+        }
+
+        }
+
+    }
+    
+}
+
+@media (min-width:1000px) {
+
+    /* TOPO CARREIRAS */
+    .geral header.carreiras .topo-carreiras {
+        /*padding: 20px 0;*/
+        margin: 0 auto;
+
+        .logo-carreiras {
+            width: 21%;
+        }
+
+        .barra-transversal {
+            width: 3%;
+        }
+
+        .area-menu {
+            width: 76%;
+            position: relative;
+
+            nav {
+                max-height: none;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            nav ul {
+                padding: 0;
+            }
+
+            nav ul li {
+                float: left;
+            }
+
+            button.btn-menu,
+            nav ul li:first-child {
+                display: none;
+            }
+
+            nav ul li a {
+                padding: 0 10px;
+                height: 49px;
+                line-height: 50px;
+            }
+
+            nav ul li a:after {
+                content: none;
+            }
+
+            nav ul li a:hover {
+                background: transparent;
+            }
+
+            nav ul li a:hover:before {
+                visibility: visible;
+            }
+
+            .area-busca {
+        display: block;
+    }
+        }
+
+    }
+}

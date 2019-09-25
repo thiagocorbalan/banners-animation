@@ -1,0 +1,90 @@
+//
+//  PAYMENT
+//
+//  @project:       Empregos.com.br
+//  @version:       1.0.0
+//  @description:   Estilos das bandeiras de cartões e bancos
+//  @author:        Carlos Novais
+//  @date:          25/07/2018
+//  @update:        ---
+//
+
+@import "../base/mixins";
+$path-flags: "./../../assets/images/flags/";
+
+// FLAGS
+// ------------------------------------------------------------------------------
+span[class*=flag-]{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-right: 14px;
+    span.flag-img{
+        width: 54px;
+        height: 40px;
+        display: block;
+        border:1px solid $color-gray-light;
+        margin: 0;
+        overflow: hidden;
+        @include border-radius(3px);
+        background-color: $color-white;
+        position: relative;
+
+        &:before{ 
+            content: ""; 
+            background-repeat:no-repeat;
+            background-position: center;
+            background-size: 36px;
+            @include centralize(40px, 26px);
+        }
+    }
+
+    &.flags-middle{
+        span.flag-img{
+            width: 60px;
+            height: 35px;
+
+            &:before{
+                background-image: url("#{$path-flags}sprite-flags-60x35.png");
+                background-position: 0 0;
+                background-size: unset;
+                @include centralize(60px, 35px);
+            }
+        }
+
+    }
+} 
+
+
+span.flags-middle.flag-3-123 span.flag-img:before{background-position: 0 0;}
+span.flags-middle.flag-3-141 span.flag-img:before{background-position: -60px 0;}
+span.flags-middle.flag-3-147 span.flag-img:before{background-position: -120px 0;}
+span.flags-middle.flag-3-145 span.flag-img:before{background-position: -180px 0;}
+span.flags-middle.flag-3-144 span.flag-img:before{background-position: -240px 0;}
+
+span.flags-middle.flag-8-237 span.flag-img:before{background-position: 0 -35px;}
+span.flags-middle.flag-8-353 span.flag-img:before{background-position: -60px -35px;}
+
+
+
+// Credit
+span.flag-cre span:before { background-image: url("#{$path-flags}credito-65x40.gif"); }
+span.flag-3-123 span.flag-img:before { background-image: url("#{$path-flags}logo-visa-36x22.gif"); }
+span.flag-3-141 span.flag-img:before { background-image: url("#{$path-flags}logo-mastercard-36x22.gif"); }
+span.flag-3-144 span.flag-img:before { background-image: url("#{$path-flags}logo-dinersclub-36x22.gif"); }
+span.flag-3-145 span.flag-img:before { background-image: url("#{$path-flags}logo-hipercard-36x22.gif"); }
+span.flag-3-147 span.flag-img:before { background-image: url("#{$path-flags}logo-elo-36x22.gif"); }
+span.flag-3-777 span.flag-img:before { background-image: url("#{$path-flags}cartao-credito-36x22.gif"); }
+
+// Debit
+span.flag-deb span:before { background-image: url("#{$path-flags}debito-65x40.gif"); }
+span.flag-8-1 span:before    { background-image: url("#{$path-flags}bb-logo-36x22.gif"); }
+span.flag-8-237 span:before  { background-image: url("#{$path-flags}bradesco-logo-36x22.gif"); }
+span.flag-8-341 span:before  { background-image: url("#{$path-flags}itau-logo-36x22.gif"); }
+span.flag-8-353 span:before  { background-image: url("#{$path-flags}santander-logo-36x22.gif"); }
+
+// Ticket
+span.flag-1 span:before  { background-image: url("#{$path-flags}boleto-logo-36x22.gif"); }
+
+// Deposit
+span.flag-4 span:before  { background-image: url("#{$path-flags}deposito-logo-36x22.gif"); }

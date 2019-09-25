@@ -1,0 +1,280 @@
+//
+//  SEARCH ENGINE
+//
+//  @project:       Empregos.com.br
+//  @version:       1.0.0
+//  @description:   Layout do buscador.
+//  @author:        Thiago Corbalan
+//  @date:          04/04/2018
+//
+
+
+@import "./../base/mixins.scss";
+  
+// Área do Buscador
+.geral header.header .area-search-menu {
+    position: relative;
+    background: $top-bgcolor-main;
+    padding: 9px 0;
+    z-index: 1;
+    width: 100%;
+    .content {
+        position: relative;
+        nav.main-menu-vertical,
+        .latest-searches {
+            display: none;
+        } // ÁREA DA BUSCA
+        .search-area {
+            position: relative;
+            width: 100%;
+            text-align: left;
+            background: $color-white;
+            color: $color-gray4;
+            font-size: 14px;
+            height: 35px;
+            @include border-radius(3px);
+            .suggest-area {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: none;
+                .box-form {
+                    float: left;
+                    clear: none;
+                    width: 50%;
+                    margin: 0;
+                    border: 0;
+                    background: transparent;
+                    @include border-radius(0);
+                    input {
+                        font-size: 14px;
+                        padding: 0 12px;
+                        padding-right: 40px;
+                        height: 35px;
+                        &:focus {
+                            outline: none;
+                        }
+                        @include placeholder-input($font-style: normal);
+                    }
+                    &.city input {
+                        padding-right: 32px;
+                    }
+                    &.jobrole input {
+                        padding-right: 12px;
+                    }
+                }
+                &.company .box-form {
+                    width: 100%;
+                }
+            } // Botão Buscar
+            .btn-open-search,
+            a.lnk-encontrar {
+                position: absolute;
+                z-index: 100;
+                right: 0;
+                top: 0;
+                height: 35px;
+                width: 35px;
+                box-shadow: none;
+                font-weight: 400;
+                min-width: 0;
+                border: 0;
+                text-indent: -9999px;
+                background: none;
+                overflow: hidden;
+                text-decoration: none;
+                cursor: pointer;
+                @include border-radius(0 4px 4px 0);
+                &:after {
+                    content: $glyphicon-search;
+                    font-family: $font-emp-icons;
+                    font-size: 22px;
+                    speak: none;
+                    text-indent: 0;
+                    color: $top-bgcolor-main;
+                    @include centralize(22px, 22px);
+                }
+                &:focus {
+                    @include box-shadow(0 0 4px $color-blue3);
+                }
+            }
+            &.default .box-form:first-child {
+                border-right: 1px solid $color-gray-50;
+            }
+            &.default .suggest-area.default,
+            &.company .suggest-area.company {
+                display: block;
+            }
+        }
+    } 
+    
+    //max-width: 680px
+    @media (max-width: ($screen-sm - 88)) {
+
+        padding: 8px 0;
+
+        .show, %AreaSearchMenuShow {
+            display: block;
+        }
+
+        .hide, %AreaSearchMenuHide {
+            display: none;
+        }
+
+        .content {
+            .latest-searches { display: none; }
+
+            .search-area {
+                background: $top-bgcolor-main;
+                display: block;
+                .box-form {
+                    width: 100%;
+                    border: 0;
+                }
+                .suggest-area {
+                    position: relative;
+                    .box-form {
+                        width: 100%;
+                        border: 0;
+                        &.city {
+                            margin-top: 8px;
+                            width: 100%;
+                        }
+                    }
+                } //Botão Buscar
+                a.lnk-encontrar {
+                    //right: 15px;
+                    width: 40px;
+                    height: 35px;
+                    bottom: 0;
+                }
+                &.opened a.lnk-encontrar {
+                    @extend %AreaSearchMenuShow; //&:extend(.geral header.header .area-search-menu .show);
+                }
+                &.default {
+                    .suggest-area.default {
+                        .box-form.jobrole {
+                            border-right: 0;
+                        }
+                        .box-form.city {
+                            @extend %AreaSearchMenuHide; //&:extend(.geral header.header .area-search-menu .hide);
+                        }
+                    }
+                    a.lnk-encontrar {
+                        @extend %AreaSearchMenuHide; //&:extend(.geral header.header .area-search-menu .hide);
+                        top: auto;
+                        bottom: -43px;
+                    }
+                    &.opened {
+                        .btn-open-search {
+                            @extend %AreaSearchMenuHide; //&:extend(.geral header.header .area-search-menu .hide);
+                        }
+                        .suggest-area.default .box-form.city,
+                        a.lnk-encontrar {
+                            @extend %AreaSearchMenuShow; //&:extend(.geral header.header .area-search-menu .show);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //max-width: 480px
+    @media (max-width: $screen-xs) {
+        .content .search-area {
+            border: 0;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            
+            &, .lnk-encontrar {
+                position: relative;
+            }
+        }
+    }
+
+    //min-width: 480px
+    @media (min-width: $screen-xs) {
+        .content {
+            // MENU VERTICAL
+            nav.main-menu-vertical {
+                position: absolute;
+                text-align: left;
+                z-index: 10;
+                display: block;
+                line-height: 0;
+                margin-top: -9px;
+                right: calc( 100% - 15px);
+                @include user-select(none);
+                button.dropdown-searcher {
+                    position: relative;
+                    display: block;
+                    width: 200px;
+                    font-family: $font-family-primary;
+                    font-weight: 600;
+                    font-size: 14px;
+                    color: $color-white;
+                    background: $top-bgcolor-main;
+                    cursor: pointer;
+                    text-align: right;
+                    padding-right: 45px;
+                    height: 53px;
+                    line-height: 53px;
+                    z-index: 2;
+                    &:after {
+                        @include glyphicon($glyphicon-chevron-down);
+                        font-size: 16px;
+                        @include centralize-height(16px);
+                        color: $color-white;
+                        line-height: 20px;
+                        right: 14px;
+                        color: $color-white;
+                        overflow: hidden;
+                        @include transition(all .3s ease-in-out);
+                    }
+                }
+                ul {
+                    padding-bottom: 10px;
+                    background: $top-bgcolor-main;
+                    right: 0;
+                    position: absolute;
+                    top: 44px;
+                    line-height: normal;
+                    z-index: 1;
+                    @include border-radius(0 0 3px 3px);
+                    @include transition(transform .2s ease-in-out);
+                    @include translateY(-100%);
+                    li {
+                        button {
+                            font-family: $font-family-primary;
+                            font-weight: 600;
+                            font-size: 13px;
+                            color: $color-white;
+                            display: block;
+                            padding: 10px 14px;
+                            background: none;
+                            &.active {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &.nav-search-opened {
+                    button.dropdown-searcher:after {
+                        line-height: 45px;
+                    }
+                    ul {
+                        @include translateY(0);
+                    }
+                }
+            }
+        }
+    }
+
+    //max-width: 768px
+    @media (max-width: $screen-sm ) {
+        .content nav.main-menu-vertical button.dropdown-searcher { display: none; }
+    }
+}
